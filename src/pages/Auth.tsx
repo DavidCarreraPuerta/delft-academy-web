@@ -50,7 +50,7 @@ export default function Auth() {
 
           toast({
             title: "Account Created!",
-            description: "Please check your email to confirm, then log in.",
+            description: "You can log in now.",
           });
           setIsSignUp(false); 
         }
@@ -82,7 +82,7 @@ export default function Auth() {
       <Card className="w-full max-w-md border-none shadow-2xl rounded-[2.5rem] overflow-hidden">
         <CardHeader className="space-y-1 text-center bg-slate-900 text-white pb-10 pt-10">
           <CardTitle className="text-3xl font-black italic uppercase tracking-tighter">
-            {isSignUp ? "Join" : "Welcome"} <span className="text-orange-600">DelftQuest</span>
+            {isSignUp ? "Join" : "Welcome to"} <span className="text-orange-600">Delft Engineering Academy</span>
           </CardTitle>
           <CardDescription className="text-slate-400">
             {isSignUp ? "Create your account to start" : "Enter your credentials to access"}

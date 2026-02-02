@@ -105,7 +105,7 @@ export default function StudentOnboardingForm() {
       if (response.ok) {
         toast({
           title: "Application Status: PENDING",
-          description: "Due to high demand, our team will review your profile and contact you on WhatsApp within 12-24h.",
+          description: "Due to high demand, our team will review your profile and contact you within 12-24h.",
           duration: 6000,
         });
         
