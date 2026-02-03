@@ -52,7 +52,6 @@ export default function Auth() {
           setIsSignUp(false); 
         }
       } else {
-        // --- SECCIÓN CORREGIDA: LOGIN INTELIGENTE ---
         const { data: authData, error: signInError } = await supabase.auth.signInWithPassword({
           email,
           password,
@@ -61,24 +60,23 @@ export default function Auth() {
         if (signInError) throw signInError;
         
         if (authData.user) {
-          // Buscamos el estado del perfil antes de decidir a dónde enviarlo
           const { data: profile } = await supabase
             .from('profiles')
             .select('enrollment_status')
             .eq('user_id', authData.user.id)
             .single();
 
-          // Lógica de redirección:
+          // REDIRECCIÓN INTELIGENTE:
           if (profile?.enrollment_status === 'pending') {
-            // Si ya existe y está pendiente, NO va a onboarding (evita el "congrats")
-            // Lo enviamos a una ruta neutral o al mismo login con un mensaje informativo
-            navigate("/index"); 
+            // Si ya envió el formulario (pending), lo mandamos a la Home (/)
+            // Así evitamos que pase por el Onboarding y vea el "Congrats"
+            navigate("/"); 
             toast({
-              title: "Application Pending",
-              description: "Your application is still under review. We will contact you soon.",
+              title: "Welcome back!",
+              description: "Your application is under review. You can explore the resources while you wait.",
             });
           } else {
-            // Si no tiene perfil o está aprobado, sigue el flujo normal
+            // Si es un usuario nuevo o sin estado, va al Onboarding
             navigate("/onboarding"); 
           }
         }

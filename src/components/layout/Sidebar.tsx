@@ -9,7 +9,8 @@ export function Sidebar() {
 
   return (
     <TooltipProvider delayDuration={0}>
-      <div className="w-16 bg-white border-r border-slate-100 h-screen sticky top-0 flex flex-col shadow-sm items-center transition-all duration-300">
+      {/* Añadimos fixed para que no se mueva y z-50 para que siempre esté encima */}
+      <div className="fixed left-0 top-0 w-16 bg-white border-r border-slate-100 h-screen flex flex-col shadow-sm items-center transition-all duration-300 z-50">
         
         {/* Navegación de Iconos */}
         <nav className="flex-1 px-2 space-y-4 mt-10">
@@ -48,6 +49,8 @@ export function Sidebar() {
           </p>
         </div>
       </div>
+      {/* Este div vacío sirve para compensar el ancho del sidebar fixed en el layout */}
+      <div className="w-16 h-screen flex-shrink-0" />
     </TooltipProvider>
   );
 }
