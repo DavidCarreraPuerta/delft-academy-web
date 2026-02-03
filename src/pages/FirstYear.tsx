@@ -59,17 +59,12 @@ const BSATracker = ({ forceShowButton = false, isEnrolled = false }) => {
     const passed = courses.filter(c => c.status === "passed");
     const ects = passed.reduce((s, c) => s + c.ects, 0);
     const graded = passed.filter(c => c.ects > 0 && c.grade !== null);
-    
-    // Cálculo de promedio ponderado real
     const totalWeightedPoints = graded.reduce((s, c) => s + (Number(c.grade) * c.ects), 0);
     const totalEctsGraded = graded.reduce((s, c) => s + c.ects, 0);
     const avgNum = totalEctsGraded > 0 ? (totalWeightedPoints / totalEctsGraded) : 0;
     
-    const avg = avgNum.toFixed(2);
-    const honoursGap = Math.max(0, 8.5 - avgNum).toFixed(2);
-
     return {
-        ects, avg, honoursGap,
+        ects, avg: avgNum.toFixed(2), honoursGap: Math.max(0, 8.5 - avgNum).toFixed(2),
         missing: Math.max(0, 45 - ects),
         color: ects >= 45 ? "#22c55e" : "#f59e0b",
         offset: (2 * Math.PI * 35) - (Math.min(ects, 60) / 60) * (2 * Math.PI * 35)
@@ -195,10 +190,10 @@ export default function FirstYear() {
 
   useEffect(() => {
     const checkAccess = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      setSession(session);
-      if (session) {
-        const { data: profile } = await supabase.from('profiles').select('enrollment_status, target_programme').eq('user_id', session.user.id).single();
+      const { data: { session: currentSession } } = await supabase.auth.getSession();
+      setSession(currentSession);
+      if (currentSession) {
+        const { data: profile } = await supabase.from('profiles').select('enrollment_status, target_programme').eq('user_id', currentSession.user.id).single();
         if (profile && profile.enrollment_status === 'active' && profile.target_programme === 'bsc-year-1') {
           setIsEnrolled(true);
         }
@@ -206,11 +201,6 @@ export default function FirstYear() {
       setLoading(false);
     };
     checkAccess();
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      checkAccess();
-    });
-    return () => subscription.unsubscribe();
   }, []);
 
   return (
@@ -219,6 +209,8 @@ export default function FirstYear() {
         <div className="flex justify-center -mb-16 relative z-[60]">
            <EnrollmentStatusBanner />
         </div>
+
+        {/* HEADER */}
         <header className="bg-white rounded-[4rem] py-24 px-8 border border-slate-100 mt-6 text-center shadow-sm relative overflow-hidden flex flex-col items-center">
             <div className="bg-slate-900 text-white px-6 py-2 rounded-2xl flex items-center gap-2 shadow-lg mb-10">
                 <BookOpen className="h-4 w-4 text-orange-500" />
@@ -229,7 +221,7 @@ export default function FirstYear() {
                 <span className="text-orange-500 not-italic">AIM FOR HONOURS.</span>
             </h1>
             <p className="max-w-3xl text-slate-500 font-medium text-xl leading-relaxed mb-12 text-balance">
-                Securing the BSA is just the first step. We accompany you to master Aerospace <br className="hidden md:block" /> and achieve the 8.5 GPA required for the Honours Programme.
+                Securing the BSA is just the first step. We accompany you to master Aerospace and achieve the 8.5 GPA required for the Honours Programme.
             </p>
 
             <div className="bg-slate-900 rounded-[2.5rem] p-8 max-w-3xl w-full text-left flex flex-col md:flex-row items-center gap-8 mb-12 border border-slate-800 shadow-2xl relative group overflow-hidden transition-all hover:border-orange-500/30">
@@ -289,9 +281,12 @@ export default function FirstYear() {
           </div>
         ) : (
           <div className="flex flex-col space-y-32">
-            <div className={cn("animate-in fade-in slide-in-from-bottom-8 duration-1000", !session && "opacity-80")}>
-              <BSATracker forceShowButton={true} isEnrolled={isEnrolled} />
-            </div>
+            {/* EL TRACKER SUBE AQUÍ SI ESTÁ ENROLADO */}
+            {isEnrolled && (
+              <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
+                <BSATracker forceShowButton={true} isEnrolled={isEnrolled} />
+              </div>
+            )}
 
             <section className="space-y-16 py-10">
               <div className="flex flex-col items-center text-center space-y-4">
@@ -349,7 +344,6 @@ export default function FirstYear() {
                 ))}
               </div>
 
-              {/* POSICIÓN FINAL DEL RECORDATORIO DE PRECIOS */}
               <div className="flex justify-center pt-8">
                 <button 
                   onClick={() => navigate("/faq#pricing")}
@@ -362,6 +356,13 @@ export default function FirstYear() {
                 </button>
               </div>
             </section>
+
+            {/* SI NO ESTÁ ENROLADO, EL TRACKER SE QUEDA AQUÍ ABAJO */}
+            {!isEnrolled && (
+              <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000">
+                <BSATracker forceShowButton={true} isEnrolled={isEnrolled} />
+              </div>
+            )}
           </div>
         )}
       </div>
