@@ -23,6 +23,7 @@ export default function Auth() {
 
     try {
       if (isSignUp) {
+        // 1. REGISTRO
         const { data, error: signUpError } = await supabase.auth.signUp({
           email,
           password,
@@ -34,6 +35,7 @@ export default function Auth() {
         if (signUpError) throw signUpError;
 
         if (data.user) {
+          // 2. CREACIÓN DEL PERFIL INICIAL
           const { error: profileError } = await supabase
             .from('profiles')
             .upsert({
@@ -47,39 +49,34 @@ export default function Auth() {
 
           toast({
             title: "Account Created!",
-            description: "You can log in now.",
+            description: "Please complete your profile details.",
           });
-          setIsSignUp(false);
+          
+          // CRUCIAL: Tras registrarse, lo mandamos directo al Onboarding
+          navigate("/onboarding");
         }
       } else {
-        // --- SECCIÓN CORREGIDA: LOGIN INTELIGENTE ---
-        const { data: authData, error: signInError } = await supabase.auth.signInWithPassword({
+        // 3. LOGIN
+        const { data, error: signInError } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
-       
+        
         if (signInError) throw signInError;
-       
-        if (authData.user) {
-          // Buscamos el estado del perfil antes de decidir a dónde enviarlo
+        
+        if (data.user) {
+          // Verificamos si ya tiene programa asignado
           const { data: profile } = await supabase
-            .from('profiles')
-            .select('enrollment_status')
-            .eq('user_id', authData.user.id)
-            .single();
+            .from("profiles")
+            .select("target_programme")
+            .eq("user_id", data.user.id)
+            .maybeSingle();
 
-          // Lógica de redirección:
-          if (profile?.enrollment_status === 'pending') {
-            // Si ya existe y está pendiente, NO va a onboarding (evita el "congrats")
-            // Lo enviamos a la Home (/) con un mensaje informativo
-            navigate("/");
-            toast({
-              title: "Application Pending",
-              description: "Your application is still under review. We will contact you soon.",
-            });
-          } else {
-            // Si no tiene perfil o está aprobado, sigue el flujo normal
+          // Si no tiene programa (lead no completado), mandamos a onboarding
+          if (!profile?.target_programme) {
             navigate("/onboarding");
+          } else {
+            navigate("/");
           }
         }
       }
@@ -146,10 +143,10 @@ export default function Auth() {
             </div>
             <Button
               type="submit"
-              className="w-full bg-slate-900 hover:bg-orange-600 h-12 rounded-xl font-bold transition-all mt-4"
+              className="w-full bg-slate-900 hover:bg-orange-600 h-12 rounded-xl font-bold transition-all mt-4 text-white"
               disabled={isLoading}
             >
-              {isLoading ? <Loader2 className="animate-spin" /> : (isSignUp ? "REGISTER" : "LOGIN")}
+              {isLoading ? <Loader2 className="animate-spin mx-auto" /> : (isSignUp ? "REGISTER" : "LOGIN")}
             </Button>
           </form>
         </CardContent>
