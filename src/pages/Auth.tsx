@@ -23,7 +23,6 @@ export default function Auth() {
 
     try {
       if (isSignUp) {
-        // 1. REGISTRO EN AUTH DE SUPABASE
         const { data, error: signUpError } = await supabase.auth.signUp({
           email,
           password,
@@ -35,8 +34,6 @@ export default function Auth() {
         if (signUpError) throw signUpError;
 
         if (data.user) {
-          // 2. CREACIÓN DEL PERFIL INICIAL
-          // CORRECCIÓN: 'pending' es el valor aceptado por tu base de datos
           const { error: profileError } = await supabase
             .from('profiles')
             .upsert({ 
@@ -55,16 +52,36 @@ export default function Auth() {
           setIsSignUp(false); 
         }
       } else {
-        // 3. LOGIN - Redirigimos al ONBOARDING
-        const { error: signInError } = await supabase.auth.signInWithPassword({
+        // --- SECCIÓN CORREGIDA: LOGIN INTELIGENTE ---
+        const { data: authData, error: signInError } = await supabase.auth.signInWithPassword({
           email,
           password,
         });
         
         if (signInError) throw signInError;
         
-        // Al loguear, vamos directos al formulario de perfil académico
-        navigate("/onboarding"); 
+        if (authData.user) {
+          // Buscamos el estado del perfil antes de decidir a dónde enviarlo
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('enrollment_status')
+            .eq('user_id', authData.user.id)
+            .single();
+
+          // Lógica de redirección:
+          if (profile?.enrollment_status === 'pending') {
+            // Si ya existe y está pendiente, NO va a onboarding (evita el "congrats")
+            // Lo enviamos a una ruta neutral o al mismo login con un mensaje informativo
+            navigate("/index"); 
+            toast({
+              title: "Application Pending",
+              description: "Your application is still under review. We will contact you soon.",
+            });
+          } else {
+            // Si no tiene perfil o está aprobado, sigue el flujo normal
+            navigate("/onboarding"); 
+          }
+        }
       }
     } catch (error: any) {
       toast({
