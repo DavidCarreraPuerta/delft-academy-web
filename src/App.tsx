@@ -4,8 +4,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// 1. Importación del protector
+// 1. Importación del protector de rutas
 import { ProtectedRoute } from "./pages/ProtectedRoute";
+
+// 2. Importación del componente de Reset de Scroll
+import ScrollToTop from "@/components/ScrollToTop";
 
 // Páginas Base
 import Index from "./pages/Index";
@@ -19,7 +22,7 @@ import FirstYear from "./pages/FirstYear";
 import BscAdmissions from "./pages/BscAdmissions";
 import MscBridge from "./pages/MscBridge";
 
-// Páginas Legales (Nuevas)
+// Páginas Legales
 import LegalNotice from "./pages/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
@@ -34,8 +37,11 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        {/* Este componente asegura que siempre aterrices al principio de la página */}
+        <ScrollToTop />
+        
         <Routes>
-          {/* --- RUTAS PÚBLICAS (Accesibles para todos) --- */}
+          {/* --- RUTAS PÚBLICAS --- */}
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/bsc-admissions" element={<BscAdmissions />} />
@@ -50,21 +56,24 @@ const App = () => (
           <Route path="/legal-notice" element={<LegalNotice />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           
-          {/* --- RUTAS PROTEGIDAS (Solo con Login) --- */}
-          {/* Solo dejamos bajo candado el Dashboard y el formulario de Onboarding */}
+          {/* --- RUTAS PROTEGIDAS (Requieren Login) --- */}
+          {/* Aquí se cumple la lógica de tus documentos: 
+              El usuario es forzado a pasar por aquí si no tiene perfil completo 
+          */}
           <Route path="/onboarding" element={
             <ProtectedRoute>
               <StudentOnboardingForm />
             </ProtectedRoute>
           } />
           
+          {/* Dashboard de éxito (Mensaje de Congratulations) */}
           <Route path="/dashboard" element={
             <ProtectedRoute>
               <StudentDashboard />
             </ProtectedRoute>
           } />
 
-          {/* Redirección por defecto */}
+          {/* Redirección por defecto para rutas inexistentes */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
