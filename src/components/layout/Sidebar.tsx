@@ -9,11 +9,10 @@ export function Sidebar() {
 
   return (
     <TooltipProvider delayDuration={0}>
-      {/* Añadimos fixed para que no se mueva y z-50 para que siempre esté encima */}
-      <div className="fixed left-0 top-0 w-16 bg-white border-r border-slate-100 h-screen flex flex-col shadow-sm items-center transition-all duration-300 z-50">
+      <div className="fixed left-0 top-0 w-16 bg-white border-r border-slate-100 h-screen flex flex-col shadow-sm items-center transition-all duration-300 z-40">
         
-        {/* Navegación de Iconos */}
-        <nav className="flex-1 px-2 space-y-4 mt-10">
+        {/* Navegación de Iconos con margen superior aumentado (mt-24) */}
+        <nav className="flex-1 px-2 space-y-4 mt-24">
           {[
             { to: "/resources", icon: BookOpen, label: "Resources" },
             { to: "/talent-hub", icon: Users, label: "Talent Hub" },
@@ -41,7 +40,6 @@ export function Sidebar() {
           ))}
         </nav>
 
-        {/* Footer del Sidebar (Compacto) */}
         <div className="pb-8 flex flex-col items-center">
           <div className="w-4 h-[1px] bg-slate-100 mb-4" />
           <p className="text-[8px] text-slate-300 font-bold uppercase [writing-mode:vertical-lr] tracking-[0.3em] opacity-50">
@@ -49,7 +47,6 @@ export function Sidebar() {
           </p>
         </div>
       </div>
-      {/* Este div vacío sirve para compensar el ancho del sidebar fixed en el layout */}
       <div className="w-16 h-screen flex-shrink-0" />
     </TooltipProvider>
   );
