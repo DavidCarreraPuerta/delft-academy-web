@@ -3,6 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+// Importación de Vercel Analytics
+import { Analytics } from "@vercel/analytics/react";
 
 // 1. Importación del protector de rutas
 import { ProtectedRoute } from "./pages/ProtectedRoute";
@@ -36,6 +38,9 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      {/* El componente Analytics se coloca aquí para que funcione en toda la App */}
+      <Analytics />
+      
       <BrowserRouter>
         {/* Este componente asegura que siempre aterrices al principio de la página */}
         <ScrollToTop />
@@ -57,9 +62,6 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           
           {/* --- RUTAS PROTEGIDAS (Requieren Login) --- */}
-          {/* Aquí se cumple la lógica de tus documentos: 
-              El usuario es forzado a pasar por aquí si no tiene perfil completo 
-          */}
           <Route path="/onboarding" element={
             <ProtectedRoute>
               <StudentOnboardingForm />
