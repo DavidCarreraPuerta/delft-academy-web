@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Enlace al mapa del sitio para mejorar el rastreo
+Sitemap: https://www.delftengineering.academy/sitemap.xml

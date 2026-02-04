@@ -70,7 +70,7 @@ const FAQ = () => {
       items: [
         {
           question: "How much does the preparation program cost?",
-          answer: "Our prices are highly competitive within the personalized training sector. Starting at 40€/session, the total cost depends entirely on the number of sessions required for your specific path, ensuring you only pay for what you need. More details provided in the Free Consultation Call."
+          answer: "Our prices are highly competitive within the personalized training sector: 50€/session, the total cost depends entirely on the number of sessions required for your specific path, ensuring you only pay for what you need. More details provided in the Free Consultation Call."
         },
         {
           question: "How and when do I pay for my sessions?",

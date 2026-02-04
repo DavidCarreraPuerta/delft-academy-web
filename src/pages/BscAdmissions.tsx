@@ -17,7 +17,7 @@ import mentorshipImg from "@/assets/mentorship-session.png";
 
 const BscAdmissions = () => {
   const navigate = useNavigate();
-  const examDate = new Date("2026-03-15");
+  const examDate = new Date("2026-03-11");
   const [daysLeft, setDaysLeft] = useState(0);
   const [activePillar, setActivePillar] = useState<string | null>(null);
   const [session, setSession] = useState<any>(null);
@@ -97,7 +97,9 @@ const BscAdmissions = () => {
               <div className="flex flex-col md:flex-row gap-4 items-center md:items-start">
                 <div className="inline-flex items-center gap-3 bg-orange-500 text-white px-6 py-3 rounded-2xl shadow-lg transform -rotate-1">
                   <Timer className="w-6 h-6 animate-pulse" />
-                  <span className="text-3xl font-black italic">{daysLeft} Days Left</span>
+                  <span className="text-xl md:text-2xl font-black italic">
+                    {daysLeft} Days until Entrance Exam (March 11th, 2026)
+                  </span>
                 </div>
                 <EnrollmentStatusBanner />
               </div>
