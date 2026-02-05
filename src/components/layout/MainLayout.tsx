@@ -15,7 +15,6 @@ export function MainLayout({ children, showSidebar = true }: MainLayoutProps) {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
-  // Lógica de SEO Dinámico con verificación en consola
   useEffect(() => {
     const pageTitles: Record<string, string> = {
       "/": "Delft Engineering Academy | TU Delft Aerospace Exams Prep",
@@ -29,11 +28,16 @@ export function MainLayout({ children, showSidebar = true }: MainLayoutProps) {
 
     const currentTitle = pageTitles[location.pathname] || "Delft Engineering Academy";
     
-    // Aplicamos el título al documento
+    // Aplicación inmediata
     document.title = currentTitle;
     
-    // Log para que veas en la consola (F12) que el cambio se está ejecutando
-    console.log("📍 Ruta detectada:", location.pathname, "-> Título aplicado:", currentTitle);
+    // Aplicación con retardo para asegurar que venza la persistencia del navegador
+    const timeoutId = setTimeout(() => {
+      document.title = currentTitle;
+      console.log("✅ Título forzado tras carga:", document.title);
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
   }, [location.pathname]);
 
   return (
