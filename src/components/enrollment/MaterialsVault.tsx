@@ -8,6 +8,9 @@ import {
   Lock, BookOpen, ShieldAlert, MousePointer2, 
   Maximize, Minimize, Loader2, ChevronDown 
 } from "lucide-react";
+// AÑADIDOS PARA FEEDBACK
+import { toast } from "sonner";
+import { ResourceFeedback } from "@/components/ResourceFeedback";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
@@ -133,7 +136,27 @@ export const MaterialsVault = ({ profile }: { profile?: any }) => {
                 {isFullscreen ? <Minimize className="w-3 h-3" /> : <Maximize className="w-3 h-3" />} {isFullscreen ? "Exit" : "Fullscreen"}
               </button>
               <button 
-                onClick={() => { if(document.fullscreenElement) document.exitFullscreen(); setActivePdf(null); }} 
+                onClick={() => { 
+                  if(document.fullscreenElement) document.exitFullscreen(); 
+                  
+                  // LÓGICA DE FEEDBACK AL CERRAR
+                  const today = new Date().toISOString().split('T')[0];
+                  const lastVote = localStorage.getItem('lastFeedback_material');
+                  
+                  if (lastVote !== today) {
+                    toast.custom((t) => (
+                      <div className="bg-white border-2 border-slate-100 shadow-2xl rounded-[2rem] p-6 w-[350px] animate-in slide-in-from-right-5 duration-500">
+                        <ResourceFeedback 
+                          resourceId={activePdf || "general-syllabus"} 
+                          programmeId="bsc-aerospace" 
+                          category="material" 
+                        />
+                      </div>
+                    ), { duration: 15000, position: 'bottom-right' });
+                  }
+
+                  setActivePdf(null); 
+                }} 
                 className="bg-orange-600 text-white px-6 py-2 rounded-lg font-black uppercase text-[9px] hover:bg-white hover:text-orange-600 transition-all shadow-md"
               >
                 Close
@@ -166,9 +189,9 @@ export const MaterialsVault = ({ profile }: { profile?: any }) => {
                       width={Math.min(window.innerWidth * 0.95, 1000)}
                     />
                     <div className="absolute inset-0 pointer-events-none z-10 flex items-center justify-center overflow-hidden opacity-[0.04]">
-                       <p className="text-[60px] md:text-[80px] font-black uppercase rotate-[-30deg] text-slate-900 text-center leading-none">
-                         DELFT ENGINEERING <br/> ACADEMY
-                       </p>
+                        <p className="text-[60px] md:text-[80px] font-black uppercase rotate-[-30deg] text-slate-900 text-center leading-none">
+                          DELFT ENGINEERING <br/> ACADEMY
+                        </p>
                     </div>
                   </div>
                 ))}

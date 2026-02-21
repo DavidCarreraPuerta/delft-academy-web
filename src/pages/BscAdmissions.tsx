@@ -71,7 +71,6 @@ const BscAdmissions = () => {
     <MainLayout>
       <div className="max-w-7xl mx-auto space-y-20 pb-32 px-4">
         
-        {/* HERO SECTION */}
         <header className="bg-white rounded-[4rem] p-8 md:p-14 shadow-sm border border-slate-100 mt-2 overflow-hidden relative">
           <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
             <div className="flex-1 text-center md:text-left space-y-8">
@@ -103,32 +102,36 @@ const BscAdmissions = () => {
                       <DialogTitle className="sr-only">Booking System Status</DialogTitle>
                       <div className="relative">
                         <div className="p-8 blur-[2px] opacity-40 grayscale-[0.5] pointer-events-none scale-[0.98]">
-                           <BookingCalendar mode="admissions" />
+                            <BookingCalendar mode="admissions" />
                         </div>
                         <div className="absolute inset-0 z-50 flex items-center justify-center p-6">
-                           <div className="bg-white/90 backdrop-blur-md border border-orange-200 p-10 rounded-[2.5rem] shadow-2xl max-w-lg text-center space-y-6 transform -rotate-1">
-                              <div className="w-16 h-16 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                                 <AlertCircle className="w-8 h-8" />
-                              </div>
-                              <h3 className="text-2xl font-black uppercase italic text-slate-900 leading-tight">
-                                Enrollment High Demand: <br />
-                                <span className="text-orange-600">Weekly Slots Full</span>
-                              </h3>
-                              <p className="text-slate-600 font-bold text-sm uppercase tracking-tight leading-relaxed">
-                                Our senior tutors are currently at 100% capacity. 
-                                <span className="block mt-4 text-slate-900">As an enrolled student, your priority status is active.</span>
-                              </p>
-                              <Button onClick={() => window.location.reload()} className="bg-slate-900 text-white rounded-xl px-10 h-12 uppercase font-black text-xs tracking-widest">
-                                Acknowledge
-                              </Button>
-                           </div>
+                            <div className="bg-white/90 backdrop-blur-md border border-orange-200 p-10 rounded-[2.5rem] shadow-2xl max-w-lg text-center space-y-6 transform -rotate-1">
+                               <div className="w-16 h-16 bg-orange-50 text-orange-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                                  <AlertCircle className="w-8 h-8" />
+                               </div>
+                               <h3 className="text-2xl font-black uppercase italic text-slate-900 leading-tight">
+                                 Enrollment High Demand: <br />
+                                 <span className="text-orange-600">Weekly Slots Full</span>
+                               </h3>
+                               <p className="text-slate-600 font-bold text-sm uppercase tracking-tight leading-relaxed">
+                                 Our senior tutors are currently at 100% capacity. 
+                                 <span className="block mt-4 text-slate-900">As an enrolled student, your priority status is active.</span>
+                               </p>
+                               <Button onClick={() => window.location.reload()} className="bg-slate-900 text-white rounded-xl px-10 h-12 uppercase font-black text-xs tracking-widest">
+                                 Acknowledge
+                               </Button>
+                            </div>
                         </div>
                       </div>
                     </DialogContent>
                   </Dialog>
                 ) : (
-                  <Button onClick={handleCtaClick} className="bg-slate-900 text-white px-10 h-16 rounded-2xl font-black uppercase tracking-widest shadow-xl">
-                    Get Started Now
+                  <Button 
+                    onClick={handleCtaClick} 
+                    className="bg-slate-900 text-white px-10 h-16 rounded-2xl font-black uppercase tracking-widest shadow-xl group flex items-center gap-3"
+                  >
+                    {session ? "Enrol to Unlock" : "Get Started Now"}
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 )}
               </div>
@@ -139,7 +142,6 @@ const BscAdmissions = () => {
           </div>
         </header>
 
-        {/* MECANISMOS GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {trainingPillars.map((box) => (
             <Dialog key={box.id}>
@@ -149,13 +151,28 @@ const BscAdmissions = () => {
                     if (isEnrolled && box.id === 'academic') navigate('/dashboard', { state: { section: 'materials' } });
                   }} 
                   className={cn(
-                    "p-8 rounded-[3rem] border-2 transition-all duration-300 cursor-pointer flex flex-col relative min-h-[320px] bg-white border-slate-100",
+                    "p-8 rounded-[3rem] border-2 transition-all duration-300 cursor-pointer flex flex-col relative min-h-[320px] bg-white border-slate-100 group overflow-hidden",
                     activePillar === box.id && 'border-orange-500 scale-[1.02]'
                   )}
                 >
+                  {!isEnrolled && (
+                    <div className="absolute inset-0 z-20 bg-slate-900/5 backdrop-blur-[1.5px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="bg-slate-900 text-white px-4 py-2 rounded-xl flex items-center gap-2 border border-orange-500/50 shadow-2xl">
+                        <Lock className="w-3 h-3 text-orange-500" />
+                        <span className="text-[9px] font-black uppercase tracking-widest">Enrol to Unlock</span>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="w-14 h-14 rounded-[1.2rem] bg-slate-100 text-[#00a6d6] flex items-center justify-center mb-6">{box.icon}</div>
-                  <h4 className="text-xl font-black text-slate-900 mb-4 uppercase italic">{box.title}</h4>
-                  <p className="text-slate-500 font-bold uppercase text-[11px]">{box.desc}</p>
+                  <h4 className="text-xl font-black text-slate-900 mb-4 uppercase italic tracking-tighter leading-tight">{box.title}</h4>
+                  <p className="text-slate-500 font-bold uppercase text-[11px] leading-tight">{box.desc}</p>
+                  <div className="mt-auto pt-4 border-t border-slate-100 flex justify-end">
+                    <ChevronDown className={cn(
+                      "w-5 h-5 text-slate-300 transition-transform duration-500",
+                      activePillar === box.id && 'rotate-180 text-orange-500'
+                    )} />
+                  </div>
                 </div>
               </DialogTrigger>
 
@@ -177,7 +194,7 @@ const BscAdmissions = () => {
                                  <span className="text-orange-600">Matrix Updating.</span>
                                </h3>
                                <p className="text-slate-400 font-black uppercase text-[10px] tracking-[0.3em] pt-2">
-                                  Syncing with TU Delft 2026
+                                 Syncing with TU Delft 2026
                                </p>
                             </div>
                             <p className="text-slate-600 font-bold text-sm md:text-base leading-tight max-w-sm mx-auto italic uppercase opacity-80">
@@ -206,7 +223,6 @@ const BscAdmissions = () => {
           ))}
         </div>
 
-        {/* PROCTOR SIMULATOR - BLOQUE DE VENTA */}
         <div className="relative group">
            {isEnrolled && (
              <Dialog open={showSimAlert} onOpenChange={setShowSimAlert}>
@@ -234,7 +250,6 @@ const BscAdmissions = () => {
            </div>
         </div>
 
-        {/* SECCIÓN MENTORÍA */}
         <section className="bg-slate-900 rounded-[4rem] p-12 md:p-20 text-white relative overflow-hidden shadow-2xl">
           <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
             <div className="flex-1 space-y-6 text-center md:text-left">
@@ -255,10 +270,9 @@ const BscAdmissions = () => {
           </div>
         </section>
 
-        {/* FOOTER CTA */}
         <footer className="text-center pt-10 bg-white rounded-[4rem] py-20 border border-slate-100 shadow-sm relative">
           <div className="max-w-3xl mx-auto space-y-10 px-6">
-            <h3 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tighter leading-none">
+            <h3 className="text-4xl md:text-[3.5rem] font-black text-slate-900 uppercase italic tracking-tighter leading-none">
               Don't leave your <span className="text-orange-500">future</span> <br /> to chance.
             </h3>
             <div className="space-y-6">
