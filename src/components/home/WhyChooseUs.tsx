@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-// He añadido Plus y Target que faltaban en tu versión original y causaban parte del error
+import { supabase } from "@/integrations/supabase/client";
 import { 
-  TrendingUp, Shield, Lightbulb, Monitor, Heart, Users, Target, Quote, Star, Plus 
+  TrendingUp, Shield, Lightbulb, Monitor, Heart, Users, Target, Quote, Star, Plus, ChevronLeft, ChevronRight 
 } from "lucide-react";
+
+const MINIMUM_REVIEWS_VISIBLE = 1;
+
+// Función para obtener el emoji correspondiente a la nota real
+const getFeedbackEmoji = (rating: number) => {
+  if (rating >= 4.5) return "🤩"; // Excellent
+  if (rating >= 3.5) return "😊"; // Good
+  if (rating >= 2.5) return "😐"; // OK
+  if (rating >= 1.5) return "😕"; // Needs Improvement
+  return "😢"; // Poor
+};
 
 const whyChooseUsSections = [
   {
@@ -75,6 +86,48 @@ const whyChooseUsSections = [
 
 export function WhyChooseUs() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [ratingStats, setRatingStats] = useState<{avg: string, total: number, reviews: any[]} | null>(null);
+  const [currentReviewIdx, setCurrentReviewIdx] = useState(0);
+
+  useEffect(() => {
+    const fetchRatings = async () => {
+      const { data } = await supabase
+        .from('user_feedback')
+        .select('*')
+        .order('created_at', { ascending: false });
+      
+      if (data && data.length > 0) {
+        const sum = data.reduce((acc, curr) => acc + (curr.rating_value || 0), 0);
+        setRatingStats({
+          avg: (sum / data.length).toFixed(1),
+          total: data.length,
+          reviews: data.filter(r => r.comment && r.comment.length > 2)
+        });
+      }
+    };
+    fetchRatings();
+  }, []);
+
+  useEffect(() => {
+    if (ratingStats && ratingStats.reviews.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentReviewIdx((prev) => (prev + 1) % ratingStats.reviews.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [ratingStats]);
+
+  const nextReview = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!ratingStats) return;
+    setCurrentReviewIdx((prev) => (prev + 1) % ratingStats.reviews.length);
+  };
+
+  const prevReview = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!ratingStats) return;
+    setCurrentReviewIdx((prev) => (prev - 1 + ratingStats.reviews.length) % ratingStats.reviews.length);
+  };
 
   return (
     <section id="why-choose-us" className="py-16 bg-white">
@@ -99,7 +152,7 @@ export function WhyChooseUs() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={cn(
-                  "relative border-2 transition-all duration-500 h-[380px] overflow-hidden group cursor-pointer rounded-[2rem]",
+                  "relative border-2 transition-all duration-500 h-[530px] overflow-hidden group cursor-pointer rounded-[2rem]",
                   isHovered 
                     ? "border-orange-500 shadow-2xl scale-105 bg-slate-900 text-white" 
                     : "border-slate-100 bg-card text-slate-900 shadow-sm"
@@ -119,18 +172,72 @@ export function WhyChooseUs() {
                     <h3 className="text-xl font-black uppercase mb-2 leading-tight tracking-tighter">{section.title}</h3>
                     <p className="text-[13px] text-slate-500 mb-4 font-bold uppercase tracking-tight leading-snug">{section.description}</p>
                     
-                    <div className="mt-auto">
+                    <div className="mt-auto space-y-4">
                       {section.stats ? (
-                        <div className="grid grid-cols-1 gap-2">
-                          {section.stats.map((stat, i) => (
-                            <div key={i} className="border-t border-slate-100 pt-2">
-                              <div className="text-3xl font-black text-slate-900 italic tracking-tighter">{stat.value}</div>
-                              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{stat.label}</div>
+                        <div className="grid grid-cols-1 gap-1">
+                          <div className="border-t border-slate-100 pt-2">
+                            <div className="text-4xl font-black text-slate-900 italic tracking-tighter leading-none">{section.stats[0].value}</div>
+                            <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{section.stats[0].label}</div>
+                          </div>
+
+                          {index === 0 && ratingStats && ratingStats.total >= MINIMUM_REVIEWS_VISIBLE && (
+                            <div className="pt-3 pb-2">
+                               <div className="flex items-center gap-3">
+                                  <div className="text-4xl font-black text-slate-900 italic tracking-tighter leading-none">
+                                    {ratingStats.avg}
+                                  </div>
+                                  <div className="flex flex-col justify-center">
+                                    <div className="flex text-orange-500">
+                                      {[...Array(5)].map((_, i) => (
+                                        <Star key={i} className={cn("h-4 w-4", i < Math.floor(parseFloat(ratingStats.avg)) ? "fill-current" : "text-slate-200")} />
+                                      ))}
+                                    </div>
+                                    <div className="text-[9px] font-black text-[#00a6d6] uppercase tracking-widest mt-1">
+                                      Avg. Rating ({ratingStats.total} reviews)
+                                    </div>
+                                  </div>
+                               </div>
+
+                               {ratingStats.reviews.length > 0 && (
+                                 <div 
+                                   className="mt-6 bg-slate-50 rounded-2xl p-4 border border-slate-100 relative shadow-sm"
+                                   onClick={(e) => e.stopPropagation()}
+                                 >
+                                   <div className="flex items-center justify-between mb-2">
+                                      <div className="flex items-center gap-2">
+                                        <img 
+                                          src={ratingStats.reviews[currentReviewIdx].avatar_url || `https://ui-avatars.com/api/?name=${ratingStats.reviews[currentReviewIdx].user_name || 'Student'}&background=00a6d6&color=fff`} 
+                                          className="h-6 w-6 rounded-full border border-white shadow-sm" 
+                                          alt="avatar" 
+                                        />
+                                        <span className="text-[10px] font-bold text-slate-700 uppercase tracking-tight">
+                                          {ratingStats.reviews[currentReviewIdx].user_name || "Verified Student"}
+                                        </span>
+                                      </div>
+                                      {/* SUSTITUCIÓN: EMOJI EN LUGAR DE ESTRELLAS */}
+                                      <div className="text-lg" title={`Rating: ${ratingStats.reviews[currentReviewIdx].rating_value}`}>
+                                        {getFeedbackEmoji(ratingStats.reviews[currentReviewIdx].rating_value)}
+                                      </div>
+                                   </div>
+                                   <p className="text-[11px] italic text-slate-500 leading-snug min-h-[44px] line-clamp-3 px-1">
+                                     "{ratingStats.reviews[currentReviewIdx].comment}"
+                                   </p>
+                                   <div className="flex justify-end gap-2 mt-3 border-t border-slate-200/50 pt-2">
+                                      <button onClick={prevReview} className="p-1 hover:bg-white rounded-full transition-all text-slate-300 hover:text-[#00a6d6]"><ChevronLeft className="h-4 w-4" /></button>
+                                      <button onClick={nextReview} className="p-1 hover:bg-white rounded-full transition-all text-slate-300 hover:text-[#00a6d6]"><ChevronRight className="h-4 w-4" /></button>
+                                   </div>
+                                 </div>
+                               )}
                             </div>
-                          ))}
+                          )}
+
+                          <div className="border-t border-slate-100 pt-3">
+                            <div className="text-4xl font-black text-slate-900 italic tracking-tighter leading-none">{section.stats[1].value}</div>
+                            <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{section.stats[1].label}</div>
+                          </div>
                         </div>
                       ) : (
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 pt-4 border-t border-slate-100">
                           {section.features?.map((f, i) => (
                             <li key={i} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-wider text-slate-600">
                               <f.icon className="h-3.5 w-3.5 text-orange-500" />
