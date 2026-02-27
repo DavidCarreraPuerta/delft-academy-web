@@ -24,6 +24,9 @@ import FirstYear from "./pages/FirstYear";
 import BscAdmissions from "./pages/BscAdmissions";
 import MscBridge from "./pages/MscBridge";
 
+// IMPORTACIÓN DEL SIMULADOR (Ruta corregida según tu estructura)
+import { SimulatorRoom } from "./components/enrollment/SimulatorRoom";
+
 // Páginas Legales
 import LegalNotice from "./pages/LegalNotice";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -52,6 +55,9 @@ const App = () => (
           <Route path="/bsc-admissions" element={<BscAdmissions />} />
           <Route path="/first-year" element={<FirstYear />} />
           <Route path="/msc-bridge" element={<MscBridge />} />
+          
+          {/* RUTA DEL SIMULADOR - Añadida aquí */}
+          <Route path="/simulator" element={<SimulatorRoom />} />
           
           {/* Páginas de información y legales */}
           <Route path="/faq" element={<FAQ />} />

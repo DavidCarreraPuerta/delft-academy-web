@@ -1,0 +1,527 @@
+[
+    {
+        "id": "p-01",
+        "q": "A constant force of 20N acts on a 5kg mass for 4 seconds. What is the change in velocity?",
+        "options": ["4 m/s", "10 m/s", "16 m/s", "8 m/s"],
+        "correct": "C",
+        "rationale": "According to Newton's Second Law, $a = F/m = 20/5 = 4$ m/s². The change in velocity is $\\\\Delta v = a \\\\cdot t = 4 \\\\cdot 4 = 16$ m/s."
+      },
+      {
+        "id": "p-02",
+        "q": "A 2kg object is dropped from a height of 10m. What is its kinetic energy just before hitting the ground? (Use $g = 9.8$ m/s²)",
+        "options": ["98 J", "196 J", "20 J", "49 J"],
+        "correct": "B",
+        "rationale": "By conservation of energy, all potential energy ($mgh$) converts to kinetic energy ($K$). $K = 2 \\\\cdot 9.8 \\\\cdot 10 = 196$ J."
+      },
+      {
+        "id": "p-03",
+        "q": "Two $10\\\\Omega$ resistors are connected in parallel. This combination is connected in series with a $5\\\\Omega$ resistor. Total resistance is:",
+        "options": ["$25\\\\Omega$", "$15\\\\Omega$", "$10\\\\Omega$", "$7.5\\\\Omega$"],
+        "correct": "C",
+        "rationale": "Parallel part is $R_p = (10 \\\\cdot 10)/(10 + 10) = 5\\\\Omega$. Total resistance is $R_p + R_{series} = 5 + 5 = 10\\\\Omega$."
+      },
+      {
+        "id": "p-04",
+        "q": "If the absolute temperature of an ideal gas doubles while volume remains constant, the pressure:",
+        "options": ["Stays the same", "Doubles", "Is halved", "Quadruples"],
+        "correct": "B",
+        "rationale": "According to Gay-Lussac's law, pressure is directly proportional to absolute temperature ($P \\\\propto T$) when volume is constant."
+      },
+      {
+        "id": "p-05",
+        "q": "A wave has a frequency of 50Hz and a wavelength of 2m. What is its speed?",
+        "options": ["25 m/s", "100 m/s", "0.04 m/s", "50 m/s"],
+        "correct": "B",
+        "rationale": "Wave speed is calculated as $v = f \\\\cdot \\\\lambda = 50 \\\\cdot 2 = 100$ m/s."
+      },
+      {
+        "id": "p-06",
+        "q": "An elevator accelerates upwards at 2 m/s². A 70kg person stands on a scale inside. What does it read? (Use $g = 9.8$ m/s²)",
+        "options": ["686 N", "140 N", "826 N", "546 N"],
+        "correct": "C",
+        "rationale": "Apparent weight (Normal force) is $F_n = m(g + a) = 70(9.8 + 2) = 826$ N."
+      },
+      {
+        "id": "p-07",
+        "q": "Which Newton's law explains why a passenger lurches forward when a car stops suddenly?",
+        "options": ["First Law (Inertia)", "Second Law (F=ma)", "Third Law (Action/Reaction)", "Law of Gravitation"],
+        "correct": "A",
+        "rationale": "Newton's First Law states that an object in motion stays in motion unless acted upon by an external force (Inertia)."
+      },
+      {
+        "id": "p-08",
+        "q": "The work done by a force of 50N pulling an object 10m at an angle of $60^\\\\circ$ to the horizontal is:",
+        "options": ["500 J", "433 J", "250 J", "0 J"],
+        "correct": "C",
+        "rationale": "Work is $W = F \\\\cdot d \\\\cdot \\\\cos(\\\\theta) = 50 \\\\cdot 10 \\\\cdot \\\\cos(60^\\\\circ) = 250$ J."
+      },
+      {
+        "id": "p-09",
+        "q": "What is the hydrostatic pressure at a depth of 10m in water? ($\\\\rho=1000$ kg/m³, $g=10$ m/s²)",
+        "options": ["10,000 Pa", "100,000 Pa", "1,000 Pa", "50,000 Pa"],
+        "correct": "B",
+        "rationale": "Pressure at depth is $P = \\\\rho gh = 1000 \\\\cdot 10 \\\\cdot 10 = 100,000$ Pa."
+      },
+      {
+        "id": "p-10",
+        "q": "A car moves at 20m/s around a curve of radius 100m. Centripetal acceleration is:",
+        "options": ["2 m/s²", "4 m/s²", "0.2 m/s²", "20 m/s²"],
+        "correct": "B",
+        "rationale": "Centripetal acceleration is $a_c = v^2/r = 20^2 / 100 = 4$ m/s²."
+      },
+      {
+        "id": "p-11",
+        "q": "The focal length of a converging lens is $20\\text{ cm}$. If an object is at $40\\text{ cm}$, the image is:",
+        "options": ["Virtual and upright", "Real, inverted and the same size", "Real and magnified", "At infinity"],
+        "correct": "B",
+        "rationale": "When the object is placed at a distance of exactly $2f$ (twice the focal length), the lens formula $1/f = 1/d_o + 1/d_i$ results in $d_i = 40\\text{ cm}$. In this specific case, the image is real, inverted, and has the same size as the object (magnification $M = -d_i/d_o = -1$)."
+      },
+      {
+        "id": "p-12",
+        "q": "The specific heat of water is 4184 J/kg·C. Energy needed to heat 1kg of water by $2^\\\\circ$C is:",
+        "options": ["2092 J", "4184 J", "8368 J", "1000 J"],
+        "correct": "C",
+        "rationale": "Heat energy $Q = mc\\\\Delta T = 1 \\\\cdot 4184 \\\\cdot 2 = 8368$ J."
+      },
+      {
+        "id": "p-13",
+        "q": "According to Ohm's Law, if voltage is doubled and resistance is halved, current:",
+        "options": ["Doubles", "Stays same", "Quadruples", "Halves"],
+        "correct": "C",
+        "rationale": "From $I = V/R$: New $I = (2V)/(0.5R) = 4(V/R)$."
+      },
+      {
+        "id": "p-14",
+        "q": "Which property of a sound wave determines its pitch?",
+        "options": ["Amplitude", "Speed", "Frequency", "Intensity"],
+        "correct": "C",
+        "rationale": "Pitch is the human auditory perception of the frequency of a sound wave."
+      },
+      {
+        "id": "p-15",
+        "q": "A hydraulic lift has pistons of areas 0.01m² and 0.1m². A 100N force on the small one lifts:",
+        "options": ["100 N", "1000 N", "10 N", "500 N"],
+        "correct": "B",
+        "rationale": "Pascal's Principle: $F_1/A_1 = F_2/A_2$. Thus $F_2 = 100 \\\\cdot (0.1/0.01) = 1000$ N."
+      },
+      {
+        "id": "p-16",
+        "q": "The escape velocity from Earth depends on:",
+        "options": ["Mass of projectile", "Mass of Earth", "Radius of Earth", "Both B and C"],
+        "correct": "D",
+        "rationale": "Escape velocity $v = \\\\sqrt{2GM/R}$ depends on the mass and radius of the planet, not the object's mass."
+      },
+      {
+        "id": "p-17",
+        "q": "What is the momentum of a 0.5kg ball moving at 20m/s?",
+        "options": ["10 kg·m/s", "40 kg·m/s", "5 kg·m/s", "20 kg·m/s"],
+        "correct": "A",
+        "rationale": "Momentum $p = mv = 0.5 \\\\cdot 20 = 10$ kg·m/s."
+      },
+      {
+        "id": "p-18",
+        "q": "In a perfectly inelastic collision, which is conserved?",
+        "options": ["Kinetic Energy", "Momentum", "Both", "Neither"],
+        "correct": "B",
+        "rationale": "Momentum is always conserved in isolated systems, but kinetic energy is lost in inelastic collisions."
+      },
+      {
+        "id": "p-19",
+        "q": "The primary charge carriers in a P-type semiconductor are:",
+        "options": ["Electrons", "Neutrons", "Holes", "Protons"],
+        "correct": "C",
+        "rationale": "P-type (Positive) semiconductors are doped to create an excess of holes as majority carriers."
+      },
+      {
+        "id": "p-20",
+        "q": "A transformer has 100 turns in primary and 500 in secondary. If primary voltage is 20V, secondary is:",
+        "options": ["4 V", "100 V", "50 V", "10 V"],
+        "correct": "B",
+        "rationale": "Voltage ratio equals turns ratio: $V_s/V_p = N_s/N_p \\\\Rightarrow V_s = 20 \\\\cdot (500/100) = 100$V."
+      },
+      {
+        "id": "p-21",
+        "q": "The torque produced by a 10N force perpendicular to a 0.5m wrench is:",
+        "options": ["20 Nm", "5 Nm", "10 Nm", "2 Nm"],
+        "correct": "B",
+        "rationale": "Torque $\\\\tau = F \\\\cdot r \\\\cdot \\\\sin(90^\\\\circ) = 10 \\\\cdot 0.5 = 5$ Nm."
+      },
+      {
+        "id": "p-22",
+        "q": "Which type of radiation has the highest penetrating power?",
+        "options": ["Alpha", "Beta", "Gamma", "Visible light"],
+        "correct": "C",
+        "rationale": "Gamma rays are high-energy electromagnetic radiation with high penetration depth compared to alpha or beta particles."
+      },
+      {
+        "id": "p-23",
+        "q": "The displacement of an object in SHM is $x = A \\\\cos(\\\\omega t)$. Maximum acceleration is:",
+        "options": ["$A\\\\omega$", "$A\\\\omega^2$", "$\\\\omega^2$", "$A^2\\\\omega$"],
+        "correct": "B",
+        "rationale": "Acceleration is the second derivative of displacement: $a_{max} = A\\\\omega^2$."
+      },
+      {
+        "id": "p-24",
+        "q": "A convex mirror always forms an image that is:",
+        "options": ["Real and inverted", "Virtual and magnified", "Virtual and diminished", "Real and diminished"],
+        "correct": "C",
+        "rationale": "Convex mirrors diverge light rays, always forming a virtual, upright, and smaller (diminished) image."
+      },
+      {
+        "id": "p-25",
+        "q": "The SI unit of magnetic flux is:",
+        "options": ["Tesla", "Weber", "Henry", "Gauss"],
+        "correct": "B",
+        "rationale": "The Weber (Wb) is the standard SI unit for magnetic flux; Tesla is the unit for magnetic flux density (field)."
+      }, 
+      {
+        "id": "p-26",
+        "q": "According to Bernoulli's equation for incompressible flow, if the velocity $v$ of the fluid increases, the pressure $P$ must:",
+        "options": ["Increase", "Decrease", "Remain constant", "Become zero"],
+        "correct": "B",
+        "rationale": "From $P + \\\\frac{1}{2}\\\\rho v^2 = \\\\text{constant}$, an increase in kinetic energy ($\\\\frac{1}{2}\\\\rho v^2$) requires a decrease in pressure energy ($P$)."
+      },
+      {
+        "id": "p-27",
+        "q": "What is the buoyant force on a $2\\\\text{ m}^3$ object fully submerged in water ($\\\\rho = 1000\\\\text{ kg/m}^3$)?",
+        "options": ["2000 N", "9800 N", "19600 N", "4900 N"],
+        "correct": "C",
+        "rationale": "Archimedes' Principle: $F_b = \\\\rho_{fluid} \\\\cdot V_{displaced} \\\\cdot g = 1000 \\\\cdot 2 \\\\cdot 9.8 = 19600\\\\text{ N}$."
+      },
+      {
+        "id": "p-28",
+        "q": "A gas is compressed at a constant temperature. This process is called:",
+        "options": ["Adiabatic", "Isobaric", "Isothermal", "Isochoric"],
+        "correct": "C",
+        "rationale": "\"Iso\" means constant, and \"thermal\" refers to temperature."
+      },
+      {
+        "id": "p-29",
+        "q": "The speed of sound in dry air at $20^\\\\circ\\\\text{C}$ is approximately:",
+        "options": ["300 m/s", "343 m/s", "1500 m/s", "299,792,458 m/s"],
+        "correct": "B",
+        "rationale": "The speed of sound in air depends on temperature, being approx. $331 + 0.6T$."
+      },
+      {
+        "id": "p-30",
+        "q": "Which law of thermodynamics states that entropy of an isolated system always increases?",
+        "options": ["First Law", "Second Law", "Third Law", "Zeroth Law"],
+        "correct": "B",
+        "rationale": "The Second Law introduces entropy as a measure of disorder that increases over time."
+      },
+      {
+        "id": "p-31",
+        "q": "Calculate the heat required to raise the temperature of 2kg of water by $10^\\\\circ\\\\text{C}$ ($c = 4186\\\\text{ J/kg}^\\\\circ\\\\text{C}$).",
+        "options": ["8372 J", "83720 J", "41860 J", "20930 J"],
+        "correct": "B",
+        "rationale": "$Q = mc\\\\Delta T = 2 \\\\cdot 4186 \\\\cdot 10 = 83720\\\\text{ J}$."
+      },
+      {
+        "id": "p-32",
+        "q": "Coulombs Law: The force between two $1\\\\text{C}$ charges separated by 1m is:",
+        "options": ["1 N", "$1.6 \\\\times 10^{-19}\\\\text{ N}$", "$8.99 \\\\times 10^9\\\\text{ N}$", "$9.8\\\\text{ N}$"],
+        "correct": "C",
+        "rationale": "$F = k \\\\frac{q_1q_2}{r^2}$. Since $k \\\\approx 9 \\\\times 10^9$, $F = 9 \\\\times 10^9 \\\\cdot \\\\frac{1 \\\\cdot 1}{1^2}$."
+      },
+      {
+        "id": "p-33",
+        "q": "An ideal gas occupies 22.4L at STP. If the pressure is doubled and temperature is constant, the volume becomes:",
+        "options": ["11.2 L", "44.8 L", "22.4 L", "5.6 L"],
+        "correct": "A",
+        "rationale": "Boyle's Law: $P_1V_1 = P_2V_2$. If $P$ doubles, $V$ must halve."
+      },
+      {
+        "id": "p-34",
+        "q": "The electric field $E$ at a distance $r$ from a point charge $Q$ is proportional to:",
+        "options": ["$r$", "$1/r$", "$1/r^2$", "$r^2$"],
+        "correct": "C",
+        "rationale": "$E = k \\\\frac{Q}{r^2}$, following the inverse-square law."
+      },
+      {
+        "id": "p-35",
+        "q": "What is the change in internal energy if 500J of heat is added to a system and the system does 200J of work?",
+        "options": ["700 J", "300 J", "-300 J", "500 J"],
+        "correct": "B",
+        "rationale": "$\\\\Delta U = Q - W = 500 - 200 = 300\\\\text{ J}$."
+      },
+      {
+        "id": "p-36",
+        "q": "A wire has a resistance of $10\\\\Omega$. If its length is doubled and area is halved, the new resistance is:",
+        "options": ["$10\\\\Omega$", "$20\\\\Omega$", "$40\\\\Omega$", "$5\\\\Omega$"],
+        "correct": "C",
+        "rationale": "$R = \\\\rho \\\\frac{L}{A}$. New $R = \\\\rho \\\\frac{2L}{A/2} = 4 \\\\rho \\\\frac{L}{A} = 4 \\\\cdot 10 = 40\\\\Omega$."
+      },
+      {
+        "id": "p-37",
+        "q": "The electric potential $V$ is measured in:",
+        "options": ["Amperes", "Ohms", "Volts", "Watts"],
+        "correct": "C",
+        "rationale": "Potential difference or voltage is measured in Volts (Joules per Coulomb)."
+      },
+      {
+        "id": "p-38",
+        "q": "Which particle is the primary carrier of electric current in a copper wire?",
+        "options": ["Protons", "Electrons", "Neutrons", "Photons"],
+        "correct": "B",
+        "rationale": "In metals, valence electrons are free to move and carry charge."
+      },
+      {
+        "id": "p-39",
+        "q": "A $10\\\\text{V}$ battery is connected to a $5\\\\Omega$ resistor. The current is:",
+        "options": ["2 A", "0.5 A", "50 A", "15 A"],
+        "correct": "A",
+        "rationale": "Ohm's Law: $I = V/R = 10/5 = 2\\\\text{ A}$."
+      },
+      {
+        "id": "p-40",
+        "q": "The magnetic field at the center of a circular current loop depends on:",
+        "options": ["Only the current", "Only the radius", "Both current and radius", "Neither"],
+        "correct": "C",
+        "rationale": "$B = \\\\frac{\\\\mu_0 I}{2R}$."
+      },
+      {
+        "id": "p-41",
+        "q": "An object is floating in a fluid. This implies:",
+        "options": ["$F_b < \\\\text{Weight}$", "$F_b = \\\\text{Weight}$", "$\\\\rho_{object} > \\\\rho_{fluid}$", "The object has no mass"],
+        "correct": "B",
+        "rationale": "For static equilibrium in flotation, the upward buoyant force must balance the downward weight."
+      },
+      {
+        "id": "p-42",
+        "q": "The \"Triple Point\" of water occurs at:",
+        "options": ["0.01°C and 0.006 atm", "100°C and 1 atm", "0°C and 1 atm", "373 K and 0 atm"],
+        "correct": "A",
+        "rationale": "It is the unique temperature and pressure where all three phases (solid, liquid, gas) coexist."
+      },
+      {
+        "id": "p-43",
+        "q": "A step-up transformer increases:",
+        "options": ["Power", "Voltage", "Current", "Frequency"],
+        "correct": "B",
+        "rationale": "It \"steps up\" voltage while decreasing current to conserve power ($P=VI$)."
+      },
+      {
+        "id": "p-44",
+        "q": "Magnetic flux $\\\\Phi_B$ is measured in:",
+        "options": ["Tesla", "Weber", "Henry", "Faraday"],
+        "correct": "B",
+        "rationale": "Weber (Wb) is the unit for flux; Tesla (T) is for magnetic field strength."
+      },
+      {
+        "id": "p-45",
+        "q": "If the temperature of an ideal gas is doubled (in Kelvin), the average kinetic energy of its molecules:",
+        "options": ["Remains the same", "Doubles", "Quadruples", "Is halved"],
+        "correct": "B",
+        "rationale": "$KE_{avg} = \\\\frac{3}{2}kT$. Kinetic energy is directly proportional to absolute temperature."
+      },
+      {
+        "id": "p-46",
+        "q": "The capacitance of a parallel plate capacitor increases if:",
+        "options": ["Plate area increases", "Distance between plates increases", "Dielectric is removed", "Voltage decreases"],
+        "correct": "A",
+        "rationale": "$C = \\\\epsilon \\\\frac{A}{d}$. Increasing $A$ increases $C$."
+      },
+      {
+        "id": "p-47",
+        "q": "Snell's Law relates:",
+        "options": ["Force and acceleration", "Angles of incidence and refraction", "Pressure and volume", "Current and voltage"],
+        "correct": "B",
+        "rationale": "$n_1 \\\\sin(\\\\theta_1) = n_2 \\\\sin(\\\\theta_2)$."
+      },
+      {
+        "id": "p-48",
+        "q": "A wave has a frequency of 500Hz and wavelength of 2m. Its speed is:",
+        "options": ["250 m/s", "1000 m/s", "0.004 m/s", "502 m/s"],
+        "correct": "B",
+        "rationale": "$v = f \\\\cdot \\\\lambda = 500 \\\\cdot 2 = 1000\\\\text{ m/s}$."
+      },
+      {
+        "id": "p-49",
+        "q": "The heat of fusion is the energy required to:",
+        "options": ["Raise temperature by 1°C", "Change solid to liquid", "Change liquid to gas", "Burn a substance"],
+        "correct": "B",
+        "rationale": "It is the latent heat involved in the phase change from solid to liquid."
+      },
+      {
+        "id": "p-50",
+        "q": "Kirchhoff's Junction Rule is a consequence of the conservation of:",
+        "options": ["Energy", "Charge", "Momentum", "Mass"],
+        "correct": "B",
+        "rationale": "The total current entering a junction must equal the total current leaving it (charge conservation)."
+      },
+      {
+        "id": "p-51",
+        "q": "The minimum frequency of light required to eject electrons from a metal surface is called:",
+        "options": ["Operating frequency", "Threshold frequency", "Resonance frequency", "Cut-off wavelength"],
+        "correct": "B",
+        "rationale": "If the incident photon energy $hf$ is less than the work function $\\\\Phi$, no electrons are emitted, regardless of the light's intensity."
+      },
+      {
+        "id": "p-52",
+        "q": "In the Bohr model of the atom, the energy of an electron in a specific orbit is:",
+        "options": ["Continuous", "Quantized", "Zero", "Infinite"],
+        "correct": "B",
+        "rationale": "Bohr's model postules that electrons can only occupy specific, discrete (quantized) energy levels or orbits."
+      },
+      {
+        "id": "p-53",
+        "q": "The radioactive decay law $N = N_0 e^{-\\\\lambda t}$ describes how the number of nuclei decreases over time. What does $\\\\lambda$ represent?",
+        "options": ["Half-life", "Mean life", "Decay constant", "Activity"],
+        "correct": "C",
+        "rationale": "$\\\\lambda$ is the decay constant, representing the probability per unit time that a specific nucleus will undergo decay."
+      },
+      {
+        "id": "p-54",
+        "q": "The difference between the mass of a nucleus and the sum of the masses of its individual nucleons is known as:",
+        "options": ["Atomic mass", "Mass number", "Mass defect", "Isotope effect"],
+        "correct": "C",
+        "rationale": "This 'missing' mass, known as mass defect, is converted into nuclear binding energy according to Einstein's $E=mc^2$."
+      },
+      {
+        "id": "p-55",
+        "q": "As the velocity of an object approaches the speed of light, time for that object, as observed by a stationary observer, appears to:",
+        "options": ["Speed up", "Slow down", "Remain the same", "Stop completely"],
+        "correct": "B",
+        "rationale": "According to the Lorentz transformation for time dilation, $t' = t \\\\cdot \\\\gamma$, time expands (slows down) for objects in high-speed motion."
+      },
+      {
+        "id": "p-56",
+        "q": "What is the energy of a photon with wavelength $\\\\lambda$?",
+        "options": ["$hc/\\\\lambda$", "$h\\\\lambda/c$", "$hf^2$", "$1/2 m v^2$"],
+        "correct": "A",
+        "rationale": "Combining Planck's relation $E = hf$ and the wave equation $f = c/\\\\lambda$, the energy is expressed as $E = hc/\\\\lambda$."
+      },
+      {
+        "id": "p-57",
+        "q": "The de Broglie wavelength associated with a moving particle of mass $m$ and velocity $v$ is:",
+        "options": ["$\\\\lambda = mv/h$", "$\\\\lambda = h/mv$", "$\\\\lambda = hmv$", "$\\\\lambda = c/v$"],
+        "correct": "B",
+        "rationale": "The de Broglie hypothesis states that all matter exhibits wave properties with a wavelength $\\\\lambda = h/p$, where $p=mv$."
+      },
+      {
+        "id": "p-58",
+        "q": "To create an n-type semiconductor, silicon (Group 14) is typically doped with atoms from:",
+        "options": ["Boron (Group 13)", "Phosphorus (Group 15)", "Carbon (Group 14)", "Aluminum (Group 13)"],
+        "correct": "B",
+        "rationale": "Group 15 elements have five valence electrons; they donate the fifth electron to the lattice, creating a negative (n-type) carrier."
+      },
+      {
+        "id": "p-59",
+        "q": "The region at the interface of a p-type and n-type semiconductor that is void of free charge carriers is called:",
+        "options": ["Conduction band", "Depletion region", "Valence band", "Junction barrier"],
+        "correct": "B",
+        "rationale": "The diffusion of carriers across the junction leaves behind a region of immobile ions, depleted of free electrons and holes."
+      },
+      {
+        "id": "p-60",
+        "q": "Which process powers the sun by combining light nuclei into heavier ones?",
+        "options": ["Fusion", "Fission", "Alpha decay", "Beta decay"],
+        "correct": "A",
+        "rationale": "Nuclear fusion in the solar core combines hydrogen nuclei to form helium, releasing energy due to the resulting mass defect."
+      },
+      {
+        "id": "p-61",
+        "q": "The Heisenberg Uncertainty Principle states that it is impossible to simultaneously know exactly both the:",
+        "options": ["Mass and velocity", "Position and momentum", "Energy and mass", "Time and space"],
+        "correct": "B",
+        "rationale": "The principle is expressed mathematically as $\\\\Delta x \\\\cdot \\\\Delta p \\\\geq h/4\\\\pi$, establishing a fundamental limit to precision."
+      },
+      {
+        "id": "p-62",
+        "q": "An alpha particle consists of which of the following?",
+        "options": ["Two electrons", "Two protons and two neutrons", "One proton and one electron", "A high-energy photon"],
+        "correct": "B",
+        "rationale": "An alpha particle is a helium-4 nucleus ($^4_2He^{2+}$), consisting of two protons and two neutrons."
+      },
+      {
+        "id": "p-63",
+        "q": "The process where a heavy nucleus splits into two or more smaller nuclei is:",
+        "options": ["Fusion", "Fission", "Ionization", "Excitation"],
+        "correct": "B",
+        "rationale": "Nuclear fission occurs when a heavy nucleus (like U-235) becomes unstable and splits, releasing neutrons and energy."
+      },
+      {
+        "id": "p-64",
+        "q": "In an AND logic gate, the output is 1 (high) only if:",
+        "options": ["Either input is 1", "Both inputs are 1", "Both inputs are 0", "One input is 1 and the other is 0"],
+        "correct": "B",
+        "rationale": "The AND gate follows the Boolean operation $Y = A \\\\cdot B$; it requires all inputs to be true to produce a true output."
+      },
+      {
+        "id": "p-65",
+        "q": "A light ray enters glass ($n=1.5$) from air ($n=1.0$). The ray will bend:",
+        "options": ["Toward the normal", "Away from the normal", "Not at all", "Back into the air"],
+        "correct": "A",
+        "rationale": "According to Snell's Law, when light enters a medium with a higher refractive index, its speed decreases and it bends toward the normal."
+      },
+      {
+        "id": "p-66",
+        "q": "What is the work function $\\\\Phi$ of a metal if the threshold frequency is $10^{15}\\\\text{ Hz}$? ($h \\\\approx 6.6 \\\\times 10^{-34}\\\\text{ J}\\\\cdot\\\\text{s}$)",
+        "options": ["$6.6 \\\\times 10^{-19}\\\\text{ J}$", "$6.6 \\\\times 10^{-34}\\\\text{ J}$", "$3 \\\\times 10^8\\\\text{ J}$", "$1.6 \\\\times 10^{-19}\\\\text{ J}$"],
+        "correct": "A",
+        "rationale": "The work function is $\\\\Phi = h f_0$. Calculating: $6.6 \\\\times 10^{-34} \\\\cdot 10^{15} = 6.6 \\\\times 10^{-19}\\\\text{ J}$."
+      },
+      {
+        "id": "p-67",
+        "q": "In a p-type semiconductor, the majority charge carriers are:",
+        "options": ["Electrons", "Holes", "Neutrons", "Protons"],
+        "correct": "B",
+        "rationale": "P-type material is doped with trivalent atoms, creating vacancies or 'holes' in the valence band that act as positive charge carriers."
+      },
+      {
+        "id": "p-68",
+        "q": "The energy required to completely remove an electron from an atom is called:",
+        "options": ["Ionization energy", "Binding energy", "Potential energy", "Kinetic energy"],
+        "correct": "A",
+        "rationale": "Ionization energy is the minimum energy required to remove an electron from its ground state to an infinite distance from the nucleus."
+      },
+      {
+        "id": "p-69",
+        "q": "Beta minus ($\\\\beta^-$) decay involves the emission of:",
+        "options": ["An electron", "A positron", "An alpha particle", "A neutron"],
+        "correct": "A",
+        "rationale": "In beta-minus decay, a neutron transforms into a proton while emitting an electron and an electron antineutrino."
+      },
+      {
+        "id": "p-70",
+        "q": "The wavelength of the peak emission from a blackbody is inversely proportional to its:",
+        "options": ["Surface area", "Absolute temperature", "Mass", "Volume"],
+        "correct": "B",
+        "rationale": "Wien's Displacement Law states that $\\\\lambda_{max} \\\\cdot T = b$, meaning peak wavelength decreases as temperature increases."
+      },
+      {
+        "id": "p-71",
+        "q": "A photon of blue light has more energy than a photon of red light because it has:",
+        "options": ["Higher frequency", "Longer wavelength", "Greater speed", "Larger mass"],
+        "correct": "A",
+        "rationale": "Energy is proportional to frequency ($E=hf$). Blue light has a shorter wavelength and thus a higher frequency than red light."
+      },
+      {
+        "id": "p-72",
+        "q": "Total Internal Reflection occurs when light moves from:",
+        "options": ["Denser to rarer medium at an angle > critical angle", "Rarer to denser medium", "Denser to rarer medium at an angle < critical angle", "Any medium at 90°"],
+        "correct": "A",
+        "rationale": "For TIR to occur, light must travel toward a medium with lower $n$ and the angle of incidence must exceed the critical angle."
+      },
+      {
+        "id": "p-73",
+        "q": "According to special relativity, the mass of an object moving at relativistic speeds appears to:",
+        "options": ["Increase", "Decrease", "Stay the same", "Become zero"],
+        "correct": "A",
+        "rationale": "Relativistic mass is given by $m = \\\\gamma m_0$. As velocity increases, the gamma factor $\\\\gamma$ increases, making the mass appear larger."
+      },
+      {
+        "id": "p-74",
+        "q": "Half-life is defined as the time required for:",
+        "options": ["Half the nuclei in a sample to decay", "All the nuclei to decay", "The mass of the sample to double", "The temperature to halve"],
+        "correct": "A",
+        "rationale": "Half-life ($T_{1/2}$) is the statistically constant time it takes for 50% of the radioactive parent nuclei in a sample to decay."
+      },
+      {
+        "id": "p-75",
+        "q": "The principle stating that no two electrons in an atom can have the same four quantum numbers is:",
+        "options": ["Pauli Exclusion Principle", "Aufbau Principle", "Hund's Rule", "Dalton's Law"],
+        "correct": "A",
+        "rationale": "The Pauli Exclusion Principle dictates the electronic configuration of atoms and the structure of the periodic table."
+      }
+]

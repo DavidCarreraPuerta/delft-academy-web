@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Timer, Video, Calculator, ChevronRight, Play } from "lucide-react";
+import { ShieldCheck, Timer, Video, Calculator, ChevronRight, Play, AlertTriangle, BatteryWarning } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -12,8 +12,7 @@ export const ProctorSimulatorIntro = ({ isEnrolled = false }: ProctorSimulatorIn
 
   const handleAction = () => {
     if (isEnrolled) {
-      // Navegación específica al simulador
-      navigate('/dashboard', { state: { section: 'simulator' } });
+      navigate('/simulator');
     } else {
       navigate('/auth');
     }
@@ -87,7 +86,8 @@ export const ProctorSimulatorIntro = ({ isEnrolled = false }: ProctorSimulatorIn
             <h4 className="text-xs font-black uppercase text-slate-400 mb-6 tracking-widest pl-2">Simulator Core Features</h4>
             <FeatureCard icon={<Video className="w-5 h-5" />} title="Virtual Proctoring Feed" desc="Get used to your webcam feed in the corner—it's distracting until you train with it." />
             <FeatureCard icon={<Timer className="w-5 h-5" />} title="Section Lockdowns" desc="Simulates the inability to return to previous subjects. Manage your time or lose your chance." />
-            <FeatureCard icon={<Calculator className="w-5 h-5" />} title="Native Digital Calculator" desc="Put your physical calculator away. You must use our integrated tool." />
+            <FeatureCard icon={<Calculator className="w-5 h-5" />} title="BETA Digital Calculator" desc="Tool in Beta mode. We strongly recommend using a PHYSICAL CALCULATOR to ensure 100% mathematical accuracy." />
+            <FeatureCard icon={<BatteryWarning className="w-5 h-5" />} title="Disable Standby Mode" desc="Ensure your PC doesn't enter sleep mode. System standby during the test will result in immediate session termination." />
 
             <div className="pt-6">
               <Button 
