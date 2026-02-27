@@ -19,7 +19,7 @@ export const generateOutcomePDF = (blocks: any[], answers: any, timers: any, use
   const doc = new jsPDF('p', 'mm', 'a4');
   const pageWidth = doc.internal.pageSize.getWidth();
 
-  // --- LÓGICA DE DATOS (MANTENIDA Y AMPLIADA PARA GRÁFICOS) ---
+  // --- LÓGICA DE DATOS ---
   const stats = blocks.map(b => {
     const total = b.data.length || 1;
     const right = b.data.filter((q: any) => answers[q.id] === q.correct).length;
@@ -36,10 +36,18 @@ export const generateOutcomePDF = (blocks: any[], answers: any, timers: any, use
     };
   });
 
-  const m = stats[0] || { pct: 0, timeMins: 0, blanks: 0, right: 0, failed: 0, missed: 0, total: 1 };
-  const p = stats[1] || { pct: 0, timeMins: 0, blanks: 0, right: 0, failed: 0, missed: 0, total: 1 };
-  const a = stats[2] || { pct: 0, timeMins: 0, blanks: 0, right: 0, failed: 0, missed: 0, total: 1 };
   const totalTime = stats.reduce((acc, s) => acc + s.timeMins, 0);
+  const totalBlanks = stats.reduce((acc, s) => acc + s.blanks, 0);
+  const averageScore = Math.round(stats.reduce((acc, s) => acc + s.pct, 0) / stats.length);
+  
+  const strongBlocks = stats.filter(s => s.pct >= 70).map(s => s.name);
+  const weakBlocks = stats.filter(s => s.pct < 50).map(s => s.name);
+  
+  const formatList = (list: string[]) => {
+    if (list.length === 0) return "none";
+    if (list.length === 1) return list[0];
+    return list.slice(0, -1).join(", ") + " and " + list.slice(-1);
+  };
 
   // --- CABECERA ---
   doc.setFillColor(15, 23, 42);
@@ -52,7 +60,7 @@ export const generateOutcomePDF = (blocks: any[], answers: any, timers: any, use
   doc.text(`CANDIDATE: ${user?.name || 'studentalldocs'}`, 20, 28);
   doc.text(`DATE: ${new Date().toLocaleDateString()}`, 150, 28);
 
-  // --- 1. TEST RESULTS BY SUBJECT (Con Leyenda y Datos) ---
+  // --- 1. TEST RESULTS BY SUBJECT ---
   let currentY = 55;
   doc.setTextColor(15, 23, 42);
   doc.setFontSize(13);
@@ -74,7 +82,6 @@ export const generateOutcomePDF = (blocks: any[], answers: any, timers: any, use
     doc.setFillColor(colors.missed[0], colors.missed[1], colors.missed[2]);
     doc.rect(xBase + (colW * 2) + 2, currentY + 8 + (chartH - hMissed), colW, hMissed, 'F');
 
-    // Datos numéricos sobre las barras
     doc.setFontSize(6);
     doc.setTextColor(100);
     doc.text(`${s.right}`, xBase + 1, currentY + 7 + (chartH - hRight));
@@ -85,8 +92,7 @@ export const generateOutcomePDF = (blocks: any[], answers: any, timers: any, use
     doc.setTextColor(15, 23, 42);
     doc.text(s.name.toUpperCase(), xBase, currentY + 38);
   });
-
-  // Nueva Leyenda
+  
   doc.setFontSize(7);
   doc.text("Legend: Green = Correct | Red = Wrong | Grey = Blanks", 35, currentY + 44);
 
@@ -108,19 +114,17 @@ export const generateOutcomePDF = (blocks: any[], answers: any, timers: any, use
     doc.rect(65, barY - 2.5, Math.max(timeWidth, 2), 2.5, 'F');
   });
 
-  // --- 3. STRATEGIC EXECUTIVE SUMMARY (Humanizado y Corregido) ---
+  // --- 3. STRATEGIC EXECUTIVE SUMMARY (IDENTICAL A LA WEB) ---
   currentY = 145;
   doc.setFontSize(13);
   doc.text("3. STRATEGIC EXECUTIVE SUMMARY", 20, currentY);
 
-  const averageScore = (m.pct + p.pct + a.pct) / 3;
-  const isOvertime = totalTime > 90; // Detecta si excedió los 90 min totales
+  const pacingStatus = totalTime > 90 ? "improvable due to overtime" : "optimal";
 
   const paras = [
-    `TIME AUDIT: You spent ${totalTime} minutes in total. ${isOvertime ? `Careful! You exceeded the 90-min limit by ${totalTime - 90} min. In a real exam, your progress would have been auto-submitted at 90'.` : "Your pacing was within the official limits."}`,
-    `GUESSING: You left ${m.blanks + p.blanks + a.blanks} questions blank. TU Delft does NOT penalize wrong answers; leaving blanks is a strategic mistake. Always guess.`,
-    `PERFORMANCE: Your overall accuracy is ${Math.round(averageScore)}%. We recommend focusing on blocks where you scored below 70% to improve your ranking.`,
-    `SECURITY: Proctoring alerts: ${warnings}. This reflects focus changes or window switching. Too many alerts (3+) could lead to manual review or disqualification.`
+    `Your overall accuracy stands at ${averageScore}%. Based on your performance, you should prioritize reinforcing ${formatList(weakBlocks)}, as these areas currently fall below the competitive threshold. Conversely, you demonstrated a strong command of ${formatList(strongBlocks)}.`,
+    `Your time management was ${pacingStatus}. You completed the test in ${totalTime} minutes, leaving ${totalBlanks} questions unanswered. Remember for your next attempt: TU Delft does not penalize wrong answers. It is strategically vital to guess every single question rather than leaving blanks.`,
+    `Proctoring alerts: ${warnings}. This metric tracks focus changes or unauthorized window switching. Maintaining strict focus is essential, as more than 3 alerts typically trigger a manual review or disqualification in the official selection process.`
   ];
 
   let statusColor = averageScore > 70 ? [22, 163, 74] : averageScore > 40 ? [234, 179, 8] : [220, 38, 38];
@@ -133,13 +137,19 @@ export const generateOutcomePDF = (blocks: any[], answers: any, timers: any, use
   currentY += 5;
   doc.setFillColor(248, 250, 252);
   doc.setDrawColor(226, 232, 240);
-  doc.roundedRect(15, currentY, 180, 42, 3, 3, 'FD');
+  doc.roundedRect(15, currentY, 180, 48, 3, 3, 'FD');
   doc.setTextColor(51, 65, 85);
   doc.setFontSize(8);
-  paras.forEach((p, i) => doc.text(p, 20, currentY + 10 + (i * 7), { maxWidth: 170 }));
+  
+  let textY = currentY + 10;
+  paras.forEach((p) => {
+    const lines = doc.splitTextToSize(p, 170);
+    doc.text(lines, 20, textY);
+    textY += (lines.length * 4) + 2; // Salto de línea dinámico según el texto
+  });
 
   // --- 4. TOP 10 TIME-SINKS ---
-  currentY = 202;
+  currentY = 210;
   doc.setFontSize(13);
   doc.setTextColor(15, 23, 42);
   doc.text("4. TOP 10 TIME-SINKS", 20, currentY);
@@ -157,7 +167,7 @@ export const generateOutcomePDF = (blocks: any[], answers: any, timers: any, use
     doc.text(`${i+1}. [${q.status}] ${q.time}s - ${cleanLaTeX(q.text).substring(0, 90)}...`, 25, currentY + 8 + (i * 5.5));
   });
 
-  // --- PÁGINA 2: REVIEW TABLE (RESTAURADA INTEGRA) ---
+  // --- PÁGINA 2: REVIEW TABLE ---
   doc.addPage('a4', 'l');
   doc.setFillColor(15, 23, 42);
   doc.rect(0, 0, 297, 15, 'F');

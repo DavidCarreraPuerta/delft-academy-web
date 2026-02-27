@@ -405,7 +405,7 @@ useEffect(() => {
   }
 
   // ------------------------------------------
-  // 10. RESULTS & FULL DIAGNOSTIC SCREEN (VERSIÓN FINAL SIN SCALE)
+  // 10. RESULTS & FULL DIAGNOSTIC SCREEN (VERSIÓN FINAL PRO)
   // ------------------------------------------
   if (view === "results") {
     const currentUser = (window as any).currentUser || { name: "Candidato Delft", email: "aspirante@delft.nl" };
@@ -421,28 +421,42 @@ useEffect(() => {
     });
 
     const pending = 70 - Object.keys(selectedAnswers).length;
-    const weakSection = Object.keys(scores).reduce((a, b) => 
-      b !== 'total' && (scores[a] || 0) < (scores[b] || 0) ? a : b
-    );
+    const totalTimeMins = Math.floor(Object.values(questionTimers).reduce((a, b) => a + b, 0) / 60);
+    const totalAccuracy = Math.round((scores.total / 70) * 100);
+
+    // Identificación de bloques fuertes y débiles
+    const strongBlocks = shuffledBlocks
+      .filter(b => (scores[b.id] / b.data.length) >= 0.7)
+      .map(b => b.name);
+    const weakBlocks = shuffledBlocks
+      .filter(b => (scores[b.id] / b.data.length) < 0.5)
+      .map(b => b.name);
+
+    const formatList = (list: string[]) => {
+      if (list.length === 0) return "none";
+      if (list.length === 1) return list[0];
+      return list.slice(0, -1).join(", ") + " and " + list.slice(-1);
+    };
+
+    const pacingStatus = totalTimeMins > 90 ? "improvable due to overtime" : "optimal";
 
     return (
       <div className="fixed inset-0 bg-slate-50 z-[10000] overflow-y-auto font-sans">
-        {/* Contenedor sin SCALE para no afectar al tamaño real de la App */}
         <div className="w-full max-w-4xl mx-auto my-4 px-2">
           
           <div className="bg-white rounded-[2rem] shadow-2xl border border-slate-100 overflow-hidden">
             
-            {/* Cabecera compacta por diseño, no por escala */}
+            {/* Cabecera */}
             <div className="p-4 text-center border-b border-slate-50 bg-white">
               <Award className="w-8 h-8 text-orange-600 mx-auto mb-1" />
               <h2 className="text-xl font-black italic uppercase text-slate-900 tracking-tighter">Training Outcome</h2>
               <div className="flex justify-center items-baseline gap-2">
-                <span className="text-5xl font-black text-slate-900">{Math.round((scores.total/70)*100)}%</span>
+                <span className="text-5xl font-black text-slate-900">{totalAccuracy}%</span>
                 <span className="text-[10px] font-bold text-slate-400 uppercase italic">Global Accuracy ({scores.total}/70)</span>
               </div>
             </div>
 
-            {/* Grid de bloques: ajuste de altura manual para que sea compacto */}
+            {/* Grid de bloques */}
             <div className="p-3 grid grid-cols-1 md:grid-cols-3 gap-3 bg-slate-50/50">
               {shuffledBlocks.map(b => (
                 <div key={b.id} className="bg-white py-3 px-4 rounded-[1.2rem] border shadow-sm text-center">
@@ -455,20 +469,36 @@ useEffect(() => {
               ))}
             </div>
 
-            {/* Sección de Coaching */}
+            {/* Sección de Coaching (Caja Oscura Pro) */}
             <div className="px-6 py-4 space-y-3 bg-white">
-              <div className="bg-slate-900 text-white p-5 rounded-[1.5rem] border border-slate-800">
-                <h3 className="text-orange-500 font-black uppercase text-[9px] mb-2 flex items-center gap-2 italic tracking-widest">
+              <div className="bg-slate-900 text-white p-6 rounded-[1.5rem] border border-slate-800 shadow-inner">
+                <h3 className="text-orange-500 font-black uppercase text-[9px] mb-4 flex items-center gap-2 italic tracking-widest">
                   <Clock className="w-3 h-3" /> Strategic Diagnostic
                 </h3>
-                <div className="text-[10px] space-y-2 text-slate-300 italic leading-relaxed">
-                  <p><span className="text-white font-black uppercase not-italic mr-2">Pacing:</span> {Object.values(timeSpent).some(t => t > 1800) ? "Focus on speed." : "Optimal pace."}</p>
-                  <p><span className="text-white font-black uppercase not-italic mr-2">Guessing:</span> {pending > 0 ? `Fill all ${pending} blanks.` : "Perfect Strategy."}</p>
-                  <p><span className="text-white font-black uppercase not-italic mr-2">Focus:</span> Improve <span className="text-orange-500 font-black not-italic">{weakSection.toUpperCase()}</span>.</p>
+                
+                <div className="text-[11px] space-y-4 text-slate-300 italic leading-relaxed">
+                  <p>
+                    Your overall accuracy stands at <span className="text-white font-bold not-italic">{totalAccuracy}%</span>. 
+                    Based on your performance, you should prioritize reinforcing <span className="text-orange-400 font-bold not-italic">{formatList(weakBlocks)}</span>, 
+                    as these areas currently fall below the competitive threshold. Conversely, you demonstrated a strong command of <span className="text-green-400 font-bold not-italic">{formatList(strongBlocks)}</span>.
+                  </p>
+
+                  <p>
+                    Your time management was <span className="text-white font-bold not-italic">{pacingStatus}</span>. 
+                    You completed the test in <span className="text-white font-bold not-italic">{totalTimeMins} minutes</span>, 
+                    leaving <span className="text-white font-bold not-italic">{pending} questions</span> unanswered. 
+                    Remember for your next attempt: TU Delft does not penalize wrong answers. It is strategically vital to guess every single question rather than leaving blanks.
+                  </p>
+
+                  <p>
+                    Proctoring alerts: <span className="text-orange-500 font-bold not-italic">{warnings}</span>. 
+                    This metric tracks focus changes or unauthorized window switching. Maintaining strict focus is essential, 
+                    as more than 3 alerts typically trigger a manual review or disqualification in the official selection process.
+                  </p>
                 </div>
               </div>
 
-              {/* Botonera con tamaño 100% real */}
+              {/* Botonera */}
               <div className="flex gap-2 pb-2">
                 <Button 
                   onClick={() => navigate("/")} 
@@ -490,16 +520,15 @@ useEffect(() => {
                       name: currentUser.name && currentUser.name !== "Candidato Delft" ? currentUser.name : "studentalldocs",
                       email: currentUser.email || "studentalldocs@gmail.com"
                     };
-                    toast.dismiss(); // <--- AÑADE ESTO PARA LIMPIAR LA PANTALLA
-                    generateOutcomePDF(shuffledBlocks, selectedAnswers, questionTimers, pdfUser);
+                    toast.dismiss();
+                    generateOutcomePDF(shuffledBlocks, selectedAnswers, questionTimers, pdfUser, warnings);
                   }}
                   className="flex-1 h-11 bg-orange-600 text-white rounded-xl font-black uppercase text-[10px] gap-2 shadow-xl shadow-orange-100 hover:bg-orange-700 transition-colors"
->
-  <FileText className="w-4 h-4"/> Export Audit PDF
-</Button>
+                >
+                  <FileText className="w-4 h-4"/> Export Audit PDF
+                </Button>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -655,7 +684,7 @@ useEffect(() => {
                   BETA: Use a physical calculator for 100% precision
                 </p>
               </div>
-              
+
               <div className="grid grid-cols-4 gap-1">
                 {['sin(', 'cos(', '√(', '^', '(', ')', 'π', '/', '7','8','9','*', '4','5','6','-', '1','2','3','+', 'C','0','=','.'].map(k => (
                   <button 
