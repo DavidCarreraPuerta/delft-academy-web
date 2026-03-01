@@ -698,5 +698,629 @@
         "options": ["Main wing spar", "Fuselage bulkhead", "Fairings and minor access panels", "Landing gear beam"],
         "correct": "C",
         "rationale": "Secondary structures provide aerodynamic shape or protection but are not essential for the primary load-carrying capability of the aircraft."
-      }
+      },
+      {
+        "id": "ae-101",
+        "q": "Which aerodynamic pioneer is specifically credited with the first controlled, sustained flight of a powered, heavier-than-air aircraft?",
+        "options": ["Otto Lilienthal", "Samuel Langley", "The Wright Brothers", "Leonardo da Vinci"],
+        "correct": "C",
+        "rationale": "The Wright brothers achieved the first powered, controlled flight in 1903, introducing the critical concept of three-axis control."
+      },
+      {
+        "id": "ae-105",
+        "q": "If the airspeed of an aircraft increases from 100 m/s to 300 m/s (3x increase), how does the lift change, assuming all other factors remain constant?",
+        "options": ["It increases by 3 times", "It increases by 6 times", "It increases by 9 times", "It stays the same"],
+        "correct": "C",
+        "rationale": "Lift is proportional to the square of the velocity ($Lift = k \\cdot v^2$). Therefore, if velocity triples (3x), lift increases by $3^2 = 9$ times."
+      },
+      {
+        "id": "ae-108",
+        "q": "In the lift equation ($L = \\frac{1}{2} \\rho v^2 S C_L$), what does the symbol '$\\rho$' (rho) represent?",
+        "options": ["Air velocity", "Wing surface area", "Air density", "Lift coefficient"],
+        "correct": "C",
+        "rationale": "The Greek letter rho ($\\rho$) represents the density of the air, which directly affects the amount of lift produced."
+      },
+      {
+        "id": "ae-109",
+        "q": "A wing has a surface area of 40 m² and a wingspan of 20 m. What is its Aspect Ratio?",
+        "options": ["2", "5", "8", "10"],
+        "correct": "D",
+        "rationale": "Aspect Ratio is calculated as $AR = b^2 / S$. Here, $20^2 / 40 = 400 / 40 = 10$."
+      },
+      {
+        "id": "ae-110",
+        "q": "Which pioneer focused on studying glider flight and is known for his book 'Birdflight as the Basis of Aviation'?",
+        "options": ["Chuck Yeager", "Otto Lilienthal", "John Glenn", "Robert Goddard"],
+        "correct": "B",
+        "rationale": "Otto Lilienthal was a German pioneer who successfully completed thousands of glider flights, proving that human flight was possible through aerodynamic study."
+      },
+      {
+        "id": "ae-111",
+        "q": "What happens to the lift produced by a wing if the air density is halved (e.g., at high altitude)?",
+        "options": ["Lift doubles", "Lift stays the same", "Lift is reduced by half", "Lift becomes zero"],
+        "correct": "C",
+        "rationale": "Lift is directly proportional to air density ($\\rho$). If density is reduced by 50%, lift also decreases by 50%."
+      },
+      {
+        "id": "ae-112",
+        "q": "The 'Angle of Attack' is defined as the angle between:",
+        "options": ["The chord line and the relative wind", "The chord line and the horizon", "The upper and lower surfaces", "The fuselage and the wing spar"],
+        "correct": "A",
+        "rationale": "Angle of Attack (AoA) is the angle formed between the wing's chord line and the direction of the oncoming air (relative wind)."
+      },
+      {
+        "id": "ae-113",
+        "q": "Which component of an aircraft is used to control the 'Roll' motion (rotation around the longitudinal axis)?",
+        "options": ["Rudder", "Elevator", "Ailerons", "Vertical Stabilizer"],
+        "correct": "C",
+        "rationale": "Ailerons are located on the trailing edge of the wings and work differentially to create roll by increasing lift on one wing and decreasing it on the other."
+      },
+      {
+        "id": "ae-115",
+        "q": "If an aircraft has a Lift-to-Drag (L/D) ratio of 15 and its total weight is 15,000 N, how much thrust is required for steady level flight?",
+        "options": ["1,000 N", "1,500 N", "10,000 N", "150 N"],
+        "correct": "A",
+        "rationale": "In steady level flight, Lift = Weight and Thrust = Drag. If $L/D = 15$, then $Drag = Lift / 15 = 15,000 / 15 = 1,000$ N. Thus, 1,000 N of thrust is needed."
+      },
+      {
+        "id": "ae-116",
+        "q": "What is the primary reason behind the Continuity Equation in fluid mechanics?",
+        "options": ["Conservation of Energy", "Conservation of Momentum", "Conservation of Mass", "Conservation of Entropy"],
+        "correct": "C",
+        "rationale": "The continuity equation states that for a steady flow, the mass flow rate entering a system must equal the mass flow rate leaving it ($\\rho_1 A_1 V_1 = \\rho_2 A_2 V_2$)."
+      },
+      {
+        "id": "ae-117",
+        "q": "The Equation of State for a perfect gas ($P = \\rho R T$) relates which three properties?",
+        "options": ["Pressure, Velocity, and Temperature", "Pressure, Density, and Temperature", "Density, Area, and Velocity", "Force, Mass, and Acceleration"],
+        "correct": "B",
+        "rationale": "The perfect gas law relates the state variables of pressure (P), density ($\\rho$), and absolute temperature (T) through the specific gas constant (R)."
+      },
+      {
+        "id": "ae-118",
+        "q": "Which of the following is an essential assumption for applying the Bernoulli Equation?",
+        "options": ["The flow must be viscous", "The flow must be unsteady", "The flow must be inviscid (frictionless)", "The flow must be supersonic"],
+        "correct": "C",
+        "rationale": "Bernoulli's equation assumes the flow is steady, incompressible, and inviscid, meaning friction and thermal effects are neglected."
+      },
+      {
+        "id": "ae-119",
+        "q": "What is the SI unit of pressure?",
+        "options": ["Joule", "Watt", "Pascal", "Newton"],
+        "correct": "C",
+        "rationale": "The Pascal (Pa) is the SI unit for pressure, defined as one Newton per square meter ($N/m^2$)."
+      },
+      {
+        "id": "ae-120",
+        "q": "In a stream tube with incompressible flow, if the cross-sectional area doubles, what happens to the velocity?",
+        "options": ["It doubles", "It remains the same", "It is halved", "It quadruples"],
+        "correct": "C",
+        "rationale": "For incompressible flow, $A_1 V_1 = A_2 V_2$. If area $A_2 = 2A_1$, then $V_2$ must be $V_1 / 2$ to maintain balance."
+      },
+      {
+        "id": "ae-121",
+        "q": "Which equation is derived directly from Newton’s Second Law ($F=ma$) applied to a fluid element?",
+        "options": ["The Continuity Equation", "The Euler Equation", "The Equation of State", "The Ideal Gas Law"],
+        "correct": "B",
+        "rationale": "The Euler equation relates the pressure gradient to the acceleration of a fluid element, representing the conservation of momentum."
+      },
+      {
+        "id": "ae-122",
+        "q": "The term 'Specific Volume' is defined as:",
+        "options": ["Volume per unit area", "Volume per unit mass", "The inverse of pressure", "Mass per unit volume"],
+        "correct": "B",
+        "rationale": "Specific volume ($v$) is the volume occupied by 1 kg of a substance and is the reciprocal of density ($v = 1/\\rho$)."
+      },
+      {
+        "id": "ae-123",
+        "q": "What is the standard sea-level air density according to the International Standard Atmosphere (ISA)?",
+        "options": ["1.0 kg/m³", "1.225 kg/m³", "0.9 kg/m³", "1.5 kg/m³"],
+        "correct": "B",
+        "rationale": "Standard sea-level density is defined as 1.225 $kg/m^3$ at a temperature of 15°C and pressure of 101,325 Pa."
+      },
+      {
+        "id": "ae-124",
+        "q": "A Pitot tube measures a total pressure of 71,000 Pa. If the static pressure is 41,000 Pa and air density is 0.5 kg/m³, what is the velocity?",
+        "options": ["243.5 m/s", "346.4 m/s", "122.0 m/s", "400.0 m/s"],
+        "correct": "B",
+        "rationale": "Using $V = \\sqrt{2(P_{total} - P_{static}) / \\rho} = \\sqrt{2(30,000) / 0.5} = \\sqrt{120,000} \\approx 346.4$ m/s."
+      },
+      {
+        "id": "ae-125",
+        "q": "Which type of flow is characterized by fluid particles moving in smooth, parallel layers without mixing?",
+        "options": ["Turbulent flow", "Laminar flow", "Supersonic flow", "Vortex flow"],
+        "correct": "B",
+        "rationale": "Laminar flow occurs when a fluid flows in parallel layers, with no disruption between the layers."
+      },
+      {
+        "id": "ae-126",
+        "q": "If the temperature of a gas in a sealed container of constant volume increases, what happens to the pressure?",
+        "options": ["It decreases", "It increases", "It stays the same", "It drops to zero"],
+        "correct": "B",
+        "rationale": "According to the ideal gas law ($P = \\rho R T$), if density ($\\rho$) and the gas constant (R) are constant, pressure (P) is directly proportional to temperature (T)."
+      },
+      {
+        "id": "ae-127",
+        "q": "What happens to the total pressure along a streamline in an inviscid, incompressible flow according to Bernoulli?",
+        "options": ["It increases", "It decreases", "It remains constant", "It fluctuates"],
+        "correct": "C",
+        "rationale": "Bernoulli's principle states that the sum of static and dynamic pressure (total pressure) is constant along a streamline."
+      },
+      {
+        "id": "ae-128",
+        "q": "A stream tube has an inlet area of 5 m² and velocity of 10 m/s. If the exit area is 2 m², what is the exit velocity (assuming incompressible flow)?",
+        "options": ["4 m/s", "15 m/s", "25 m/s", "50 m/s"],
+        "correct": "C",
+        "rationale": "$A_1 V_1 = A_2 V_2 \\implies (5)(10) = (2)(V_2) \\implies 50 = 2V_2 \\implies V_2 = 25$ m/s."
+      },
+      {
+        "id": "ae-129",
+        "q": "What is 'Hydrostatic Equation' primarily used for in aerodynamics?",
+        "options": ["Calculating lift", "Determining pressure change with altitude", "Measuring engine thrust", "Finding skin friction"],
+        "correct": "B",
+        "rationale": "The hydrostatic equation ($dP = -\\rho g dh$) describes how pressure changes within a fluid due to gravity and height."
+      },
+      {
+        "id": "ae-130",
+        "q": "In the context of the Continuity Equation, what is 'Mass Flow Rate'?",
+        "options": ["The total mass of the aircraft", "The mass of fluid passing through a surface per unit time", "The volume of the fuel tanks", "The density of air at sea level"],
+        "correct": "B",
+        "rationale": "Mass flow rate ($\\dot{m}$) is the amount of mass passing through a cross-section per second, calculated as $\\dot{m} = \\rho A V$."
+      },
+      {
+    "id": "ae-116",
+    "q": "What is the primary physical principle behind the Continuity Equation in fluid mechanics?",
+    "options": ["Conservation of Energy", "Conservation of Momentum", "Conservation of Mass", "Conservation of Entropy"],
+    "correct": "C",
+    "rationale": "The continuity equation states that for a steady flow, the mass flow rate entering a system must equal the mass flow rate leaving it ($\rho_1 A_1 V_1 = \rho_2 A_2 V_2$)."
+  },
+  {
+    "id": "ae-117",
+    "q": "The Equation of State for a perfect gas ($P = \rho R T$) relates which three properties?",
+    "options": ["Pressure, Velocity, and Temperature", "Pressure, Density, and Temperature", "Density, Area, and Velocity", "Force, Mass, and Acceleration"],
+    "correct": "B",
+    "rationale": "The perfect gas law relates the state variables of pressure (P), density ($\rho$), and absolute temperature (T) through the specific gas constant (R)."
+  },
+  {
+    "id": "ae-118",
+    "q": "Which of the following is an essential assumption for applying the Bernoulli Equation?",
+    "options": ["The flow must be viscous", "The flow must be unsteady", "The flow must be inviscid (frictionless)", "The flow must be supersonic"],
+    "correct": "C",
+    "rationale": "Bernoulli's equation assumes the flow is steady, incompressible, and inviscid, meaning friction and thermal effects are neglected."
+  },
+  {
+    "id": "ae-119",
+    "q": "What is the SI unit of pressure?",
+    "options": ["Joule", "Watt", "Pascal", "Newton"],
+    "correct": "C",
+    "rationale": "The Pascal (Pa) is the SI unit for pressure, defined as one Newton per square meter ($N/m^2$)."
+  },
+  {
+    "id": "ae-120",
+    "q": "In a stream tube with incompressible flow, if the cross-sectional area doubles, what happens to the velocity?",
+    "options": ["It doubles", "It remains the same", "It is halved", "It quadruples"],
+    "correct": "C",
+    "rationale": "For incompressible flow, $A_1 V_1 = A_2 V_2$. If area $A_2 = 2A_1$, then $V_2$ must be $V_1 / 2$ to maintain balance."
+  },
+  {
+    "id": "ae-121",
+    "q": "Which equation is derived directly from Newton’s Second Law ($F=ma$) applied to a fluid element?",
+    "options": ["The Continuity Equation", "The Euler Equation", "The Equation of State", "The Ideal Gas Law"],
+    "correct": "B",
+    "rationale": "The Euler equation relates the pressure gradient to the acceleration of a fluid element, representing the conservation of momentum."
+  },
+  {
+    "id": "ae-122",
+    "q": "The term 'Specific Volume' is defined as:",
+    "options": ["Volume per unit area", "Volume per unit mass", "The inverse of pressure", "Mass per unit volume"],
+    "correct": "B",
+    "rationale": "Specific volume ($v$) is the volume occupied by 1 kg of a substance and is the reciprocal of density ($v = 1/\rho$)."
+  },
+  {
+    "id": "ae-123",
+    "q": "What is the standard sea-level air density according to the International Standard Atmosphere (ISA)?",
+    "options": ["1.0 kg/m³", "1.225 kg/m³", "0.9 kg/m³", "1.5 kg/m³"],
+    "correct": "B",
+    "rationale": "Standard sea-level density is defined as 1.225 $kg/m^3$ at a temperature of 15°C and pressure of 101,325 Pa."
+  },
+  {
+    "id": "ae-124",
+    "q": "A Pitot tube measures a total pressure of 71,000 Pa. If the static pressure is 41,000 Pa and air density is 0.5 kg/m³, what is the velocity?",
+    "options": ["243.5 m/s", "346.4 m/s", "122.0 m/s", "400.0 m/s"],
+    "correct": "B",
+    "rationale": "Using $V = \sqrt{2(P_{total} - P_{static}) / \rho} = \sqrt{2(30,000) / 0.5} = \sqrt{120,000} \approx 346.4$ m/s."
+  },
+  {
+    "id": "ae-125",
+    "q": "Which type of flow is characterized by fluid particles moving in smooth, parallel layers without mixing?",
+    "options": ["Turbulent flow", "Laminar flow", "Supersonic flow", "Vortex flow"],
+    "correct": "B",
+    "rationale": "Laminar flow occurs when a fluid flows in parallel layers, with no disruption between the layers."
+  },
+  {
+    "id": "ae-126",
+    "q": "If the temperature of a gas in a sealed container of constant volume increases, what happens to the pressure?",
+    "options": ["It decreases", "It increases", "It stays the same", "It drops to zero"],
+    "correct": "B",
+    "rationale": "According to the ideal gas law ($P = \rho R T$), if density ($\rho$) and the gas constant (R) are constant, pressure (P) is directly proportional to temperature (T)."
+  },
+  {
+    "id": "ae-127",
+    "q": "What happens to the total pressure along a streamline in an inviscid, incompressible flow according to Bernoulli?",
+    "options": ["It increases", "It decreases", "It remains constant", "It fluctuates"],
+    "correct": "C",
+    "rationale": "Bernoulli's principle states that the sum of static and dynamic pressure (total pressure) is constant along a streamline."
+  },
+  {
+    "id": "ae-128",
+    "q": "A stream tube has an inlet area of 5 m² and velocity of 10 m/s. If the exit area is 2 m², what is the exit velocity (assuming incompressible flow)?",
+    "options": ["4 m/s", "15 m/s", "25 m/s", "50 m/s"],
+    "correct": "C",
+    "rationale": "$A_1 V_1 = A_2 V_2 \implies (5)(10) = (2)(V_2) \implies 50 = 2V_2 \implies V_2 = 25$ m/s."
+  },
+  {
+    "id": "ae-129",
+    "q": "What is 'Hydrostatic Equation' primarily used for in aerodynamics?",
+    "options": ["Calculating lift", "Determining pressure change with altitude", "Measuring engine thrust", "Finding skin friction"],
+    "correct": "B",
+    "rationale": "The hydrostatic equation ($dP = -\rho g dh$) describes how pressure changes within a fluid (like the atmosphere) due to gravity and height."
+  },
+  {
+    "id": "ae-130",
+    "q": "In the context of the Continuity Equation, what is 'Mass Flow Rate'?",
+    "options": ["The total mass of the aircraft", "The mass of fluid passing through a surface per unit time", "The volume of the fuel tanks", "The density of air at sea level"],
+    "correct": "B",
+    "rationale": "Mass flow rate ($\dot{m}$) is the amount of mass passing through a cross-section per second, calculated as $\dot{m} = \rho A V$."
+  },
+  {
+    "id": "ae-131",
+    "q": "In the Airpath Axis System, what are the accelerations in the directions of the velocity vector (forward) and perpendicular to it?",
+    "options": ["Forward: $V^2/R$, Perpendicular: $dV/dt$", "Forward: $dV/dt$, Perpendicular: $V(d\\gamma/dt)$", "Forward: $d\\gamma/dt$, Perpendicular: $V^2$", "Forward: $V$, Perpendicular: $g$"],
+    "correct": "B",
+    "rationale": "In the airpath coordinate system, the acceleration along the flight path is the rate of change of speed ($dV/dt$), while the normal acceleration relates to the change in flight path angle ($\\gamma$) over time."
+  },
+  {
+    "id": "ae-132",
+    "q": "Why do gliders typically have a very high Aspect Ratio?",
+    "options": ["To increase stall speed", "To reduce zero-lift drag", "To minimize induced drag and improve glide efficiency", "To allow for higher cruise speeds"],
+    "correct": "C",
+    "rationale": "Gliders need a high Lift-to-Drag ratio ($L/D$) to cover long distances without an engine. A high aspect ratio reduces induced drag, which is the dominant drag component at low speeds."
+  },
+  {
+    "id": "ae-134",
+    "q": "Why is it inefficient for propeller-driven aircraft to fly at very high altitudes?",
+    "options": ["Air density is too low for the propeller to generate sufficient thrust", "High temperatures at altitude damage the blades", "The air is too thin for the wings to create any lift", "Propellers only work in the troposphere"],
+    "correct": "A",
+    "rationale": "As altitude increases, air density ($\\rho$) drops. Since thrust produced by a propeller depends on the mass of air moved, its efficiency and maximum thrust decrease significantly in thin air."
+  },
+  {
+    "id": "ae-135",
+    "q": "What is the primary reason jet engines are more efficient at high flight velocities compared to propeller engines?",
+    "options": ["Jet engines use less fuel at low speeds", "Propulsive efficiency of a jet increases with flight speed", "Jet engines do not require oxygen", "Air resistance disappears at high speeds"],
+    "correct": "B",
+    "rationale": "Propulsive efficiency is related to the difference between flight speed and exhaust speed. At high speeds, this difference is optimized for jet engines, whereas propellers lose efficiency due to tip compressibility effects."
+  },
+  {
+    "id": "ae-136",
+    "q": "In steady, level flight, which of the following force balances is correct?",
+    "options": ["Lift = Drag and Thrust = Weight", "Lift = Weight and Thrust = Drag", "Lift + Drag = Weight", "Thrust = Weight / Lift"],
+    "correct": "B",
+    "rationale": "For an aircraft to maintain steady level flight (no acceleration and constant altitude), the vertical forces (Lift and Weight) and horizontal forces (Thrust and Drag) must cancel each other out."
+  },
+  {
+    "id": "ae-137",
+    "q": "For a jet engine, at which velocity does the maximum rate of climb occur?",
+    "options": ["At the velocity for minimum drag", "At the velocity for maximum power", "At the velocity for maximum Thrust-minus-Drag ($T-D$)", "At the stall speed"],
+    "correct": "C",
+    "rationale": "The rate of climb ($RC$) is proportional to the excess power. For jets, which have relatively constant thrust, the maximum excess power (and thus $RC$) occurs where the gap between Thrust and Drag is greatest."
+  },
+  {
+    "id": "ae-138",
+    "q": "What happens to the 'Power Required' ($P_r$) curve as the altitude of the aircraft increases?",
+    "options": ["It shifts down and to the left", "It remains unchanged", "It shifts up and to the right", "It becomes a vertical line"],
+    "correct": "C",
+    "rationale": "At higher altitudes (lower density), the aircraft must fly faster to produce the same lift, and more power is required to overcome drag at those higher true airspeeds."
+  },
+  {
+    "id": "ae-139",
+    "q": "The 'Service Ceiling' of an aircraft is typically defined as the altitude where the maximum rate of climb drops to:",
+    "options": ["0 m/s", "100 ft/min (0.5 m/s)", "500 ft/min", "1000 ft/min"],
+    "correct": "B",
+    "rationale": "The Service Ceiling is a practical limit where the climb performance becomes very low (typically 100 feet per minute), whereas the Absolute Ceiling is where the rate of climb is exactly zero."
+  },
+  {
+    "id": "ae-140",
+    "q": "In a steady climb at an angle $\\gamma$, the required Lift ($L$) is:",
+    "options": ["Equal to Weight ($W$)", "Greater than Weight ($W$)", "Equal to $W \\cos(\\gamma)$", "Equal to $W \\sin(\\gamma)$"],
+    "correct": "C",
+    "rationale": "In a climb, the lift only needs to balance the component of weight perpendicular to the flight path, which is $W \\cos(\\gamma)$. Therefore, $L < W$ in a climb."
+  },
+  {
+    "id": "ae-141",
+    "q": "Which speed corresponds to the Maximum Range for a jet aircraft?",
+    "options": ["The speed for minimum drag ($V_{md}$)", "A speed higher than $V_{md}$ (specifically where $C_L^{1/2}/C_D$ is max)", "The stall speed", "The speed for minimum power"],
+    "correct": "B",
+    "rationale": "For jet aircraft, maximum range occurs at a higher velocity than minimum drag to optimize the ratio of velocity to fuel flow (Specific Range)."
+  },
+  {
+    "id": "ae-142",
+    "q": "What is 'Specific Endurance'?",
+    "options": ["The distance flown per unit of fuel", "The time an aircraft can remain airborne per unit of fuel", "The maximum weight of fuel allowed", "The time required to reach the ceiling"],
+    "correct": "B",
+    "rationale": "Endurance refers to time in the air. Specific endurance is the ratio of time to fuel consumed ($dt/dW_f$), which is maximized by flying at the minimum fuel flow speed."
+  },
+  {
+    "id": "ae-143",
+    "q": "If an aircraft is flying at the velocity for 'Maximum Endurance', it is:",
+    "options": ["Flying as fast as possible", "Flying at the minimum fuel consumption per hour", "Flying the maximum possible distance", "Flying at the highest possible altitude"],
+    "correct": "B",
+    "rationale": "Maximum endurance is achieved by minimizing the fuel flow rate, which for most aircraft occurs at the speed for minimum power required ($P_{min}$)."
+  },
+  {
+    "id": "ae-144",
+    "q": "In a glide (Thrust = 0), the glide angle ($\\gamma$) is determined by which ratio?",
+    "options": ["The Thrust-to-Weight ratio", "The Lift-to-Drag ratio ($L/D$)", "The Aspect Ratio", "The Wing Loading"],
+    "correct": "B",
+    "rationale": "The glide angle is given by $\\tan(\\gamma) = D/L$ (or $1 / (L/D)$). A higher $L/D$ results in a shallower (smaller) glide angle and a better glide distance."
+  },
+  {
+    "id": "ae-145",
+    "q": "What is the effect of increasing aircraft weight on the 'Glide Range' (distance covered over ground from a certain height)?",
+    "options": ["It increases the range", "It decreases the range", "It has no effect on the range (but increases the glide speed)", "It makes the glide angle steeper"],
+    "correct": "C",
+    "rationale": "Surprisingly, weight does not affect the glide range/angle (as long as $L/D$ is the same), but a heavier aircraft will reach the ground faster because its optimum glide speed is higher."
+  },
+  {
+    "id": "ae-146",
+    "q": "What is the primary reason for minimizing the structural weight of an aircraft?",
+    "options": ["To increase aerodynamic drag", "To reduce fuel consumption and operational costs", "To make the aircraft more flexible", "To improve passenger comfort"],
+    "correct": "B",
+    "rationale": "Weight is a critical factor in aviation; lower structural weight allows for more payload or fuel, directly reducing the cost per kilometer and environmental impact."
+  },
+  {
+    "id": "ae-151",
+    "q": "What is a major disadvantage of using sandwich structures in aircraft?",
+    "options": ["They are too heavy", "They have poor thermal insulation", "They are prone to moisture absorption and internal corrosion", "They cannot be made from composite materials"],
+    "correct": "C",
+    "rationale": "One of the biggest maintenance challenges with sandwich panels is the risk of water ingress into the core, which can cause delamination or hidden corrosion."
+  },
+  {
+    "id": "ae-154",
+    "q": "Which type of stress is primarily carried by the skin of a pressurized aircraft fuselage?",
+    "options": ["Compression", "Torsion", "Tension (Hoop and Longitudinal stress)", "Bending"],
+    "correct": "C",
+    "rationale": "Due to the internal pressure being higher than the external pressure at altitude, the skin acts as a pressure vessel and is subjected mainly to tensile stresses."
+  },
+  {
+    "id": "ae-156",
+    "q": "Which material property is defined as the ability to withstand a load without permanent deformation?",
+    "options": ["Ductility", "Elasticity", "Plasticity", "Toughness"],
+    "correct": "B",
+    "rationale": "Elasticity is the property that allows a material to return to its original shape after the load is removed."
+  },
+  {
+    "id": "ae-159",
+    "q": "The 'Torsional Box' in a wing is formed by the combination of:",
+    "options": ["The ribs and the stringers", "The front and rear spars connected by the upper and lower skins", "The leading edge and the ailerons", "The fuselage and the wing root"],
+    "correct": "B",
+    "rationale": "The wing box (or torsional box) is the primary structural unit of the wing, designed to resist bending, shear, and especially torsion."
+  },
+  {
+    "id": "ae-160",
+    "q": "What is 'Flutter' in the context of aeroelasticity?",
+    "options": ["The noise the engine makes during takeoff", "A self-excited vibration where aerodynamic forces interact with structural flexibility", "The movement of the landing gear", "A type of laminar flow"],
+    "correct": "B",
+    "rationale": "Flutter is a dangerous aeroelastic phenomenon where the structural oscillations of a wing or tail extract energy from the airflow, leading to rapid failure."
+  },
+  {
+    "id": "ae-161",
+    "q": "Which space pioneer is known as the 'Father of Cosmonautics' and derived the fundamental rocket equation?",
+    "options": ["Neil Armstrong", "Konstantin Tsiolkovsky", "Johannes Kepler", "Walter Hohmann"],
+    "correct": "B",
+    "rationale": "Konstantin Tsiolkovsky derived the ideal rocket equation, which relates change in velocity to exhaust velocity and the ratio of initial to final mass."
+  },
+  {
+    "id": "ae-162",
+    "q": "The 'Kármán Line', often used to define the boundary between Earth's atmosphere and outer space, is located at an altitude of approximately:",
+    "options": ["50 km", "80 km", "100 km", "150 km"],
+    "correct": "C",
+    "rationale": "The 100 km altitude is widely accepted as the boundary where aeronautic flight is no longer possible and orbital mechanics take over."
+  },
+  {
+    "id": "ae-163",
+    "q": "Who was the first human to fly in space?",
+    "options": ["John Glenn", "Neil Armstrong", "Yuri Gagarin", "Buzz Aldrin"],
+    "correct": "C",
+    "rationale": "Yuri Gagarin became the first human in space on April 12, 1961, orbiting the Earth aboard the Vostok 1 spacecraft."
+  },
+  {
+    "id": "ae-164",
+    "q": "What is the primary purpose of the 'Hohmann Transfer Orbit'?",
+    "options": ["To reach supersonic speeds in the atmosphere", "To move a spacecraft between two coplanar circular orbits with minimum energy", "To calculate the heat during reentry", "To stabilize a satellite's rotation"],
+    "correct": "B",
+    "rationale": "Named after Walter Hohmann, this maneuver uses two engine impulses to transfer a spacecraft between orbits of different radii using the least amount of propellant."
+  },
+  {
+    "id": "ae-165",
+    "q": "Which rocket remains the largest and most powerful ever successfully launched to date, famously used for the Apollo moon missions?",
+    "options": ["Mercury-Redstone", "Saturn V", "Vostok-L", "Falcon 9"],
+    "correct": "B",
+    "rationale": "The Saturn V remains the tallest, heaviest, and most powerful rocket ever brought to operational status, capable of sending humans to the Moon."
+  },
+  {
+    "id": "ae-166",
+    "q": "In rocket propulsion, 'Specific Impulse' ($I_{sp}$) is a measure of:",
+    "options": ["The total weight of the rocket", "The efficiency of the engine in terms of thrust per unit of propellant flow", "The maximum altitude reached", "The volume of the combustion chamber"],
+    "correct": "B",
+    "rationale": "Specific impulse is a key measure of rocket engine efficiency; higher $I_{sp}$ means the engine generates more thrust for every kilogram of propellant burned."
+  },
+  {
+    "id": "ae-167",
+    "q": "A rocket has an exhaust velocity ($v_e$) of 2000 m/s and a mass flow rate ($\\dot{m}$) of 150 kg/s. What is the thrust produced?",
+    "options": ["150,000 N", "300,000 N", "450,000 N", "13.3 N"],
+    "correct": "B",
+    "rationale": "Thrust is calculated as $F = \\dot{m} \\cdot v_e$. Therefore, $150 \\text{ kg/s} \\cdot 2000 \\text{ m/s} = 300,000 \\text{ N}$ (or 300 kN)."
+  },
+  {
+    "id": "ae-168",
+    "q": "What happens to the acceleration of a rocket as its fuel is consumed, assuming constant thrust?",
+    "options": ["Acceleration decreases", "Acceleration remains constant", "Acceleration increases", "Acceleration drops to zero"],
+    "correct": "C",
+    "rationale": "According to Newton's Second Law ($F = ma$), if Thrust ($F$) is constant and mass ($m$) decreases as fuel is burned, the acceleration ($a$) must increase."
+  },
+  {
+    "id": "ae-169",
+    "q": "A rocket on Earth has a total mass of 200,000 kg and a thrust of 3,000,000 N. What is its Thrust-to-Weight Ratio (TWR)?",
+    "options": ["0.65", "1.0", "1.53", "2.0"],
+    "correct": "C",
+    "rationale": "Weight $W = m \\cdot g = 200,000 \\cdot 9.81 \\approx 1,962,000 \\text{ N}$. $TWR = \\text{Thrust} / \\text{Weight} = 3,000,000 / 1,962,000 \\approx 1.53$."
+  },
+  {
+    "id": "ae-170",
+    "q": "What is the 'Propellant Mass Fraction' of a rocket?",
+    "options": ["The mass of the payload divided by the total mass", "The ratio of propellant mass to the total initial mass", "The weight of the engine alone", "The amount of fuel left after orbit"],
+    "correct": "B",
+    "rationale": "The propellant mass fraction ($m_p / m_0$) indicates what percentage of the rocket's initial mass is dedicated to fuel and oxidizer."
+  },
+  {
+    "id": "ae-171",
+    "q": "Which of Kepler's Laws states that planets move in elliptical orbits with the Sun at one focus?",
+    "options": ["First Law", "Second Law", "Third Law", "Law of Gravitation"],
+    "correct": "A",
+    "rationale": "Kepler's First Law (The Law of Ellipses) broke the long-held belief that planetary orbits were perfect circles."
+  },
+  {
+    "id": "ae-172",
+    "q": "In the Tsiolkovsky Rocket Equation ($\\Delta v = v_e \\ln(m_0 / m_f)$), what does $m_f$ represent?",
+    "options": ["The initial mass of the rocket", "The final 'dry' mass after propellant is burned", "The mass of the fuel only", "The force of gravity"],
+    "correct": "B",
+    "rationale": "$m_f$ is the final mass (structural mass + payload) remaining after the propellant has been exhausted."
+  },
+  {
+    "id": "ae-173",
+    "q": "Which Dutch satellite, launched in 1974, was the first from the Netherlands to enter orbit?",
+    "options": ["ANS (Astronomical Netherlands Satellite)", "Sputnik 1", "Delft-C3", "ERASMUS"],
+    "correct": "A",
+    "rationale": "The ANS was a pioneering Dutch satellite used for ultraviolet and X-ray astronomy."
+  },
+  {
+    "id": "ae-174",
+    "q": "What is the primary challenge of 'Reentry' into Earth's atmosphere?",
+    "options": ["Lack of gravity", "Extremely high thermal loads due to friction and compression", "Finding a place to land", "Communicating with satellites"],
+    "correct": "B",
+    "rationale": "Returning from space requires dissipating massive amounts of kinetic energy, which turns into heat, requiring heat shields to protect the spacecraft."
+  },
+  {
+    "id": "ae-175",
+    "q": "Why are multi-stage rockets used instead of a single-stage rocket to reach orbit?",
+    "options": ["To make the rocket look taller", "To shed 'dead weight' (empty tanks) and increase overall efficiency", "Because engines cannot burn for more than 2 minutes", "To prevent the rocket from going too fast"],
+    "correct": "B",
+    "rationale": "By discarding empty stages, the remaining rocket is lighter, allowing the remaining propellant to accelerate the smaller mass much more effectively."
+  },
+  {
+    "id": "ae-176",
+    "q": "According to Kepler's Second Law (Law of Equal Areas), where does a planet move fastest in its orbit?",
+    "options": ["At aphelion (farthest from the Sun)", "At perihelion (closest to the Sun)", "When it is exactly at the semi-major axis distance", "The speed is constant throughout the orbit"],
+    "correct": "B",
+    "rationale": "Kepler's Second Law implies that to sweep out equal areas in equal time, the planet must travel a greater distance (and thus move faster) when it is closer to the Sun at perihelion."
+  },
+  {
+    "id": "ae-177",
+    "q": "If the distance between two celestial bodies is tripled, what happens to the gravitational force between them according to Newton's Law of Universal Gravitation?",
+    "options": ["It is reduced to 1/3", "It is reduced to 1/6", "It is reduced to 1/9", "It remains the same"],
+    "correct": "C",
+    "rationale": "Newton's law follows the inverse-square law ($F \\propto 1/r^2$). If the distance $r$ is tripled ($3r$), the force becomes $1/3^2 = 1/9$ of the original value."
+  },
+  {
+    "id": "ae-178",
+    "q": "What is the 'Eccentricity' ($e$) of a perfectly circular orbit?",
+    "options": ["e = 0", "e = 1", "e = 0.5", "e > 1"],
+    "correct": "A",
+    "rationale": "Eccentricity measures the deviation of an orbit from a perfect circle. A circle has an eccentricity of 0, while ellipses have $0 < e < 1$."
+  },
+  {
+    "id": "ae-179",
+    "q": "Kepler's Third Law states that the square of the orbital period ($T^2$) is proportional to:",
+    "options": ["The square of the semi-major axis ($a^2$)", "The cube of the semi-major axis ($a^3$)", "The square root of the mass", "The eccentricity of the orbit"],
+    "correct": "B",
+    "rationale": "Kepler's Third Law (Law of Harmonies) establishes that $T^2 \\propto a^3$, allowing us to calculate the period of an orbit if its size is known."
+  },
+  {
+    "id": "ae-180",
+    "q": "What is the 'Semi-major Axis' ($a$) of an elliptical orbit?",
+    "options": ["The distance from the center to the farthest point of the ellipse", "The distance between the two foci", "The total perimeter of the orbit", "The distance from the focus to the planet"],
+    "correct": "A",
+    "rationale": "The semi-major axis is half of the longest diameter (the major axis) of an ellipse and is the primary parameter used to define the size of an orbit."
+  },
+  {
+    "id": "ae-181",
+    "q": "If a satellite's orbital radius is increased by a factor of 4, how does its orbital period change according to Kepler's Third Law?",
+    "options": ["It increases by 2 times", "It increases by 4 times", "It increases by 8 times", "It increases by 16 times"],
+    "correct": "C",
+    "rationale": "Using $T^2 \\propto a^3$: if $a$ becomes $4a$, then $T^2$ becomes $4^3 = 64$. Taking the square root, $T$ increases by $\\sqrt{64} = 8$ times."
+  },
+  {
+    "id": "ae-182",
+    "q": "What happens to the eccentricity of an orbit if a spacecraft at perigee (closest point) increases its velocity?",
+    "options": ["The eccentricity decreases", "The eccentricity increases (the orbit becomes more elongated)", "The eccentricity remains the same", "The orbit becomes a perfect circle"],
+    "correct": "B",
+    "rationale": "Increasing velocity at perigee raises the altitude of the apogee on the opposite side, making the ellipse more stretched and thus increasing its eccentricity."
+  },
+  {
+    "id": "ae-183",
+    "q": "A planet has an elliptical orbit with a semi-major axis of 500 million km and an eccentricity of 0.2. What is its distance at perihelion?",
+    "options": ["100 million km", "400 million km", "500 million km", "600 million km"],
+    "correct": "B",
+    "rationale": "Perihelion distance $r_p$ is calculated as $a(1 - e)$. Here, $500 \\cdot (1 - 0.2) = 500 \\cdot 0.8 = 400$ million km."
+  },
+  {
+    "id": "ae-184",
+    "q": "What is the shape of an orbit when its eccentricity is exactly 1 ($e = 1$)?",
+    "options": ["Ellipse", "Circle", "Parabola", "Hyperbola"],
+    "correct": "C",
+    "rationale": "An eccentricity of exactly 1 represents a parabolic trajectory, which is the boundary between a closed (elliptical) orbit and an open (hyperbolic) escape trajectory."
+  },
+  {
+    "id": "ae-185",
+    "q": "In a Geostationary Orbit (GEO), what is the orbital period of the satellite?",
+    "options": ["90 minutes", "12 hours", "Approximately 24 hours", "365 days"],
+    "correct": "C",
+    "rationale": "A geostationary orbit matches the Earth's rotational period (one sidereal day), allowing the satellite to appear stationary over a single point on the equator."
+  },
+  {
+    "id": "ae-186",
+    "q": "Which parameter must be the same for two satellites to remain in the same circular orbit regardless of their mass?",
+    "options": ["Their volume", "Their orbital velocity", "Their internal pressure", "Their surface area"],
+    "correct": "B",
+    "rationale": "Orbital velocity $v = \\sqrt{GM/r}$ depends only on the mass of the central body ($M$) and the radius ($r$), not the mass of the satellite itself."
+  },
+  {
+    "id": "ae-187",
+    "q": "What is the 'Apogee' of a satellite orbiting Earth?",
+    "options": ["The point in the orbit closest to Earth", "The point in the orbit farthest from Earth", "The point where the satellite enters the atmosphere", "The speed required to escape Earth's gravity"],
+    "correct": "B",
+    "rationale": "In an elliptical orbit around Earth, the apogee is the point where the satellite is at its maximum distance from the Earth's center."
+  },
+  {
+    "id": "ae-188",
+    "q": "According to Newton, if the mass of a planet were doubled without changing its radius, what would happen to the weight of an object on its surface?",
+    "options": ["It would be halved", "It would remain the same", "It would double", "It would quadruple"],
+    "correct": "C",
+    "rationale": "Weight is the gravitational force ($F = GmM/r^2$). If the mass of the planet ($M$) doubles, the force (weight) also doubles."
+  },
+  {
+    "id": "ae-189",
+    "q": "A 'Polar Orbit' is characterized by:",
+    "options": ["An inclination of 0 degrees", "Passing over or near the Earth's poles with an inclination near 90 degrees", "Being located only over the North Pole", "Always staying in the Earth's shadow"],
+    "correct": "B",
+    "rationale": "Polar orbits have high inclinations (near 90°), allowing the satellite to eventually scan the entire surface of the Earth as it rotates beneath."
+  },
+  {
+    "id": "ae-190",
+    "q": "Which maneuver is used to change the inclination of an orbit?",
+    "options": ["A burn along the velocity vector", "A burn perpendicular to the orbital plane", "A burn towards the center of the planet", "Reducing the spacecraft mass"],
+    "correct": "B",
+    "rationale": "To change the tilt (inclination) of an orbit, a force must be applied out-of-plane, perpendicular to the current velocity vector."
+  }
+
 ]
