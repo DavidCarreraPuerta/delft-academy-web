@@ -956,21 +956,21 @@
     "q": "A stream tube has an inlet area of 5 m² and velocity of 10 m/s. If the exit area is 2 m², what is the exit velocity (assuming incompressible flow)?",
     "options": ["4 m/s", "15 m/s", "25 m/s", "50 m/s"],
     "correct": "C",
-    "rationale": "$A_1 V_1 = A_2 V_2 \implies (5)(10) = (2)(V_2) \implies 50 = 2V_2 \implies V_2 = 25$ m/s."
+    "rationale": "$A_1 V_1 = A_2 V_2 \\implies (5)(10) = (2)(V_2) \\implies 50 = 2V_2 \\implies V_2 = 25$ m/s."
   },
   {
     "id": "ae-129",
     "q": "What is 'Hydrostatic Equation' primarily used for in aerodynamics?",
     "options": ["Calculating lift", "Determining pressure change with altitude", "Measuring engine thrust", "Finding skin friction"],
     "correct": "B",
-    "rationale": "The hydrostatic equation ($dP = -\rho g dh$) describes how pressure changes within a fluid (like the atmosphere) due to gravity and height."
+    "rationale": "The hydrostatic equation ($dP = -\\rho g dh$) describes how pressure changes within a fluid (like the atmosphere) due to gravity and height."
   },
   {
     "id": "ae-130",
     "q": "In the context of the Continuity Equation, what is 'Mass Flow Rate'?",
     "options": ["The total mass of the aircraft", "The mass of fluid passing through a surface per unit time", "The volume of the fuel tanks", "The density of air at sea level"],
     "correct": "B",
-    "rationale": "Mass flow rate ($\dot{m}$) is the amount of mass passing through a cross-section per second, calculated as $\dot{m} = \rho A V$."
+    "rationale": "Mass flow rate ($\\dot{m}$) is the amount of mass passing through a cross-section per second, calculated as $\\dot{m} = \\rho A V$."
   },
   {
     "id": "ae-131",
@@ -1322,5 +1322,4 @@
     "correct": "B",
     "rationale": "To change the tilt (inclination) of an orbit, a force must be applied out-of-plane, perpendicular to the current velocity vector."
   }
-
 ]
