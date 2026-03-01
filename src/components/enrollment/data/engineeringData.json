@@ -928,7 +928,7 @@
     "q": "A Pitot tube measures a total pressure of 71,000 Pa. If the static pressure is 41,000 Pa and air density is 0.5 kg/m³, what is the velocity?",
     "options": ["243.5 m/s", "346.4 m/s", "122.0 m/s", "400.0 m/s"],
     "correct": "B",
-    "rationale": "Using $V = \sqrt{2(P_{total} - P_{static}) / \rho} = \sqrt{2(30,000) / 0.5} = \sqrt{120,000} \approx 346.4$ m/s."
+    "rationale": "Using $V = \\sqrt{2(P_{total} - P_{static}) / \\rho} = \\sqrt{2(30,000) / 0.5} = \\sqrt{120,000} \\approx 346.4$ m/s."
   },
   {
     "id": "ae-125",
