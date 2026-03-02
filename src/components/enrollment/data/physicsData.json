@@ -523,5 +523,186 @@
         "options": ["Pauli Exclusion Principle", "Aufbau Principle", "Hund's Rule", "Dalton's Law"],
         "correct": "A",
         "rationale": "The Pauli Exclusion Principle dictates the electronic configuration of atoms and the structure of the periodic table."
+      },
+      {
+        "id": "p-100",
+        "q": "If the position of a particle is given by $x(t) = -\\frac{1}{12}t^4 + t^3 + 2t$, what is the expression for its velocity $v(t)$?",
+        "options": [
+          "$v(t) = -\\frac{1}{3}t^3 + 3t^2 + 2$",
+          "$v(t) = -\\frac{1}{4}t^3 + 3t^2$",
+          "$v(t) = -t^3 + 3t^2 + 2$",
+          "$v(t) = -\\frac{1}{3}t^4 + t^3 + 2$"
+        ],
+        "correct": "A",
+        "rationale": "Velocity is the first derivative of position: $v(t) = \\frac{d}{dt}(-\\frac{1}{12}t^4 + t^3 + 2t) = -\\frac{4}{12}t^3 + 3t^2 + 2 = -\\frac{1}{3}t^3 + 3t^2 + 2$."
+      },
+      {
+        "id": "p-101",
+        "q": "Given the velocity function $v(t) = -\\frac{1}{3}t^3 + 3t^2 + 2$, at what time $t$ does the particle reach its maximum acceleration?",
+        "options": [
+          "$t = 0$ s",
+          "$t = 3$ s",
+          "$t = 6$ s",
+          "$t = 2$ s"
+        ],
+        "correct": "B",
+        "rationale": "Acceleration $a(t) = v'(t) = -t^2 + 6t$. To find the maximum, we take the derivative $a'(t) = -2t + 6$ and set it to zero: $-2t + 6 = 0 \\Rightarrow t = 3$ s."
+      },
+      {
+        "id": "p-102",
+        "q": "According to Newton's Second Law, if the net force acting on an object is tripled and its mass is halved, the acceleration will:",
+        "options": [
+          "Increase by 6 times",
+          "Stay the same",
+          "Decrease by 1.5 times",
+          "Increase by 1.5 times"
+        ],
+        "correct": "A",
+        "rationale": "From $F = ma$, then $a = F/m$. New $a = (3F) / (0.5m) = 6(F/m)$."
+      },
+      {
+        "id": "p-103",
+        "q": "What is the work done by a constant force $F$ acting on an object that moves a displacement $d$ at an angle $\\theta$ relative to the force?",
+        "options": [
+          "$W = F \\cdot d \\cdot \\cos(\\theta)$",
+          "$W = F \\cdot d \\cdot \\sin(\\theta)$",
+          "$W = m \\cdot g \\cdot d$",
+          "$W = F / d$"
+        ],
+        "correct": "A",
+        "rationale": "Work is defined as the dot product of force and displacement: $W = \\vec{F} \\cdot \\vec{d} = Fd\\cos(\\theta)$."
+      },
+      {
+        "id": "p-104",
+        "q": "In a geostationary orbit (GEO), the orbital period of a satellite must be exactly:",
+        "options": [
+          "12 hours",
+          "24 hours",
+          "90 minutes",
+          "1 month"
+        ],
+        "correct": "B",
+        "rationale": "For a satellite to remain fixed over a single point on Earth's equator, its orbital period must match Earth's rotation period, which is 24 hours."
+      },
+      {
+        "id": "p-105",
+        "q": "An object of mass $m = 2,000$ kg is in a region where the gravitational acceleration is $g = 9.8$ m/s$^2$. What is the magnitude of its weight?",
+        "options": [
+          "2,000 N",
+          "19,600 N",
+          "204 N",
+          "9,800 N"
+        ],
+        "correct": "B",
+        "rationale": "Weight is calculated as $W = m \\cdot g$. Therefore, $2,000 \\text{ kg} \\cdot 9.8 \\text{ m/s}^2 = 19,600 \\text{ N}$."
+      },
+      {
+        "id": "p-106",
+        "q": "According to the Lecture notes on Planetary Motion, what provides the centripetal force ($F_c$) required for a satellite to stay in orbit?",
+        "options": [
+          "The satellite's engine thrust",
+          "The atmospheric pressure",
+          "The gravitational force ($F_g$)",
+          "The magnetic field of the planet"
+        ],
+        "correct": "C",
+        "rationale": "In orbital mechanics, the gravitational attraction between the planet and the satellite acts as the centripetal force: $F_g = F_c$."
+      },
+      {
+        "id": "p-107",
+        "q": "If the distance between two masses is doubled, according to Newton's Law of Universal Gravitation, the gravitational force between them will:",
+        "options": [
+          "Double",
+          "Triple",
+          "Decrease by a factor of 4",
+          "Stay the same"
+        ],
+        "correct": "C",
+        "rationale": "The formula is $F_g = G \\frac{m_1 m_2}{r^2}$. If $r$ becomes $2r$, then $(2r)^2 = 4r^2$, so the force is divided by 4."
+      },
+      {
+        "id": "p-108",
+        "q": "What is the angular velocity ($\\omega$) of a geostationary satellite that completes one revolution in $T = 86,400$ seconds (24 hours)?",
+        "options": [
+          "$\\approx 7.27 \\times 10^{-5}$ rad/s",
+          "$\\approx 1.45 \\times 10^{-4}$ rad/s",
+          "$\\approx 0.26$ rad/s",
+          "$\\approx 3.14$ rad/s"
+        ],
+        "correct": "A",
+        "rationale": "Angular velocity is $\\omega = \\frac{2\\pi}{T}$. So, $2\\pi / 86,400 \\approx 7.27 \\times 10^{-5}$ rad/s."
+      },
+      {
+        "id": "p-109",
+        "q": "Newton's Third Law states that for every action force, there is an equal and opposite reaction force. These two forces:",
+        "options": [
+          "Cancel each other out on the same object",
+          "Act on different objects",
+          "Result in zero net acceleration for the system",
+          "Always act in the same direction"
+        ],
+        "correct": "B",
+        "rationale": "Action and reaction forces always act on different bodies (e.g., Earth pulls satellite, satellite pulls Earth), so they never cancel out on a single object."
+      },
+      {
+        "id": "p-110",
+        "q": "If a particle's velocity is $v(t) = -\\frac{1}{3}t^3 + 3t^2 + 2$, what is its acceleration $a(t)$ at any time $t$?",
+        "options": [
+          "$a(t) = -t^2 + 6t$",
+          "$a(t) = -t^2 + 3t$",
+          "$a(t) = -t^3 + 6t$",
+          "$a(t) = -2t + 6$"
+        ],
+        "correct": "A",
+        "rationale": "Acceleration is the derivative of velocity: $a(t) = \\frac{d}{dt}(-\\frac{1}{3}t^3 + 3t^2 + 2) = -t^2 + 6t$."
+      },
+      {
+        "id": "p-111",
+        "q": "Calculate the work done ($W$) by a force of 50 N pushing a crate 10 meters across a floor if the force is applied horizontally ($\\theta = 0^\\circ$).",
+        "options": [
+          "5 J",
+          "500 J",
+          "0 J",
+          "50 J"
+        ],
+        "correct": "B",
+        "rationale": "$W = F \\cdot d \\cdot \\cos(\\theta)$. Since $\\cos(0^\\circ) = 1$, $W = 50 \\text{ N} \\cdot 10 \\text{ m} \\cdot 1 = 500 \\text{ J}$."
+      },
+      {
+        "id": "p-112",
+        "q": "In circular motion, if the radius of the path ($r$) is decreased while keeping the speed ($v$) constant, the centripetal force ($F_c$) required will:",
+        "options": [
+          "Decrease",
+          "Increase",
+          "Stay the same",
+          "Drop to zero"
+        ],
+        "correct": "B",
+        "rationale": "The formula for centripetal force is $F_c = \\frac{mv^2}{r}$. Since $r$ is in the denominator, decreasing $r$ increases $F_c$."
+      },
+      {
+        "id": "p-113",
+        "q": "What is the total displacement of a particle between $t=0$ and $t=10$ if its position is $x(t) = -\\frac{1}{12}t^4 + t^3 + 2t$?",
+        "options": [
+          "186.67 m",
+          "200.5 m",
+          "150 m",
+          "166.67 m"
+        ],
+        "correct": "A",
+        "rationale": "Displacement is $\\Delta x = x(10) - x(0)$. $x(10) = -\\frac{10000}{12} + 1000 + 20 = -833.33 + 1020 = 186.67$. Since $x(0) = 0$, the result is 186.67 m."
+      },
+      {
+        "id": "p-114",
+        "q": "Which of the following best describes the condition for a satellite to be in a stable circular orbit?",
+        "options": [
+          "The gravitational force is greater than the centripetal force.",
+          "The gravitational force provides exactly the required centripetal force.",
+          "The satellite must be outside the Earth's gravitational field.",
+          "The satellite's velocity must be zero."
+        ],
+        "correct": "B",
+        "rationale": "A stable orbit occurs when the gravitational pull ($F_g = G\\frac{Mm}{r^2}$) perfectly matches the required centripetal force ($F_c = \\frac{mv^2}{r}$)."
       }
+      
 ]

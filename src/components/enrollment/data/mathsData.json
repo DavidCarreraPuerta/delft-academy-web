@@ -43,11 +43,16 @@
   },
   {
     "id": "m-07",
-    "q": "Which of the following is a unit vector in the direction of (1, 1)?",
-    "options": ["(1/2, 1/2)", "$(1/\\\\sqrt{2}, 1/\\\\sqrt{2})$", "(1, 0)", "(2, 2)"],
+    "q": "Which of the following is a unit vector in the direction of $(1, 1)$?",
+    "options": [
+      "$(\\frac{1}{2}, \\frac{1}{2})$",
+      "$(\\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}})$",
+      "$(1, 0)$",
+      "$(2, 2)$"
+    ],
     "correct": "B",
-    "rationale": "A unit vector is found by dividing a vector by its magnitude. The magnitude of (1, 1) is $\\\\sqrt{1^2 + 1^2} = \\\\sqrt{2}$, giving $(1/\\\\sqrt{2}, 1/\\\\sqrt{2})$."
-  },
+    "rationale": "To find a unit vector $\\mathbf{\\hat{u}}$, we divide the vector $\\mathbf{v}$ by its magnitude $|\\mathbf{v}|$. For $\\mathbf{v} = (1, 1)$, the magnitude is $|\\mathbf{v}| = \\sqrt{1^2 + 1^2} = \\sqrt{2}$. Therefore, the unit vector is $(\\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}})$."
+},
   {
     "id": "m-08",
     "q": "Evaluate the integral of $e^{3x+1} dx$.",
@@ -155,11 +160,16 @@
   },
   {
     "id": "m-23",
-    "q": "The Taylor series expansion of $e^x$ centered at 0 starts with:",
-    "options": ["$x + x^2/2$", "$1 + x + x^2/2!$", "$1 - x + x^2/2!$", "$x - x^3/3!$"],
+    "q": "The Taylor series expansion of $e^x$ centered at $0$ starts with:",
+    "options": [
+      "$x + \\frac{x^2}{2}$",
+      "$1 + x + \\frac{x^2}{2!}$",
+      "$1 - x + \\frac{x^2}{2!}$",
+      "$x - \\frac{x^3}{3!}$"
+    ],
     "correct": "B",
-    "rationale": "The Taylor series for $e^x$ is $\\\\sum x^n/n! = 1 + x/1! + x^2/2! + \\\\dots$."
-  },
+    "rationale": "The Taylor series for $e^x$ centered at $0$ (Maclaurin series) is defined as $\\sum_{n=0}^{\\infty} \\frac{x^n}{n!} = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\dots$. The first three terms are $1, x,$ and $\\frac{x^2}{2!}$."
+},
   {
     "id": "m-24",
     "q": "What is the value of $\\\\cos(\\\\pi/3)$?",
@@ -239,11 +249,16 @@
   },
   {
     "id": "m-35",
-    "q": "Find the unit normal vector to the surface at a point using:",
-    "options": ["The curl", "The divergence", "The gradient", "The integral"],
-    "correct": "C",
-    "rationale": "The gradient vector $\\\\nabla f$ is always perpendicular to the level surface $f(x,y,z) = c$ at any given point."
-  },
+    "q": "Given two vectors $\\vec{u} = (1, 2, 0)$ and $\\vec{v} = (0, 3, 1)$, which of the following represents a vector that is simultaneously perpendicular to both $\\vec{u}$ and $\\vec{v}$?",
+    "options": [
+      "$(2, -1, 3)$",
+      "$(2, 1, -3)$",
+      "$(2, -1, -3)$",
+      "$(-2, 1, -3)$"
+    ],
+    "correct": "A",
+    "rationale": "To find a vector perpendicular to two given vectors, we compute their cross product: $\\vec{u} \\times \\vec{v} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 2 & 0 \\\\ 0 & 3 & 1 \\end{vmatrix} = (2-0)\\mathbf{i} - (1-0)\\mathbf{j} + (3-0)\\mathbf{k} = (2, -1, 3)$. Any scalar multiple of this result would also be perpendicular."
+},
   {
     "id": "m-36",
     "q": "The inverse of a matrix A exists only if:",
@@ -351,11 +366,16 @@
   },
   {
     "id": "m-51",
-    "q": "The value of cos(π/3) is:",
-    "options": ["1/2", "√3/2", "1/√2", "1"],
-    "correct": "A",
-    "rationale": "Standard trigonometric value for $60$ degrees, where $\\cos(\\pi/3) = 1/2$."
-  },
+    "q": "Consider the plane defined by the equation $2x - y + 3z = 6$. Which of the following vectors is normal to this plane?",
+    "options": [
+      "(2, 1, 3)",
+      "(2, -1, 3)",
+      "(6, -3, 9)",
+      "Both B and C are correct"
+    ],
+    "correct": "D",
+    "rationale": "The coefficients of the plane equation $Ax + By + Cz = D$ represent a normal vector $\\vec{n} = (A, B, C)$. In this case, $\\vec{n} = (2, -1, 3)$, which corresponds to option B. However, any scalar multiple of a normal vector is also normal to the plane. Since $(6, -3, 9) = 3 \\cdot (2, -1, 3)$, option C is also a valid normal vector. Therefore, both B and C are correct."
+},
   {
     "id": "m-52",
     "q": "Find the limit as x approaches 1 of (x² - 1) / (x - 1).",
@@ -523,5 +543,1020 @@
     "options": ["2", "10", "20", "100"],
     "correct": "D",
     "rationale": "By the definition of logarithms, $\\log_b(x) = y$ is equivalent to $b^y = x$. Given $\\log_{10}(x) = 2$, then $x = 10^2 = 100$."
+  },
+  {
+    "id": "m-100",
+    "q": "Which transformation is applied to the parent function $f(x) = x^3$ to obtain $g(x) = (x - 2)^3 + 8$?",
+    "options": [
+      "Horizontal shift 2 units left and vertical shift 8 units up",
+      "Horizontal shift 2 units right and vertical shift 8 units up",
+      "Horizontal shift 8 units right and vertical shift 2 units up",
+      "Vertical stretch by a factor of 8"
+    ],
+    "correct": "B",
+    "rationale": "In the form $f(x-h) + k$, the value $h=2$ represents a horizontal shift to the right, and $k=8$ represents a vertical shift upwards."
+  },
+  {
+    "id": "m-101",
+    "q": "Identify the function that represents a square root curve shifted 3 units to the left.",
+    "options": [
+      "$f(x) = \\sqrt{x} - 3$",
+      "$f(x) = \\sqrt{x - 3}$",
+      "$f(x) = \\sqrt{x + 3}$",
+      "$f(x) = 3\\sqrt{x}$"
+    ],
+    "correct": "C",
+    "rationale": "To shift a function horizontally to the left by $c$ units, we replace $x$ with $(x + c)$. Thus, $\\sqrt{x + 3}$ is the correct transformation."
+  },
+  {
+    "id": "m-102",
+    "q": "What is the inverse function of $f(x) = e^{x-2} - 3$?",
+    "options": [
+      "$f^{-1}(x) = \\ln(x + 3) + 2$",
+      "$f^{-1}(x) = \\ln(x - 3) - 2$",
+      "$f^{-1}(x) = e^{x+2} + 3$",
+      "$f^{-1}(x) = \\ln(x + 2) + 3$"
+    ],
+    "correct": "A",
+    "rationale": "To find the inverse, swap $x$ and $y$: $x = e^{y-2} - 3 \\Rightarrow x + 3 = e^{y-2}$. Taking the natural log: $\\ln(x + 3) = y - 2 \\Rightarrow y = \\ln(x + 3) + 2$."
+  },
+  {
+    "id": "m-103",
+    "q": "Consider the function $f(x) = \\frac{2x + 3}{x - 1}$. What is its inverse $f^{-1}(x)$?",
+    "options": [
+      "$f^{-1}(x) = \\frac{x - 1}{2x + 3}$",
+      "$f^{-1}(x) = \\frac{x + 3}{x - 2}$",
+      "$f^{-1}(x) = \\frac{2x - 3}{x + 1}$",
+      "$f^{-1}(x) = \\frac{x - 3}{x + 2}$"
+    ],
+    "correct": "B",
+    "rationale": "Solving $x = \\frac{2y + 3}{y - 1}$ for $y$: $x(y - 1) = 2y + 3 \\Rightarrow xy - x = 2y + 3 \\Rightarrow y(x - 2) = x + 3 \\Rightarrow y = \\frac{x + 3}{x - 2}$."
+  },
+  {
+    "id": "m-104",
+    "q": "Which of the following describes the graph of $f(x) = -|x + 4| - 2$?",
+    "options": [
+      "V-shape opening up, vertex at $(4, -2)$",
+      "V-shape opening down, vertex at $(-4, -2)$",
+      "V-shape opening down, vertex at $(4, 2)$",
+      "V-shape opening up, vertex at $(-4, 2)$"
+    ],
+    "correct": "B",
+    "rationale": "The negative sign before the absolute value reflects the graph downward. The transformations $(x + 4)$ and $-2$ place the vertex at $(-4, -2)$."
+  },
+  {
+    "id": "m-105",
+    "q": "What is the domain of the function $f(x) = \\ln(x - 5)$?",
+    "options": [
+      "$x > 0$",
+      "$x \\geq 5$",
+      "$x > 5$",
+      "All real numbers"
+    ],
+    "correct": "C",
+    "rationale": "The argument of a logarithmic function must be strictly positive. Therefore, $x - 5 > 0 \\Rightarrow x > 5$."
+  },
+  {
+    "id": "m-106",
+    "q": "How does the graph of $f(x) = \\cos(x)$ change when transformed into $g(x) = 2\\cos(2x)$?",
+    "options": [
+      "Amplitude is doubled and period is doubled",
+      "Amplitude is doubled and period is halved",
+      "Amplitude is halved and period is doubled",
+      "Amplitude is halved and period is halved"
+    ],
+    "correct": "B",
+    "rationale": "The multiplier $A=2$ doubles the amplitude. The coefficient $b=2$ inside the cosine makes the period $T = \\frac{2\\pi}{b} = \\pi$, which is half of the original $2\\pi$."
+  },
+  {
+    "id": "m-107",
+    "q": "If $f(x) = (x - 4)^{1/3} + 2$, find the inverse function $f^{-1}(x)$.",
+    "options": [
+      "$f^{-1}(x) = (x - 2)^3 + 4$",
+      "$f^{-1}(x) = (x + 2)^3 - 4$",
+      "$f^{-1}(x) = x^3 + 2$",
+      "$f^{-1}(x) = (x - 4)^3 + 2$"
+    ],
+    "correct": "A",
+    "rationale": "Set $x = (y - 4)^{1/3} + 2$. Then $x - 2 = (y - 4)^{1/3}$. Cube both sides: $(x - 2)^3 = y - 4$. Thus, $y = (x - 2)^3 + 4$."
+  },
+  {
+    "id": "m-108",
+    "q": "Which function represents a parabola with a vertex at $(3, 1)$ opening upwards?",
+    "options": [
+      "$f(x) = (x + 3)^2 + 1$",
+      "$f(x) = 2(x - 3)^2 + 1$",
+      "$f(x) = -(x - 3)^2 + 1$",
+      "$f(x) = (x - 1)^2 + 3$"
+    ],
+    "correct": "B",
+    "rationale": "The vertex form is $a(x-h)^2 + k$. For vertex $(3, 1)$ and opening upwards ($a > 0$), the function $2(x - 3)^2 + 1$ is correct."
+  },
+  {
+    "id": "m-109",
+    "q": "What is the inverse of the function $f(x) = 3\\sin(x)$ for the range $x \\in [-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$?",
+    "options": [
+      "$f^{-1}(x) = \\frac{1}{3}\\arcsin(x)$",
+      "$f^{-1}(x) = \\arcsin(\\frac{x}{3})$",
+      "$f^{-1}(x) = 3\\arcsin(x)$",
+      "$f^{-1}(x) = \\sin(\\frac{x}{3})$"
+    ],
+    "correct": "B",
+    "rationale": "If $y = 3\\sin(x)$, then $\\frac{y}{3} = \\sin(x)$. Applying the inverse sine gives $x = \\arcsin(\\frac{y}{3})$."
+  },
+  {
+    "id": "m-110",
+    "q": "Find the inverse of $f(x) = \\ln(\\frac{x}{2})$.",
+    "options": [
+      "$f^{-1}(x) = 2e^x$",
+      "$f^{-1}(x) = e^{2x}$",
+      "$f^{-1}(x) = \\frac{e^x}{2}$",
+      "$f^{-1}(x) = 2\\ln(x)$"
+    ],
+    "correct": "A",
+    "rationale": "Set $x = \\ln(\\frac{y}{2})$. Exponentiate both sides: $e^x = \\frac{y}{2}$, which results in $y = 2e^x$."
+  },
+  {
+    "id": "m-111",
+    "q": "A function $f(x)$ is reflected across the x-axis and then shifted 5 units up. What is the new equation?",
+    "options": [
+      "$g(x) = f(x) - 5$",
+      "$g(x) = -f(x) + 5$",
+      "$g(x) = f(-x) + 5$",
+      "$g(x) = -f(x + 5)$"
+    ],
+    "correct": "B",
+    "rationale": "Reflection across the x-axis is represented by $-f(x)$. A vertical shift up is $+5$ added to the entire function."
+  },
+  {
+    "id": "m-112",
+    "q": "What type of symmetry does the function $f(x) = x^4 - 2x^2 + 1$ exhibit?",
+    "options": [
+      "Symmetry about the origin (Odd function)",
+      "Symmetry about the y-axis (Even function)",
+      "No symmetry",
+      "Symmetry about the line $y = x$"
+    ],
+    "correct": "B",
+    "rationale": "Since all powers of $x$ are even, $f(-x) = (-x)^4 - 2(-x)^2 + 1 = x^4 - 2x^2 + 1 = f(x)$, making it an even function."
+  },
+  {
+    "id": "m-113",
+    "q": "What is the horizontal asymptote of the function $f(x) = \\frac{3x^2 + 1}{x^2 - 4}$?",
+    "options": [
+      "$y = 0$",
+      "$y = 3$",
+      "$x = 2$",
+      "No horizontal asymptote"
+    ],
+    "correct": "B",
+    "rationale": "For rational functions where the degree of the numerator and denominator are equal, the horizontal asymptote is the ratio of the leading coefficients: $3/1 = 3$."
+  },
+  {
+    "id": "m-114",
+    "q": "If $f(x) = \\sqrt{x+2}$, what is the range of the function?",
+    "options": [
+      "$(-\\infty, \\infty)$",
+      "$[2, \\infty)$",
+      "$[0, \\infty)$",
+      "$[-2, \\infty)$"
+    ],
+    "correct": "C",
+    "rationale": "The square root function $\\sqrt{u}$ always produces values greater than or equal to zero. Thus, the range is $y \\geq 0$."
+  },
+  {
+    "id": "m-116",
+    "q": "Given the function $f(x) = x^3 - 3x^2$, what is the first derivative $f'(x)$?",
+    "options": [
+      "$3x^2 - 3x$",
+      "$3x^2 - 6x$",
+      "$x^2 - 6x$",
+      "$3x - 6$"
+    ],
+    "correct": "B",
+    "rationale": "Applying the power rule $\\frac{d}{dx}(x^n) = nx^{n-1}$ to each term: the derivative of $x^3$ is $3x^2$ and the derivative of $-3x^2$ is $-6x$."
+  },
+  {
+    "id": "m-117",
+    "q": "For the function $f(x) = x^3 - 3x^2$, find the x-coordinates of the critical points by solving $f'(x) = 0$.",
+    "options": [
+      "$x = 0$ and $x = 3$",
+      "$x = 1$ and $x = 2$",
+      "$x = 0$ and $x = 2$",
+      "$x = 2$ and $x = -2$"
+    ],
+    "correct": "C",
+    "rationale": "Setting the derivative $3x^2 - 6x = 0$ and factoring gives $3x(x - 2) = 0$. The solutions are $x = 0$ and $x = 2$."
+  },
+  {
+    "id": "m-118",
+    "q": "Using the second derivative test on $f(x) = x^3 - 3x^2$, determine the nature of the point at $x = 0$.",
+    "options": [
+      "Local Minimum",
+      "Inflection Point",
+      "Local Maximum",
+      "Saddle Point"
+    ],
+    "correct": "C",
+    "rationale": "The second derivative is $f''(x) = 6x - 6$. Evaluating at $x=0$ gives $f''(0) = -6$. Since $f''(0) < 0$, the function has a local maximum at this point."
+  },
+  {
+    "id": "m-119",
+    "q": "What is the gradient of the tangent line to the curve $f(x) = x^3 - 3x^2$ at the point where $x = 1$?",
+    "options": [
+      "3",
+      "0",
+      "-3",
+      "-6"
+    ],
+    "correct": "C",
+    "rationale": "The gradient of the tangent is the value of the first derivative at that point. $f'(1) = 3(1)^2 - 6(1) = 3 - 6 = -3$."
+  },
+  {
+    "id": "m-120",
+    "q": "If the gradient of a tangent line at a point is $m = -3$, what is the gradient of the normal line at that same point?",
+    "options": [
+      "3",
+      "$-1/3$",
+      "$1/3$",
+      "0"
+    ],
+    "correct": "C",
+    "rationale": "The normal line is perpendicular to the tangent line. Its gradient $m_n$ satisfies $m \\cdot m_n = -1$. Therefore, $m_n = -1/(-3) = 1/3$."
+  },
+  {
+    "id": "m-121",
+    "q": "Find the derivative of $y = \\sin(3x)$.",
+    "options": [
+      "$3\\cos(3x)$",
+      "$\\cos(3x)$",
+      "$-3\\cos(3x)$",
+      "$3\\sin(3x)$"
+    ],
+    "correct": "A",
+    "rationale": "According to the chain rule, $\\frac{d}{dx}[\\sin(u)] = \\cos(u) \\cdot \\frac{du}{dx}$. Here $u=3x$ and $u'=3$, resulting in $3\\cos(3x)$."
+  },
+  {
+    "id": "m-122",
+    "q": "What is the derivative of $f(x) = \\frac{1}{4x} + \\frac{1}{2}x^2$?",
+    "options": [
+      "$-\\frac{1}{4x^2} + x$",
+      "$\\frac{1}{4} + x$",
+      "$-\\frac{1}{x^2} + x$",
+      "$\\frac{1}{4x^2} + x$"
+    ],
+    "correct": "A",
+    "rationale": "Rewrite $\\frac{1}{4x}$ as $\\frac{1}{4}x^{-1}$. Its derivative is $-\\frac{1}{4}x^{-2} = -\\frac{1}{4x^2}$. The derivative of $\\frac{1}{2}x^2$ is $x$."
+  },
+  {
+    "id": "m-123",
+    "q": "A local minimum occurs at a point where:",
+    "options": [
+      "$f'(x) = 0$ and $f''(x) < 0$",
+      "$f'(x) > 0$ and $f''(x) = 0$",
+      "$f'(x) = 0$ and $f''(x) > 0$",
+      "$f'(x) = 0$ and $f''(x) = 0$"
+    ],
+    "correct": "C",
+    "rationale": "For a smooth function, a local minimum requires the slope to be zero (stationary point) and the concavity to be upward (positive second derivative)."
+  },
+  {
+    "id": "m-124",
+    "q": "Calculate the second derivative of $f(x) = e^{2x}$.",
+    "options": [
+      "$2e^{2x}$",
+      "$4e^{2x}$",
+      "$e^{2x}$",
+      "$4x e^{2x}$"
+    ],
+    "correct": "B",
+    "rationale": "The first derivative is $2e^{2x}$. Differentiating again, we multiply by the derivative of the exponent (2) once more, resulting in $4e^{2x}$."
+  },
+  {
+    "id": "m-125",
+    "q": "What is the derivative of $\\ln(x^2 + 1)$?",
+    "options": [
+      "$\\frac{1}{x^2 + 1}$",
+      "$\\frac{2x}{x^2 + 1}$",
+      "$2x \\ln(x^2 + 1)$",
+      "$\\frac{x}{x^2 + 1}$"
+    ],
+    "correct": "B",
+    "rationale": "Using the chain rule for logarithms, $\\frac{d}{dx}[\\ln(u)] = \\frac{1}{u} \\cdot \\frac{du}{dx}$. Here $u = x^2+1$ and $u' = 2x$."
+  },
+  {
+    "id": "m-126",
+    "q": "If $f(x) = x^4$, what is the value of the third derivative $f'''(x)$ at $x = 1$?",
+    "options": [
+      "4",
+      "12",
+      "24",
+      "0"
+    ],
+    "correct": "C",
+    "rationale": "$f'(x)=4x^3$, $f''(x)=12x^2$, $f'''(x)=24x$. At $x=1$, $f'''(1) = 24$."
+  },
+  {
+    "id": "m-127",
+    "q": "In the context of motion, if $s(t)$ is the position, what does the second derivative $s''(t)$ represent?",
+    "options": [
+      "Velocity",
+      "Displacement",
+      "Acceleration",
+      "Jerk"
+    ],
+    "correct": "C",
+    "rationale": "The first derivative of position is velocity, and the derivative of velocity (the second derivative of position) is acceleration."
+  },
+  {
+    "id": "m-128",
+    "q": "Find the derivative of $f(x) = \\tan(x)$.",
+    "options": [
+      "$\\cot(x)$",
+      "$\\sec^2(x)$",
+      "$\\sin^2(x)$",
+      "$\\sec(x)\\tan(x)$"
+    ],
+    "correct": "B",
+    "rationale": "The standard derivative of the tangent function is $\\sec^2(x)$, which can be derived using the quotient rule on $\\frac{\\sin(x)}{\\cos(x)}$."
+  },
+  {
+    "id": "m-129",
+    "q": "What is the derivative of a constant $C$?",
+    "options": [
+      "1",
+      "$C$",
+      "0",
+      "$x$"
+    ],
+    "correct": "C",
+    "rationale": "Since a constant does not change, its rate of change (derivative) is always zero."
+  },
+  {
+    "id": "m-130",
+    "q": "If a curve is defined by $y = x^2$, what is the equation of the tangent line at $x = 2$?",
+    "options": [
+      "$y = 4x - 4$",
+      "$y = 2x$",
+      "$y = 4x$",
+      "$y = x + 2$"
+    ],
+    "correct": "A",
+    "rationale": "At $x=2, y=4$. The gradient is $y' = 2x$, so $m=4$. Using $y - y_1 = m(x - x_1)$, we get $y - 4 = 4(x - 2) \\Rightarrow y = 4x - 8 + 4 \\Rightarrow y = 4x - 4$."
+  },
+  {
+    "id": "m-131",
+    "q": "Find the integral of the function $f(x) = 2.4x^3 - 3e^{0.5x}$.",
+    "options": [
+      "$0.6x^4 - 6e^{0.5x} + C$",
+      "$7.2x^2 - 1.5e^{0.5x} + C$",
+      "$0.6x^4 - 1.5e^{0.5x} + C$",
+      "$0.8x^4 - 6e^{0.5x} + C$"
+    ],
+    "correct": "A",
+    "rationale": "Integrating term by term: $\\int 2.4x^3 dx = \\frac{2.4}{4}x^4 = 0.6x^4$. For the second term, $\\int -3e^{0.5x} dx = -\\frac{3}{0.5}e^{0.5x} = -6e^{0.5x}$."
+  },
+  {
+    "id": "m-132",
+    "q": "What is the integral of $f(x) = 5x^{2/3} + \\frac{4}{2x+1}$?",
+    "options": [
+      "$3x^{5/3} + 4\\ln|2x+1| + C$",
+      "$3x^{5/3} + 2\\ln|2x+1| + C$",
+      "$\\frac{10}{3}x^{5/3} + 2\\ln|2x+1| + C$",
+      "$3x^{1/3} + 2\\ln|2x+1| + C$"
+    ],
+    "correct": "B",
+    "rationale": "For the first term: $\\int 5x^{2/3} dx = 5 \\cdot \\frac{x^{5/3}}{5/3} = 3x^{5/3}$. For the second term: $\\int \\frac{4}{2x+1} dx = 4 \\cdot \\frac{1}{2}\\ln|2x+1| = 2\\ln|2x+1|$."
+  },
+  {
+    "id": "m-133",
+    "q": "Evaluate the integral of $f(x) = 0.6\\sin(3x) - 2x^{-3}$.",
+    "options": [
+      "$-0.2\\cos(3x) + x^{-2} + C$",
+      "$1.8\\cos(3x) + x^{-2} + C$",
+      "$-0.2\\cos(3x) - x^{-2} + C$",
+      "$-1.8\\cos(3x) + 6x^{-4} + C$"
+    ],
+    "correct": "A",
+    "rationale": "Integrating $\\sin(3x)$ gives $-\\frac{1}{3}\\cos(3x)$, so $0.6 \\cdot (-\\frac{1}{3}\\cos(3x)) = -0.2\\cos(3x)$. For $-2x^{-3}$, the integral is $-2 \\cdot \\frac{x^{-2}}{-2} = x^{-2}$."
+  },
+  {
+    "id": "m-134",
+    "q": "Find the integral: $\\int (3\\sec^2(0.2x) + 4e^{-2x}) dx$.",
+    "options": [
+      "$0.6\\tan(0.2x) - 2e^{-2x} + C$",
+      "$15\\tan(0.2x) - 2e^{-2x} + C$",
+      "$15\\tan(0.2x) + 8e^{-2x} + C$",
+      "$1.5\\tan(0.2x) - 2e^{-2x} + C$"
+    ],
+    "correct": "B",
+    "rationale": "The integral of $\\sec^2(ax)$ is $\\frac{1}{a}\\tan(ax)$. Thus, $3 \\cdot \\frac{1}{0.2}\\tan(0.2x) = 15\\tan(0.2x)$. For the second term, $4 \\cdot (-\\frac{1}{2}e^{-2x}) = -2e^{-2x}$."
+  },
+  {
+    "id": "m-135",
+    "q": "Calculate the integral of $f(x) = \\frac{7}{\\sqrt{x}} - 2\\cos(4x) + x^{1.5}$.",
+    "options": [
+      "$14\\sqrt{x} - 0.5\\sin(4x) + 0.4x^{2.5} + C$",
+      "$7\\sqrt{x} - 0.5\\sin(4x) + 0.4x^{2.5} + C$",
+      "$14x^{1/2} - 8\\sin(4x) + 2.5x^{2.5} + C$",
+      "$14\\sqrt{x} + 0.5\\sin(4x) + 0.4x^{2.5} + C$"
+    ],
+    "correct": "A",
+    "rationale": "$\\int 7x^{-1/2} dx = 7 \\cdot 2x^{1/2} = 14\\sqrt{x}$. $\\int -2\\cos(4x) dx = -2 \\cdot \\frac{1}{4}\\sin(4x) = -0.5\\sin(4x)$. $\\int x^{1.5} dx = \\frac{x^{2.5}}{2.5} = 0.4x^{2.5}$."
+  },
+  {
+    "id": "m-136",
+    "q": "What is the integral of $f(x) = 4\\csc^2(2x) - 3x^{-0.5}$?",
+    "options": [
+      "$-2\\cot(2x) - 6x^{0.5} + C$",
+      "$2\\cot(2x) - 6\\sqrt{x} + C$",
+      "$-8\\cot(2x) - 1.5\\sqrt{x} + C$",
+      "$-2\\cot(2x) - 3\\sqrt{x} + C$"
+    ],
+    "correct": "A",
+    "rationale": "The integral of $\\csc^2(ax)$ is $-\\frac{1}{a}\\cot(ax)$. Here, $4 \\cdot (-\\frac{1}{2}\\cot(2x)) = -2\\cot(2x)$. For the second term, $-3 \\cdot \\frac{x^{0.5}}{0.5} = -6x^{0.5}$."
+  },
+  {
+    "id": "m-137",
+    "q": "Evaluate the integral of $f(x) = x\\cos(3x)$ using integration by parts.",
+    "options": [
+      "$\\frac{1}{3}x\\sin(3x) + \\frac{1}{9}\\cos(3x) + C$",
+      "$\\frac{1}{3}x\\sin(3x) - \\frac{1}{9}\\cos(3x) + C$",
+      "$3x\\sin(3x) + 9\\cos(3x) + C$",
+      "$\\frac{1}{3}x\\sin(3x) + \\cos(3x) + C$"
+    ],
+    "correct": "A",
+    "rationale": "Let $u=x, dv=\\cos(3x)dx$. Then $du=dx, v=\\frac{1}{3}\\sin(3x)$. Using $\\int u dv = uv - \\int v du$: $\\frac{1}{3}x\\sin(3x) - \\int \\frac{1}{3}\\sin(3x) dx = \\frac{1}{3}x\\sin(3x) + \\frac{1}{9}\\cos(3x)$."
+  },
+  {
+    "id": "m-138",
+    "q": "Find the integral: $\\int \\frac{2x + 1}{x^2 + x + 0.5} dx$.",
+    "options": [
+      "$\\ln|x^2 + x + 0.5| + C$",
+      "$2\\ln|x^2 + x + 0.5| + C$",
+      "$\\frac{1}{x^2 + x + 0.5} + C$",
+      "$\\ln|2x + 1| + C$"
+    ],
+    "correct": "A",
+    "rationale": "This follows the pattern $\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)|$. Since the derivative of $x^2 + x + 0.5$ is exactly $2x + 1$, the integral is $\\ln|x^2 + x + 0.5| + C$."
+  },
+  {
+    "id": "m-139",
+    "q": "Solve the integral using partial fractions: $\\int \\frac{4}{(x-1)(x+3)} dx$.",
+    "options": [
+      "$\\ln|x-1| - \\ln|x+3| + C$",
+      "$\\ln|x+3| - \\ln|x-1| + C$",
+      "$4\\ln|x-1| - 4\\ln|x+3| + C$",
+      "$\\ln|(x-1)(x+3)| + C$"
+    ],
+    "correct": "A",
+    "rationale": "Decompose: $\\frac{4}{(x-1)(x+3)} = \\frac{A}{x-1} + \\frac{B}{x+3}$. Solving gives $A=1, B=-1$. The integral is $\\int (\\frac{1}{x-1} - \\frac{1}{x+3}) dx = \\ln|x-1| - \\ln|x+3|$."
+  },
+  {
+    "id": "m-140",
+    "q": "Determine the integral: $\\int x^2(x^3 + 5)^4 dx$.",
+    "options": [
+      "$\\frac{1}{15}(x^3 + 5)^5 + C$",
+      "$\\frac{1}{5}(x^3 + 5)^5 + C$",
+      "$\\frac{1}{3}(x^3 + 5)^5 + C$",
+      "$\\frac{x^3}{3}(x^3 + 5)^5 + C$"
+    ],
+    "correct": "A",
+    "rationale": "Use substitution $u = x^3 + 5, du = 3x^2 dx$. The integral becomes $\\int \\frac{1}{3}u^4 du = \\frac{1}{3} \\cdot \\frac{u^5}{5} = \\frac{1}{15}(x^3 + 5)^5$."
+  },
+  {
+    "id": "m-141",
+    "q": "Evaluate the integral: $\\int \\cos^2(0.5x) dx$.",
+    "options": [
+      "$\\frac{1}{2}x + \\frac{1}{2}\\sin(x) + C$",
+      "$\\frac{1}{2}x + \\sin(0.5x) + C$",
+      "$x + \\sin(x) + C$",
+      "$\\frac{1}{2}x + \\frac{1}{4}\\sin(x) + C$"
+    ],
+    "correct": "A",
+    "rationale": "Using the identity $\\cos^2(\\theta) = \\frac{1 + \\cos(2\\theta)}{2}$, we have $\\int \\frac{1 + \\cos(x)}{2} dx = \\int (\\frac{1}{2} + \\frac{1}{2}\\cos(x)) dx = \\frac{1}{2}x + \\frac{1}{2}\\sin(x)$."
+  },
+  {
+    "id": "m-142",
+    "q": "Solve by parts: $\\int 2x e^{4x} dx$.",
+    "options": [
+      "$\\frac{1}{2}x e^{4x} - \\frac{1}{8}e^{4x} + C$",
+      "$\\frac{1}{2}x e^{4x} - \\frac{1}{2}e^{4x} + C$",
+      "$8x e^{4x} - 32e^{4x} + C$",
+      "$\\frac{1}{4}x e^{4x} - \\frac{1}{16}e^{4x} + C$"
+    ],
+    "correct": "A",
+    "rationale": "Let $u=2x, dv=e^{4x}dx \\Rightarrow du=2dx, v=\\frac{1}{4}e^{4x}$. Applying parts: $(2x)(\\frac{1}{4}e^{4x}) - \\int \\frac{2}{4}e^{4x} dx = \\frac{1}{2}xe^{4x} - \\frac{1}{8}e^{4x}$."
+  },
+  {
+    "id": "m-143",
+    "q": "Evaluate: $\\int \\sin(x) e^{\\cos(x)} dx$.",
+    "options": [
+      "$-e^{\\cos(x)} + C$",
+      "$e^{\\cos(x)} + C$",
+      "$\\cos(x) e^{\\cos(x)} + C$",
+      "$-e^{\\sin(x)} + C$"
+    ],
+    "correct": "A",
+    "rationale": "Let $u = \\cos(x), du = -\\sin(x)dx$. The integral becomes $\\int -e^u du = -e^u = -e^{\\cos(x)}$."
+  },
+  {
+    "id": "m-144",
+    "q": "What is the integral of $f(x) = \\frac{e^{2x}}{1 + e^{2x}}$?",
+    "options": [
+      "$\\frac{1}{2}\\ln(1 + e^{2x}) + C$",
+      "$\\ln(1 + e^{2x}) + C$",
+      "$2\\ln(1 + e^{2x}) + C$",
+      "$\\frac{e^{2x}}{2x} + C$"
+    ],
+    "correct": "A",
+    "rationale": "The derivative of the denominator $(1 + e^{2x})$ is $2e^{2x}$. Thus, the integral is $\\frac{1}{2} \\int \\frac{2e^{2x}}{1 + e^{2x}} dx = \\frac{1}{2}\\ln(1 + e^{2x})$."
+  },
+  {
+    "id": "m-145",
+    "q": "Solve using partial fractions: $\\int \\frac{3x + 1}{x^2 - 1} dx$.",
+    "options": [
+      "$2\\ln|x-1| + \\ln|x+1| + C$",
+      "$\\ln|x-1| + 2\\ln|x+1| + C$",
+      "$3\\ln|x^2-1| + C$",
+      "$2\\ln|x+1| + \\ln|x-1| + C$"
+    ],
+    "correct": "A",
+    "rationale": "$\\frac{3x+1}{(x-1)(x+1)} = \\frac{A}{x-1} + \\frac{B}{x+1}$. Solving gives $A=2, B=1$. The integral is $2\\ln|x-1| + \\ln|x+1|$."
+  },
+  {
+    "id": "m-146",
+    "q": "What is the value of $\\sin(30^\\circ)$?",
+    "options": ["1/2", "$\\frac{\\sqrt{3}}{2}$", "1", "0"],
+    "correct": "A",
+    "rationale": "In the unit circle, the sine of 30° corresponds to the y-coordinate, which is exactly 0.5 or 1/2."
+  },
+  {
+    "id": "m-147",
+    "q": "Determine the value of $\\cos(\\pi/4)$.",
+    "options": ["1", "$\\frac{1}{2}$", "$\\frac{\\sqrt{2}}{2}$", "$\\frac{\\sqrt{3}}{2}$"],
+    "correct": "C",
+    "rationale": "At $\\pi/4$ (45°), the x and y coordinates on the unit circle are both $\\frac{\\sqrt{2}}{2}$."
+  },
+  {
+    "id": "m-148",
+    "q": "What is the value of $\\tan(60^\\circ)$?",
+    "options": ["$\\frac{\\sqrt{3}}{3}$", "1", "$\\sqrt{3}$", "Undefined"],
+    "correct": "C",
+    "rationale": "$\\tan(60^\\circ) = \\frac{\\sin(60^\\circ)}{\\cos(60^\\circ)} = \\frac{\\sqrt{3}/2}{1/2} = \\sqrt{3}$."
+  },
+  {
+    "id": "m-149",
+    "q": "Evaluate $\\sin(\\pi)$.",
+    "options": ["1", "0", "-1", "$\\frac{1}{2}$"],
+    "correct": "B",
+    "rationale": "At $\\pi$ radians (180°), the point on the unit circle is (-1, 0), so the sine (y-coordinate) is 0."
+  },
+  {
+    "id": "m-150",
+    "q": "What is the value of $\\cos(270^\\circ)$?",
+    "options": ["0", "-1", "1", "$\\frac{\\sqrt{2}}{2}$"],
+    "correct": "A",
+    "rationale": "At 270°, the terminal side is on the negative y-axis (0, -1), making the cosine (x-coordinate) 0."
+  },
+  {
+    "id": "m-151",
+    "q": "Find the result of $\\sin(90^\\circ) + \\cos(180^\\circ)$.",
+    "options": ["2", "1", "0", "-1"],
+    "correct": "C",
+    "rationale": "$\\sin(90^\\circ) = 1$ and $\\cos(180^\\circ) = -1$. Therefore, $1 + (-1) = 0$."
+  },
+  {
+    "id": "m-152",
+    "q": "Calculate the value of $2 \\cdot \\sin(30^\\circ)$.",
+    "options": ["$\\sqrt{3}$", "2", "1", "0.5"],
+    "correct": "C",
+    "rationale": "Since $\\sin(30^\\circ) = 0.5$, then $2 \\cdot 0.5 = 1$."
+  },
+  {
+    "id": "m-153",
+    "q": "Evaluate the expression: $\\sin(45^\\circ) \\cdot \\cos(45^\\circ)$.",
+    "options": ["1", "1/2", "$\\frac{\\sqrt{2}}{2}$", "1/4"],
+    "correct": "B",
+    "rationale": "$\\sin(45^\\circ) = \\frac{\\sqrt{2}}{2}$ and $\\cos(45^\\circ) = \\frac{\\sqrt{2}}{2}$. Multiplying them: $\\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{2}}{2} = \\frac{2}{4} = 1/2$."
+  },
+  {
+    "id": "m-154",
+    "q": "What is the value of $\\tan(45^\\circ) + \\sin(270^\\circ)$?",
+    "options": ["2", "1", "0", "-1"],
+    "correct": "C",
+    "rationale": "$\\tan(45^\\circ) = 1$ and $\\sin(270^\\circ) = -1$. Thus, $1 + (-1) = 0$."
+  },
+  {
+    "id": "m-155",
+    "q": "Find the value of $\\cos(\\pi/3) + \\sin(\\pi/6)$.",
+    "options": ["1", "$\\frac{\\sqrt{3}}{2}$", "$\\frac{1}{2}$", "$\\sqrt{2}$"],
+    "correct": "A",
+    "rationale": "$\\cos(\\pi/3) = 1/2$ and $\\sin(\\pi/6) = 1/2$. Adding them gives $0.5 + 0.5 = 1$."
+  },
+  {
+    "id": "m-156",
+    "q": "Identify the function represented by a curve with amplitude 3 and a vertical shift of -2.",
+    "options": [
+      "$f(x) = 3\\sin(x) + 2$",
+      "$f(x) = -2 + 3\\sin(x)$",
+      "$f(x) = 2\\sin(3x)$",
+      "$f(x) = \\sin(x) - 2$"
+    ],
+    "correct": "B",
+    "rationale": "As seen in the transformation exercises (page 29), the vertical shift is the constant term $d=-2$ and the amplitude is the multiplier $a=3$."
+  },
+  {
+    "id": "m-157",
+    "q": "Which function represents a sine curve reflected across the x-axis with a standard period?",
+    "options": [
+      "$f(x) = \\sin(x)$",
+      "$f(x) = -\\sin(x)$",
+      "$f(x) = \\cos(x)$",
+      "$f(x) = \\sin(-x) + 1$"
+    ],
+    "correct": "B",
+    "rationale": "A reflection across the x-axis is indicated by a negative sign before the function name, resulting in $f(x) = -\\sin(x)$."
+  },
+  {
+    "id": "m-158",
+    "q": "What is the period of the function $f(x) = \\sin(2x - \\pi)$?",
+    "options": ["$2\\pi$", "$\\pi$", "$\\pi/2$", "$4\\pi$"],
+    "correct": "B",
+    "rationale": "The period $T$ is calculated using $2\\pi / b$. Given $b=2$, the period is $\\pi$."
+  },
+  {
+    "id": "m-159",
+    "q": "Find the phase shift of the function $f(x) = \\sin(2x - \\pi)$.",
+    "options": ["$\\pi$ right", "$\\pi/2$ right", "$\\pi$ left", "$\\pi/2$ left"],
+    "correct": "B",
+    "rationale": "Phase shift is $c/b$. Here, $\\pi / 2 = \\pi/2$. Since it is in the form $(bx - c)$, the shift is to the right."
+  },
+  {
+    "id": "m-160",
+    "q": "Convert $150^\\circ$ to radians.",
+    "options": ["$\\frac{5\\pi}{6}$", "$\\frac{2\\pi}{3}$", "$\\frac{3\\pi}{4}$", "$\\frac{\\pi}{2}$"],
+    "correct": "A",
+    "rationale": "To convert degrees to radians, multiply by $\\pi/180$. $150 \\cdot (\\pi/180) = 15\\pi/18 = 5\\pi/6$."
+  },
+  {
+    "id": "m-161",
+    "q": "Given vectors $\\vec{a} = (2, 3)$ and $\\vec{b} = (4, 1)$, find the vector $\\vec{a} + \\vec{b}$.",
+    "options": [
+      "$(6, 4)$",
+      "$(2, -2)$",
+      "$(8, 3)$",
+      "$(6, 2)$"
+    ],
+    "correct": "A",
+    "rationale": "To add vectors, add their corresponding components: $(2+4, 3+1) = (6, 4)$."
+  },
+  {
+    "id": "m-162",
+    "q": "Given vectors $\\vec{u} = (-5, 2)$ and $\\vec{v} = (3, 4)$, find the vector $\\vec{u} - \\vec{v}$.",
+    "options": [
+      "$(-2, 6)$",
+      "$(-8, -2)$",
+      "$(8, 2)$",
+      "$(-8, 2)$"
+    ],
+    "correct": "B",
+    "rationale": "Subtract the components: $(-5 - 3, 2 - 4) = (-8, -2)$."
+  },
+  {
+    "id": "m-163",
+    "q": "Given vector $\\vec{p} = (1, -2, 3)$, find the vector $3\\vec{p}$.",
+    "options": [
+      "$(3, -6, 9)$",
+      "$(3, -2, 3)$",
+      "$(4, 1, 6)$",
+      "$(3, 6, 9)$"
+    ],
+    "correct": "A",
+    "rationale": "Multiply each component by the scalar 3: $(3\\cdot1, 3\\cdot(-2), 3\\cdot3) = (3, -6, 9)$."
+  },
+  {
+    "id": "m-164",
+    "q": "Given vectors $\\vec{a} = (2, 0, -1)$ and $\\vec{b} = (1, 4, 6)$, find the vector $2\\vec{a} + \\vec{b}$.",
+    "options": [
+      "$(5, 4, 5)$",
+      "$(5, 4, 4)$",
+      "$(4, 4, 5)$",
+      "$(3, 4, 5)$"
+    ],
+    "correct": "B",
+    "rationale": "First, $2\\vec{a} = (4, 0, -2)$. Then, $(4+1, 0+4, -2+6) = (5, 4, 4)$."
+  },
+  {
+    "id": "m-165",
+    "q": "Given vector $\\vec{x} = (5, -3)$, find the vector $-2\\vec{x}$.",
+    "options": [
+      "$(10, -6)$",
+      "$(-10, 6)$",
+      "$(-10, -6)$",
+      "$(3, -5)$"
+    ],
+    "correct": "B",
+    "rationale": "Multiply each component by -2: $(-2\\cdot5, -2\\cdot(-3)) = (-10, 6)$."
+  },
+  {
+    "id": "m-166",
+    "q": "Given vectors $\\vec{c} = (3, 4)$ and $\\vec{d} = (-2, 1)$, find the vector $4\\vec{c} - 3\\vec{d}$.",
+    "options": [
+      "$(18, 13)$",
+      "$(6, 13)$",
+      "$(18, 19)$",
+      "$(12, 16)$"
+    ],
+    "correct": "A",
+    "rationale": "$4\\vec{c} = (12, 16)$ and $3\\vec{d} = (-6, 3)$. Then, $(12 - (-6), 16 - 3) = (18, 13)$."
+  },
+  {
+    "id": "m-167",
+    "q": "If $\\vec{v} = 3i - 2j$ and $\\vec{w} = -2i + 5j$, find the vector $\\vec{v} + \\vec{w}$.",
+    "options": [
+      "$i + 3j$",
+      "$5i + 7j$",
+      "$-i + 3j$",
+      "$i - 3j$"
+    ],
+    "correct": "A",
+    "rationale": "Add the components of $i$ and $j$ separately: $(3 - 2)i + (-2 + 5)j = 1i + 3j$."
+  },
+  {
+    "id": "m-168",
+    "q": "Given vector $\\vec{m} = (4, -2, 8)$, find the vector $0.5\\vec{m}$.",
+    "options": [
+      "$(2, -1, 4)$",
+      "$(8, -4, 16)$",
+      "$(2, 1, 4)$",
+      "$(4, -2, 8)$"
+    ],
+    "correct": "A",
+    "rationale": "Multiply each component by 0.5 (which is the same as dividing by 2): $(2, -1, 4)$."
+  },
+  {
+    "id": "m-169",
+    "q": "Find the magnitude (norm) of the vector $\\vec{v} = (3, 4)$.",
+    "options": [
+      "7",
+      "5",
+      "25",
+      "$\\sqrt{7}$"
+    ],
+    "correct": "B",
+    "rationale": "The magnitude is $|\\vec{v}| = \\sqrt{x^2 + y^2} = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$."
+  },
+  {
+    "id": "m-170",
+    "q": "Calculate the dot product (scalar product) of $\\vec{a} = (1, 3)$ and $\\vec{b} = (2, -1)$.",
+    "options": [
+      "5",
+      "-1",
+      "1",
+      "$(2, -3)$"
+    ],
+    "correct": "B",
+    "rationale": "The dot product is $a_x b_x + a_y b_y = (1 \\cdot 2) + (3 \\cdot -1) = 2 - 3 = -1$."
+  },
+  {
+    "id": "m-171",
+    "q": "Find the dot product of $\\vec{u} = (2, -3, 5)$ and $\\vec{v} = (4, 1, -2)$.",
+    "options": [
+      "-5",
+      "5",
+      "15",
+      "-10"
+    ],
+    "correct": "A",
+    "rationale": "$\\vec{u} \\cdot \\vec{v} = (2 \\cdot 4) + (-3 \\cdot 1) + (5 \\cdot -2) = 8 - 3 - 10 = -5$."
+  },
+  {
+    "id": "m-172",
+    "q": "Two vectors are orthogonal if their dot product is equal to:",
+    "options": [
+      "1",
+      "-1",
+      "0",
+      "The product of their magnitudes"
+    ],
+    "correct": "C",
+    "rationale": "By definition, two non-zero vectors are orthogonal (perpendicular) if and only if their scalar product is zero."
+  },
+  {
+    "id": "m-173",
+    "q": "Find the unit vector in the same direction as $\\vec{v} = (3, 4)$.",
+    "options": [
+      "$(\\frac{3}{5}, \\frac{4}{5})$",
+      "$(1, 1)$",
+      "$(\\frac{3}{7}, \\frac{4}{7})$",
+      "$(\\frac{3}{25}, \\frac{4}{25})$"
+    ],
+    "correct": "A",
+    "rationale": "A unit vector is $\\vec{u} = \\frac{\\vec{v}}{|\\vec{v}|}$. Since $|\\vec{v}| = 5$, the unit vector is $(\\frac{3}{5}, \\frac{4}{5})$."
+  },
+  {
+    "id": "m-174",
+    "q": "Calculate the cosine of the angle $\\theta$ between $\\vec{a} = (1, 0)$ and $\\vec{b} = (1, 1)$.",
+    "options": [
+      "$\\frac{1}{2}$",
+      "$\\frac{\\sqrt{2}}{2}$",
+      "1",
+      "0"
+    ],
+    "correct": "B",
+    "rationale": "$\\cos\\theta = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}||\\vec{b}|} = \\frac{(1\\cdot1 + 0\\cdot1)}{(1)(\\sqrt{2})} = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$."
+  },
+  {
+    "id": "m-175",
+    "q": "If $\\vec{a} = (k, 2)$ and $\\vec{b} = (3, -1)$ are orthogonal, what is the value of $k$?",
+    "options": [
+      "$k = 2/3$",
+      "$k = -2/3$",
+      "$k = 6$",
+      "$k = 0$"
+    ],
+    "correct": "A",
+    "rationale": "For orthogonality, $\\vec{a} \\cdot \\vec{b} = 0 \\Rightarrow 3k + (2)(-1) = 0 \\Rightarrow 3k = 2 \\Rightarrow k = 2/3$."
+  },
+  {
+    "id": "m-176",
+    "q": "Isolate $x$ in the equation: $y = 0.25x^3 - 0.5$.",
+    "options": [
+      "$x = \\sqrt[3]{4y + 2}$",
+      "$x = \\sqrt[3]{4(y + 0.5)}$",
+      "$x = \\sqrt[3]{y + 0.5} / 0.25$",
+      "$x = 4y^3 + 0.5$"
+    ],
+    "correct": "B",
+    "rationale": "First, add 0.5 to both sides: $y + 0.5 = 0.25x^3$. Then multiply by 4 (or divide by 0.25): $4(y + 0.5) = x^3$. Finally, take the cube root: $x = \\sqrt[3]{4(y + 0.5)}$."
+  },
+  {
+    "id": "m-177",
+    "q": "Isolate $x$ in the equation: $y = \\frac{5}{2x - 1}$.",
+    "options": [
+      "$x = \\frac{5+y}{2y}$",
+      "$x = \\frac{5}{2y} + 1$",
+      "$x = \\frac{5}{2y} + 0.5$",
+      "$x = \\frac{2y-1}{5}$"
+    ],
+    "correct": "C",
+    "rationale": "Multiply by $(2x-1)$: $y(2x-1) = 5$. Divide by $y$: $2x-1 = 5/y$. Add 1: $2x = 5/y + 1$. Divide by 2: $x = \\frac{5}{2y} + 0.5$."
+  },
+  {
+    "id": "m-178",
+    "q": "In the equation $y = 100 \\cdot (0.8)^x$, solve for $x$.",
+    "options": [
+      "$x = \\log_{0.8}(y/100)$",
+      "$x = \\frac{y}{100 \\cdot 0.8}$",
+      "$x = \\ln(y - 100) / 0.8$",
+      "$x = 0.8^y / 100$"
+    ],
+    "correct": "A",
+    "rationale": "Divide by 100: $y/100 = 0.8^x$. Apply logarithms to both sides: $\\log(y/100) = x \\log(0.8)$. Therefore, $x = \\frac{\\log(y/100)}{\\log(0.8)}$, which is $\\log_{0.8}(y/100)$."
+  },
+  {
+    "id": "m-179",
+    "q": "Isolate $x$ in the logarithmic equation: $y = \\ln(3x + 0.5)$.",
+    "options": [
+      "$x = \\frac{e^y - 0.5}{3}$",
+      "$x = e^{y/3} - 0.5$",
+      "$x = \\frac{\\ln(y) - 0.5}{3}$",
+      "$x = 3e^y + 0.5$"
+    ],
+    "correct": "A",
+    "rationale": "Apply the exponential function to both sides to cancel the natural log: $e^y = 3x + 0.5$. Subtract 0.5: $e^y - 0.5 = 3x$. Divide by 3: $x = (e^y - 0.5)/3$."
+  },
+  {
+    "id": "m-180",
+    "q": "Given $y = 2\\pi \\sqrt{\\frac{x}{9.8}}$, isolate $x$.",
+    "options": [
+      "$x = 9.8(\\frac{y}{2\\pi})^2$",
+      "$x = \\frac{y^2 \\cdot 9.8}{2\\pi}$",
+      "$x = \\sqrt{\\frac{y}{2\\pi \\cdot 9.8}}$",
+      "$x = 9.8 (y - 2\\pi)^2$"
+    ],
+    "correct": "A",
+    "rationale": "Divide by $2\\pi$: $y/(2\\pi) = \\sqrt{x/9.8}$. Square both sides: $(y/2\\pi)^2 = x/9.8$. Multiply by 9.8: $x = 9.8(y/2\\pi)^2$."
+  },
+  {
+    "id": "m-181",
+    "q": "Isolate $x$ in the classical kinetic energy formula: $y = \\frac{1}{2}mx^2$.",
+    "options": [
+      "$x = \\sqrt{\\frac{2y}{m}}$",
+      "$x = \\frac{\\sqrt{2y}}{m}$",
+      "$x = \\frac{2y}{m^2}$",
+      "$x = \\sqrt{2ym}$"
+    ],
+    "correct": "A",
+    "rationale": "Multiply by 2: $2y = mx^2$. Divide by $m$: $2y/m = x^2$. Taking the square root gives $x = \\sqrt{2y/m}$."
+  },
+  {
+    "id": "m-182",
+    "q": "Isolate $x$ in the equation: $y = 4e^{0.1x} - 2$.",
+    "options": [
+      "$x = 10 \\ln(\\frac{y+2}{4})$",
+      "$x = \\ln(\\frac{y+2}{0.4})$",
+      "$x = \\frac{\\ln(y+2)}{0.4}$",
+      "$x = 10e^{y+2}$"
+    ],
+    "correct": "A",
+    "rationale": "Add 2 to both sides: $y + 2 = 4e^{0.1x}$. Divide by 4: $(y+2)/4 = e^{0.1x}$. Apply natural log: $\\ln((y+2)/4) = 0.1x$. Multiply by 10 (since $1/0.1 = 10$): $x = 10\\ln((y+2)/4)$."
+  },
+  {
+    "id": "m-183",
+    "q": "Isolate $x$ in the equation: $y = (x^2 + 1.5)^{1/3}$.",
+    "options": [
+      "$x = \\sqrt{y^3 - 1.5}$",
+      "$x = (y - 1.5)^3$",
+      "$x = \\sqrt[3]{y^2 - 1.5}$",
+      "$x = \\sqrt{y^{1/3} - 1.5}$"
+    ],
+    "correct": "A",
+    "rationale": "Cube both sides to remove the $1/3$ power: $y^3 = x^2 + 1.5$. Subtract 1.5: $y^3 - 1.5 = x^2$. Take the square root: $x = \\sqrt{y^3 - 1.5}$."
+  },
+  {
+    "id": "m-184",
+    "q": "Solve the following system of equations for $x$ and $y$: $x + y = 500$ and $x = 4y$.",
+    "options": [
+      "$x=400, y=100$",
+      "$x=300, y=200$",
+      "$x=450, y=50$",
+      "$x=100, y=400$"
+    ],
+    "correct": "A",
+    "rationale": "Substitute $x=4y$ into the first equation: $4y + y = 500 \\Rightarrow 5y = 500 \\Rightarrow y = 100$. Then, $x = 4(100) = 400$."
+  },
+  {
+    "id": "m-185",
+    "q": "Solve for $x$ in the equation: $y = 2 \\log_{10}(x/5)$.",
+    "options": [
+      "$x = 5 \\cdot 10^{y/2}$",
+      "$x = 10^{y/2} + 5$",
+      "$x = 5 \\cdot e^{y/2}$",
+      "$x = \\frac{10^y}{2} \\cdot 5$"
+    ],
+    "correct": "A",
+    "rationale": "Divide by 2: $y/2 = \\log_{10}(x/5)$. Convert to exponential form: $10^{y/2} = x/5$. Multiply by 5: $x = 5 \\cdot 10^{y/2}$."
+  },
+  {
+    "id": "m-186",
+    "q": "Isolate $x$ in the compound interest style formula: $y = \\frac{P}{(1 + x)^n}$.",
+    "options": [
+      "$x = \\sqrt[n]{P/y} - 1$",
+      "$x = (P/y)^n - 1$",
+      "$x = \\sqrt[n]{y/P} - 1$",
+      "$x = \\frac{P}{y^n} - 1$"
+    ],
+    "correct": "A",
+    "rationale": "Multiply by $(1+x)^n$ and divide by $y$: $(1+x)^n = P/y$. Take the $n$-th root: $1+x = \\sqrt[n]{P/y}$. Subtract 1: $x = \\sqrt[n]{P/y} - 1$."
+  },
+  {
+    "id": "m-187",
+    "q": "Solve for $x$ in the equation: $y = 3 + \\log_2(x - 4)$.",
+    "options": [
+      "$x = 2^{y-3} + 4$",
+      "$x = 2^y - 3 + 4$",
+      "$x = 10^{y-3} + 4$",
+      "$x = 2^{y-4} + 3$"
+    ],
+    "correct": "A",
+    "rationale": "Subtract 3: $y - 3 = \\log_2(x - 4)$. Convert to exponential form: $2^{y-3} = x - 4$. Add 4: $x = 2^{y-3} + 4$."
+  },
+  {
+    "id": "m-188",
+    "q": "Find the value of $z$ in the following system: $x=1, y=2, x+y+z=6$.",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "1"
+    ],
+    "correct": "A",
+    "rationale": "Substitute the known values into the third equation: $1 + 2 + z = 6 \\Rightarrow 3 + z = 6 \\Rightarrow z = 3$."
+  },
+  {
+    "id": "m-189",
+    "q": "In a system of currents (Kirchhoff), if $4V_A - V_B = 82$ and $V_B = 18$, what is the value of $V_A$?",
+    "options": [
+      "25",
+      "20",
+      "30",
+      "100"
+    ],
+    "correct": "A",
+    "rationale": "Substitute $V_B=18$ into the equation: $4V_A - 18 = 82$. Add 18: $4V_A = 100$. Divide by 4: $V_A = 25$."
+  },
+  {
+    "id": "m-190",
+    "q": "Solve for $x$: $10 = 2(x + 1.5)^{2}$.",
+    "options": [
+      "$x = \\sqrt{5} - 1.5$",
+      "$x = 3.5$",
+      "$x = \\sqrt{10} - 1.5$",
+      "$x = 5 - 1.5$"
+    ],
+    "correct": "A",
+    "rationale": "Divide by 2: $5 = (x + 1.5)^2$. Take the square root: $\\sqrt{5} = x + 1.5$. Subtract 1.5: $x = \\sqrt{5} - 1.5$."
   }
 ]

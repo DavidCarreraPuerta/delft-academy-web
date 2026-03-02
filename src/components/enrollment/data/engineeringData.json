@@ -883,7 +883,7 @@
   },
   {
     "id": "ae-118",
-    "q": "Which of the following is an essential assumption for applying the Bernoulli Equation?",
+    "q": "Which of the following viscosity-related assumption is an essential assumption for applying the Bernoulli Equation?",
     "options": ["The flow must be viscous", "The flow must be unsteady", "The flow must be inviscid (frictionless)", "The flow must be supersonic"],
     "correct": "C",
     "rationale": "Bernoulli's equation assumes the flow is steady, incompressible, and inviscid, meaning friction and thermal effects are neglected."
@@ -1024,7 +1024,7 @@
   {
     "id": "ae-139",
     "q": "The 'Service Ceiling' of an aircraft is typically defined as the altitude where the maximum rate of climb drops to:",
-    "options": ["0 m/s", "100 ft/min (0.5 m/s)", "500 ft/min", "1000 ft/min"],
+    "options": ["0 m/s", "100 ft/min (0.508 m/s)", "500 ft/min", "1000 ft/min"],
     "correct": "B",
     "rationale": "The Service Ceiling is a practical limit where the climb performance becomes very low (typically 100 feet per minute), whereas the Absolute Ceiling is where the rate of climb is exactly zero."
   },
@@ -1039,8 +1039,8 @@
     "id": "ae-141",
     "q": "Which speed corresponds to the Maximum Range for a jet aircraft?",
     "options": ["The speed for minimum drag ($V_{md}$)", "A speed higher than $V_{md}$ (specifically where $C_L^{1/2}/C_D$ is max)", "The stall speed", "The speed for minimum power"],
-    "correct": "B",
-    "rationale": "For jet aircraft, maximum range occurs at a higher velocity than minimum drag to optimize the ratio of velocity to fuel flow (Specific Range)."
+    "correct": "A",
+    "rationale": ""
   },
   {
     "id": "ae-142",
@@ -1142,7 +1142,7 @@
   },
   {
     "id": "ae-165",
-    "q": "Which rocket remains the largest and most powerful ever successfully launched to date, famously used for the Apollo moon missions?",
+    "q": "Which rocket used for the Apollo moon mission and historically remains the most powerful rocket of its era?",
     "options": ["Mercury-Redstone", "Saturn V", "Vostok-L", "Falcon 9"],
     "correct": "B",
     "rationale": "The Saturn V remains the tallest, heaviest, and most powerful rocket ever brought to operational status, capable of sending humans to the Moon."
