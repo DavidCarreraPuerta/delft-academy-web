@@ -82,7 +82,7 @@ const Resources = () => {
       id: "fees",
       title: "Delf Engineering Academy Fees",
       icon: <Wallet className="w-8 h-8 text-orange-600" />,
-      shortDesc: "Transparent Pricing: Starting at 40€/session, clear costs for tailored mentorship and plans.",
+      shortDesc: "Transparent Pricing: Starting at 50€/session, clear costs for tailored mentorship and plans.",
       fullContent: `
         <h2 class="text-2xl font-black italic uppercase mb-4 text-slate-900">Transparent Pricing: Your Investment</h2>
         <p class="mb-4 text-sm text-slate-600">We believe in clear costs with no surprises. Our fees are structured to be an investment in your engineering future.</p>
