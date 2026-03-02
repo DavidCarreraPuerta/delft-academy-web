@@ -299,7 +299,7 @@ export const SimulatorRoom = () => {
     }
   };
 
-// --- SISTEMA DE FEEDBACK AUTOMÁTICO ---
+// --- SISTEMA DE FEEDBACK AUTOMÁTICO (CORREGIDO) ---
 useEffect(() => {
   if (view === "results") {
     const today = new Date().toISOString().split('T')[0];
@@ -308,14 +308,27 @@ useEffect(() => {
     if (lastVote !== today) {
       const timer = setTimeout(() => {
         toast.custom((t) => (
-          <div className="bg-white border-2 border-slate-100 shadow-2xl rounded-[32px] p-6 w-[350px] animate-in slide-in-from-right-5 duration-500">
+          <div className="bg-white border-2 border-slate-100 shadow-2xl rounded-[32px] p-6 w-[350px] relative animate-in slide-in-from-right-5 duration-500">
+            {/* BOTÓN DE CIERRE: Fundamental para la UX */}
+            <button 
+              onClick={() => toast.dismiss(t)} 
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 font-bold text-xs"
+            >
+              ✕
+            </button>
+
             <ResourceFeedback 
               resourceId="ADMISSION_SIMULATOR_V3" 
               programmeId="bsc-aerospace" 
-              category="simulator" 
+              category="simulator"
+              customQuestion="How helpful was this simulator for your exam prep?"
             />
           </div>
-        ), { duration: 20000, position: 'bottom-right' });
+        ), { 
+          duration: 15000, 
+          position: 'bottom-right',
+          id: 'simulator-feedback' // Evita que salten varios si el usuario entra/sale
+        });
       }, 3000); 
       return () => clearTimeout(timer);
     }
@@ -447,22 +460,22 @@ useEffect(() => {
           <div className="bg-white rounded-[2rem] shadow-2xl border border-slate-100 overflow-hidden">
             
             {/* Cabecera */}
-            <div className="p-4 text-center border-b border-slate-50 bg-white">
+            <div className="p-3 text-center border-b border-slate-50 bg-white">
               <Award className="w-8 h-8 text-orange-600 mx-auto mb-1" />
-              <h2 className="text-xl font-black italic uppercase text-slate-900 tracking-tighter">Training Outcome</h2>
+              <h2 className="text-xxl font-black italic uppercase text-slate-900 tracking-tighter">Training Outcome</h2>
               <div className="flex justify-center items-baseline gap-2">
                 <span className="text-5xl font-black text-slate-900">{totalAccuracy}%</span>
-                <span className="text-[10px] font-bold text-slate-400 uppercase italic">Global Accuracy ({scores.total}/70)</span>
+                <span className="text-[10px] font-bold text-slate-600 uppercase italic">Global Accuracy ({scores.total}/70)</span>
               </div>
             </div>
 
             {/* Grid de bloques */}
             <div className="p-3 grid grid-cols-1 md:grid-cols-3 gap-3 bg-slate-50/50">
               {shuffledBlocks.map(b => (
-                <div key={b.id} className="bg-white py-3 px-4 rounded-[1.2rem] border shadow-sm text-center">
+                <div key={b.id} className="bg-white py-1 px-4 rounded-[1.2rem] border shadow-sm text-center">
                   <h4 className="text-[8px] font-black uppercase text-orange-600 mb-0.5">{b.name}</h4>
                   <p className="text-xl font-black leading-none">{Math.round((scores[b.id] / b.data.length) * 100)}%</p>
-                  <p className="text-[9px] font-bold text-slate-500 uppercase mt-1">
+                  <p className="text-[10px] font-bold text-slate-500 uppercase mt-1">
                     {scores[b.id]} / {b.data.length} OK
                   </p>
                 </div>
@@ -498,36 +511,56 @@ useEffect(() => {
                 </div>
               </div>
 
-              {/* Botonera */}
-              <div className="flex gap-2 pb-2">
-                <Button 
-                  onClick={() => navigate("/")} 
-                  className="flex-1 h-11 bg-slate-100 text-slate-600 rounded-xl font-black uppercase text-[10px] gap-2 hover:bg-slate-200"
-                >
-                  <LayoutDashboard className="w-4 h-4"/> Exit to Dashboard
-                </Button>
-                
-                <Button 
-                  onClick={() => window.location.reload()} 
-                  className="flex-1 h-11 bg-slate-900 text-white rounded-xl font-black uppercase text-[10px] gap-2 shadow-lg"
-                >
-                  <RefreshCw className="w-4 h-4"/> Retake
-                </Button>
+              {/* --- SECCIÓN DESTACADA PARA EL PDF (VERSIÓN COMPACTA HORIZONTAL) --- */}
+<div className="mt-4 p-4 bg-orange-50 border border-orange-200 rounded-[1.5rem] flex items-center justify-between shadow-sm gap-4">
+  <div className="flex items-center gap-4 text-left">
+    <div className="inline-flex items-center justify-center w-10 h-10 bg-orange-100 rounded-full shrink-0">
+      <FileText className="w-5 h-5 text-orange-600" />
+    </div>
+    
+    <div>
+      <h3 className="text-[13px] font-bold text-slate-900 leading-tight">
+        Step-by-Step Analysis & Solutions
+      </h3>
+      <p className="text-slate-600 text-[10px] leading-tight mt-0.5">
+        Don't leave without your personalized audit. It includes <b>detailed rationales</b>.
+      </p>
+    </div>
+  </div>
+  
+  <Button 
+    onClick={() => {
+      const pdfUser = {
+        name: currentUser.name && currentUser.name !== "Candidato Delft" ? currentUser.name : "studentalldocs",
+        email: currentUser.email || "studentalldocs@gmail.com"
+      };
+      toast.dismiss();
+      generateOutcomePDF(shuffledBlocks, selectedAnswers, questionTimers, pdfUser, warnings);
+    }}
+    className="h-12 px-6 bg-orange-600 hover:bg-orange-700 text-white text-[10px] font-black rounded-xl shadow-lg shadow-orange-200 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-3 uppercase tracking-wider shrink-0"
+  >
+    <FileText className="w-4 h-4"/> DOWNLOAD FULL AUDIT REPORT (PDF)
+  </Button>
+</div>
 
-                <Button 
-                  onClick={() => {
-                    const pdfUser = {
-                      name: currentUser.name && currentUser.name !== "Candidato Delft" ? currentUser.name : "studentalldocs",
-                      email: currentUser.email || "studentalldocs@gmail.com"
-                    };
-                    toast.dismiss();
-                    generateOutcomePDF(shuffledBlocks, selectedAnswers, questionTimers, pdfUser, warnings);
-                  }}
-                  className="flex-1 h-11 bg-orange-600 text-white rounded-xl font-black uppercase text-[10px] gap-2 shadow-xl shadow-orange-100 hover:bg-orange-700 transition-colors"
-                >
-                  <FileText className="w-4 h-4"/> Export Audit PDF
-                </Button>
-              </div>
+{/* --- ACCIONES SECUNDARIAS (ESTRECHADAS) --- */}
+<div className="mt-4 flex items-center justify-center gap-6 pb-2">
+  <button 
+    onClick={() => navigate("/")} 
+    className="text-slate-400 hover:text-slate-600 text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center gap-2"
+  >
+    <LayoutDashboard className="w-3 h-3"/> Exit to Dashboard
+  </button>
+  
+  <div className="h-3 w-[1px] bg-slate-200"></div>
+
+  <button 
+    onClick={() => window.location.reload()} 
+    className="text-slate-400 hover:text-slate-900 text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center gap-2"
+  >
+    <RefreshCw className="w-3 h-3"/> Retake Test
+  </button>
+</div>
             </div>
           </div>
         </div>
@@ -599,7 +632,7 @@ useEffect(() => {
             </div>
             
             <div className="flex-grow overflow-y-auto pr-4 mb-4 no-scrollbar">
-              <h3 className="text-lg font-black text-slate-900 mb-6 italic uppercase tracking-tight leading-tight">
+              <h3 className="text-lg font-black text-slate-900 mb-6 italic tracking-tight leading-tight">
               <LatexText text={currentQuestion.q} />
               </h3>
 
@@ -614,10 +647,10 @@ useEffect(() => {
                       onClick={() => setSelectedAnswers({...selectedAnswers, [currentQuestion.id]: letter})} 
                       className={`w-full p-4 border-2 rounded-2xl text-left flex items-center gap-4 transition-all ${isSel ? 'border-orange-500 bg-orange-50 shadow-inner' : 'border-slate-100 bg-white hover:border-orange-200'}`}
                     >
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-[10px] font-black ${isSel ? 'bg-orange-600 text-white' : 'bg-slate-100 text-slate-400'}`}>
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black ${isSel ? 'bg-orange-600 text-white' : 'bg-slate-100 text-slate-400'}`}>
                         {letter}
                       </div>
-                      <span className="text-[10px] font-bold text-slate-700 leading-snug"><LatexText text={opt} /></span>
+                      <span className="text-sm font-bold text-slate-700 leading-snug"><LatexText text={opt} /></span>
                     </button>
                   );
                 })}

@@ -10,10 +10,11 @@ import { Loader2 } from "lucide-react";
 interface ResourceFeedbackProps {
   resourceId: string;    // El nombre real del archivo (ej: LECTURE_M1_VECTORS.PDF)
   programmeId: string;   
-  category: 'material' | 'simulator' | 'tutor'; 
+  category: 'material' | 'simulator' | 'tutor';
+  customQuestion?: string;
 }
 
-export const ResourceFeedback = ({ resourceId, programmeId, category }: ResourceFeedbackProps) => {
+export const ResourceFeedback = ({ resourceId, programmeId, category, customQuestion }: ResourceFeedbackProps) => {
   const [step, setStep] = useState<'rating' | 'comment' | 'thanks'>('rating');
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState<number | null>(null);
@@ -71,7 +72,7 @@ export const ResourceFeedback = ({ resourceId, programmeId, category }: Resource
             {category === 'material' 
               ? `Feedback for: ${formatResourceId(resourceId)}` 
               : category === 'simulator' 
-                ? 'How was the simulator experience?' 
+                ? (customQuestion || 'How was the simulator experience?') 
                 : 'Rate your session with the tutor'}
           </p>
           <div className="flex justify-between items-center px-2">
