@@ -1,0 +1,547 @@
+[
+    {
+      "id": "m-01",
+      "q": "Evaluate the derivative of $f(x) = x^2 / \\\\ln(x)$.",
+      "options": ["$2x / \\\\ln(x)$", "$(2x \\\\ln(x) - x) / \\\\ln(x)$", "$(2x \\\\ln(x) - x) / \\\\ln^2(x)$", "$x / \\\\ln(x)$"],
+      "correct": "C",
+      "rationale": "To solve this, apply the Quotient Rule: $[u/v]' = (u'v - uv')/v^2$. Let $u = x^2$ and $v = \\\\ln(x)$. The derivative is: $[(2x)(\\\\ln(x)) - (x^2)(1/x)] / (\\\\ln(x))^2 = (2x \\\\ln(x) - x) / \\\\ln^2(x)$."
+    },
+    {
+      "id": "m-02",
+      "q": "Find the dot product of $\\\\mathbf{A} = 3\\\\mathbf{i} - 2\\\\mathbf{j} + \\\\mathbf{k}$ and $\\\\mathbf{B} = \\\\mathbf{i} + 4\\\\mathbf{j} - 2\\\\mathbf{k}$.",
+      "options": ["5", "-7", "10", "-12"],
+      "correct": "B",
+      "rationale": "The dot product is the sum of the products of the components: $(3 \\cdot 1) + (-2 \\cdot 4) + (1 \\cdot -2) = 3 - 8 - 2 = -7$."
+    },
+    {
+      "id": "m-03",
+      "q": "Calculate the definite integral of $\\\\sin(x)\\\\cos(x)$ from 0 to $\\\\pi/2$.",
+      "options": ["1/2", "1", "0", "$\\\\pi/4$"],
+      "correct": "A",
+      "rationale": "Using the trigonometric identity $\\\\sin(x)\\\\cos(x) = \\\\frac{1}{2}\\\\sin(2x)$, the integral becomes $\\\\int_{0}^{\\\\pi/2} \\\\frac{1}{2}\\\\sin(2x) dx$. Evaluation: $[-\\\\frac{1}{4}\\\\cos(2x)]_{0}^{\\\\pi/2} = 1/4 + 1/4 = 1/2$."
+    },
+    {
+      "id": "m-04",
+      "q": "What is the domain of the function $f(x) = \\\\sqrt{4 - x^2}$?",
+      "options": ["$x > 2$", "$x \\\\geq 0$", "$-2 \\\\leq x \\\\leq 2$", "All real numbers"],
+      "correct": "C",
+      "rationale": "For a square root to yield a real number, the radicand must be non-negative: $4 - x^2 \\\\geq 0 \\\\Rightarrow x^2 \\\\leq 4$, which means $|x| \\\\leq 2$ or $-2 \\\\leq x \\\\leq 2$."
+    },
+    {
+      "id": "m-05",
+      "q": "What is the magnitude of the vector $\\\\mathbf{v} = (4, -3, 12)$?",
+      "options": ["10", "13", "15", "$\\\\sqrt{150}$"],
+      "correct": "B",
+      "rationale": "The magnitude of a 3D vector is $| |v| | = \\\\sqrt{x^2 + y^2 + z^2} = \\\\sqrt{4^2 + (-3)^2 + 12^2} = \\\\sqrt{169} = 13$."
+    },
+    {
+      "id": "m-06",
+      "q": "Find the limit as $x$ approaches 0 of $\\\\sin(5x)/x$.",
+      "options": ["0", "1", "5", "Indeterminate"],
+      "correct": "C",
+      "rationale": "Using the fundamental limit $\\\\lim_{u \\\\to 0} \\\\frac{\\\\sin(u)}{u} = 1$. Multiplying by 5 gives $\\\\lim_{x \\\\to 0} 5 \\\\cdot \\\\frac{\\\\sin(5x)}{5x} = 5$."
+    },
+    {
+      "id": "m-07",
+      "q": "Which of the following is a unit vector in the direction of $(1, 1)$?",
+      "options": [
+        "$(\\frac{1}{2}, \\frac{1}{2})$",
+        "$(\\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}})$",
+        "$(1, 0)$",
+        "$(2, 2)$"
+      ],
+      "correct": "B",
+      "rationale": "To find a unit vector $\\mathbf{\\hat{u}}$, we divide the vector $\\mathbf{v}$ by its magnitude $|\\mathbf{v}|$. For $\\mathbf{v} = (1, 1)$, the magnitude is $|\\mathbf{v}| = \\sqrt{1^2 + 1^2} = \\sqrt{2}$. Therefore, the unit vector is $(\\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}})$."
+  },
+    {
+      "id": "m-08",
+      "q": "Evaluate the integral of $e^{3x+1} dx$.",
+      "options": ["$\\\\frac{1}{3}e^{3x+1} + C$", "$3e^{3x+1} + C$", "$e^{3x+1} + C$", "$\\\\frac{1}{3}e^x + C$"],
+      "correct": "A",
+      "rationale": "Using the rule $\\\\int e^{ax+b} dx = \\\\frac{1}{a}e^{ax+b} + C$. Here, $a=3$."
+    },
+    {
+      "id": "m-09",
+      "q": "If $\\\\sin(\\\\theta) = 3/5$ and $\\\\theta$ is in the second quadrant, find $\\\\cos(\\\\theta)$.",
+      "options": ["4/5", "-4/5", "-3/4", "1"],
+      "correct": "B",
+      "rationale": "Using $\\\\sin^2 + \\\\cos^2 = 1$, $\\\\cos^2 = 16/25$. In the second quadrant, cosine is negative, so $\\\\cos(\\\\theta) = -4/5$."
+    },
+    {
+      "id": "m-10",
+      "q": "The slope of the tangent line to $y = x^3 - 2x$ at $x = 1$ is:",
+      "options": ["0", "1", "3", "-1"],
+      "correct": "B",
+      "rationale": "The slope is the derivative $y' = 3x^2 - 2$. At $x=1$, $y' = 3(1)^2 - 2 = 1$."
+    },
+    {
+      "id": "m-11",
+      "q": "The cross product $\\\\mathbf{i} \\\\times \\\\mathbf{j}$ results in:",
+      "options": ["0", "1", "$\\\\mathbf{k}$", "$-\\\\mathbf{k}$"],
+      "correct": "C",
+      "rationale": "Following the right-hand rule in a standard coordinate system: $\\\\mathbf{i} \\\\times \\\\mathbf{j} = \\\\mathbf{k}$."
+    },
+    {
+      "id": "m-12",
+      "q": "Solve for $x$: $\\\\log_2(x) + \\\\log_2(x-2) = 3$.",
+      "options": ["2", "4", "-2, 4", "8"],
+      "correct": "B",
+      "rationale": "Using properties: $\\\\log_2(x(x-2)) = 3 \\\\Rightarrow x^2 - 2x = 2^3 = 8$. Solving $x^2 - 2x - 8 = 0$ gives $x=4$ and $x=-2$. Only $x=4$ is in the domain."
+    },
+    {
+      "id": "m-13",
+      "q": "The derivative of $f(x) = \\\\arctan(x)$ is:",
+      "options": ["$1 / (1 + x^2)$", "$1 / \\\\sqrt{1-x^2}$", "$\\\\sec^2(x)$", "1/x"],
+      "correct": "A",
+      "rationale": "This is a fundamental derivative: $\\\\frac{d}{dx}[\\\\arctan(x)] = \\\\frac{1}{1+x^2}$."
+    },
+    {
+      "id": "m-14",
+      "q": "The determinant of a 2x2 matrix with rows [2, 3] and [1, 4] is:",
+      "options": ["11", "5", "8", "2"],
+      "correct": "B",
+      "rationale": "For $\\\\det(A) = ad - bc = (2 \\\\cdot 4) - (3 \\\\cdot 1) = 8 - 3 = 5$."
+    },
+    {
+      "id": "m-15",
+      "q": "Evaluate the integral of $1/(x+3) dx$.",
+      "options": ["$-(x+3)^{-2}$", "$\\\\ln|x+3| + C$", "$1/2(x+3)^2$", "$e^{x+3}$"],
+      "correct": "B",
+      "rationale": "The integral of $1/u du = \\\\ln|u| + C$. Here $u = x+3$."
+    },
+    {
+      "id": "m-16",
+      "q": "If vectors $\\\\mathbf{a}$ and $\\\\mathbf{b}$ are parallel, their cross product $\\\\mathbf{a} \\\\times \\\\mathbf{b}$ is:",
+      "options": ["The zero vector", "1", "$||a|| ||b||$", "$\\\\mathbf{a} \\\\cdot \\\\mathbf{b}$"],
+      "correct": "A",
+      "rationale": "The magnitude $| |a \\\\times b| | = | |a| | | |b| | \\\\sin(\\\\theta)$. For parallel vectors, $\\\\theta = 0^\\\\circ$ or $180^\\\\circ$, so $\\\\sin(\\\\theta) = 0$."
+    },
+    {
+      "id": "m-17",
+      "q": "Find the second derivative $f''(x)$ if $f(x) = \\\\sin(2x)$.",
+      "options": ["$2\\\\cos(2x)$", "$-2\\\\sin(2x)$", "$-4\\\\sin(2x)$", "$4\\\\cos(2x)$"],
+      "correct": "C",
+      "rationale": "$f'(x) = 2\\\\cos(2x)$. $f''(x) = 2(-2\\\\sin(2x)) = -4\\\\sin(2x)$."
+    },
+    {
+      "id": "m-18",
+      "q": "What is the value of the limit $\\\\lim_{x \\\\to \\\\infty} \\\\frac{3x^2 - 5x}{2x^2 + 7}$?",
+      "options": ["0", "$\\\\infty$", "3/2", "-5/7"],
+      "correct": "C",
+      "rationale": "Dividing by the highest power $x^2$: $\\\\lim_{x \\\\to \\\\infty} \\\\frac{3 - 5/x}{2 + 7/x^2} = 3/2$."
+    },
+    {
+      "id": "m-19",
+      "q": "Solve the differential equation $dy/dx = 3y$.",
+      "options": ["$y = 3x + C$", "$y = Ce^{3x}$", "$y = x^3 + C$", "$y = e^{x/3} + C$"],
+      "correct": "B",
+      "rationale": "This is a separable equation: $\\\\int (1/y) dy = \\\\int 3 dx \\\\Rightarrow \\\\ln|y| = 3x + K \\\\Rightarrow y = Ce^{3x}$."
+    },
+    {
+      "id": "m-20",
+      "q": "In a probability distribution, the sum of all probabilities must be:",
+      "options": ["0", "Between 0 and 1", "1", "$\\\\infty$"],
+      "correct": "C",
+      "rationale": "By definition, the sum of probabilities for all possible outcomes in a sample space must equal 1 (100%)."
+    },
+    {
+      "id": "m-21",
+      "q": "Find the area under the curve $y = x^2$ from $x=0$ to $x=3$.",
+      "options": ["9", "27", "3", "6"],
+      "correct": "A",
+      "rationale": "Area = $\\\\int_{0}^{3} x^2 dx = [x^3/3]_{0}^{3} = 27/3 = 9$."
+    },
+    {
+      "id": "m-22",
+      "q": "If matrix $M = [[1, 2], [3, 4]]$, what is its transpose $M^T$?",
+      "options": ["[[4, 3], [2, 1]]", "[[1, 3], [2, 4]]", "[[1, 2], [3, 4]]", "[[ -1, -2], [-3, -4]]"],
+      "correct": "B",
+      "rationale": "The transpose is found by swapping rows and columns. Row 1 becomes Column 1, Row 2 becomes Column 2."
+    },
+    {
+      "id": "m-23",
+      "q": "The Taylor series expansion of $e^x$ centered at $0$ starts with:",
+      "options": [
+        "$x + \\frac{x^2}{2}$",
+        "$1 + x + \\frac{x^2}{2!}$",
+        "$1 - x + \\frac{x^2}{2!}$",
+        "$x - \\frac{x^3}{3!}$"
+      ],
+      "correct": "B",
+      "rationale": "The Taylor series for $e^x$ centered at $0$ (Maclaurin series) is defined as $\\sum_{n=0}^{\\infty} \\frac{x^n}{n!} = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\dots$. The first three terms are $1, x,$ and $\\frac{x^2}{2!}$."
+  },
+    {
+      "id": "m-24",
+      "q": "What is the value of $\\\\cos(\\\\pi/3)$?",
+      "options": ["1/2", "$\\\\sqrt{3}/2$", "1", "0"],
+      "correct": "A",
+      "rationale": "$\\\\pi/3$ radians is $60^\\\\circ$. $\\\\cos(60^\\\\circ) = 1/2$."
+    },
+    {
+      "id": "m-25",
+      "q": "Find the unit vector normal to the surface $z = f(x, y)$ using:",
+      "options": ["The divergence", "The gradient $\\\\nabla f$", "The curl", "The integral"],
+      "correct": "B",
+      "rationale": "The gradient vector $\\\\nabla f$ at a point on a level surface is always perpendicular (normal) to the surface at that point."
+    },
+    {
+      "id": "m-26",
+      "q": "What is the value of the limit as x approaches infinity of $(3x^2 + 2x) / (5x^2 - 1)$?",
+      "options": ["0", "3/5", "Infinity", "2/5"],
+      "correct": "B",
+      "rationale": "For limits at infinity of rational functions, we compare the leading terms. Dividing by $x^2$: $\\\\lim_{x \\\\to \\\\infty} \\\\frac{3 + 2/x}{5 - 1/x^2} = 3/5$."
+    },
+    {
+      "id": "m-27",
+      "q": "If matrix A is a $3 \\\\times 3$ matrix and $\\\\det(A) = 4$, what is $\\\\det(2A)$?",
+      "options": ["8", "12", "32", "64"],
+      "correct": "C",
+      "rationale": "For an $n \\\\times n$ matrix, $\\\\det(kA) = k^n \\\\cdot \\\\det(A)$. For this $3 \\\\times 3$ matrix: $2^3 \\\\cdot 4 = 8 \\\\cdot 4 = 32$."
+    },
+    {
+      "id": "m-28",
+      "q": "Find the derivative of $f(x) = e^{\\\\sin(x)}$.",
+      "options": ["$e^{\\\\sin(x)}$", "$\\\\cos(x)e^{\\\\sin(x)}$", "$-\\\\cos(x)e^{\\\\sin(x)}$", "$\\\\sin(x)e^{\\\\cos(x)}$"],
+      "correct": "B",
+      "rationale": "Applying the chain rule: $\\\\frac{d}{dx}(e^u) = e^u \\\\cdot \\\\frac{du}{dx}$. Here $u = \\\\sin(x)$ and $u' = \\\\cos(x)$, resulting in $\\\\cos(x)e^{\\\\sin(x)}$."
+    },
+    {
+      "id": "m-29",
+      "q": "What is the area under the curve $y = 1/x$ from $x=1$ to $x=e$?",
+      "options": ["1", "e", "$\\\\ln(2)$", "0"],
+      "correct": "A",
+      "rationale": "The integral $\\\\int_{1}^{e} \\\\frac{1}{x} dx = [\\\\ln|x|]_{1}^{e} = \\\\ln(e) - \\\\ln(1) = 1 - 0 = 1$."
+    },
+    {
+      "id": "m-30",
+      "q": "Two vectors are orthogonal if their:",
+      "options": ["Cross product is zero", "Dot product is zero", "Magnitudes are equal", "Sum is zero"],
+      "correct": "B",
+      "rationale": "Orthogonality implies a $90^{\\\\circ}$ angle. Since $\\\\mathbf{a} \\\\cdot \\\\mathbf{b} = |\\\\mathbf{a}||\\\\mathbf{b}|\\\\cos(\\\\theta)$ and $\\\\cos(90^{\\\\circ}) = 0$, the dot product must be zero."
+    },
+    {
+      "id": "m-31",
+      "q": "Solve for $x$: $\\\\sin^2(x) + 2\\\\cos(x) = 2$ for $0 \\\\leq x < 2\\\\pi$.",
+      "options": ["0", "$\\\\pi/2$", "$\\\\pi$", "$3\\\\pi/2$"],
+      "correct": "A",
+      "rationale": "Substitute $\\\\sin^2(x) = 1 - \\\\cos^2(x)$: $1 - \\\\cos^2(x) + 2\\\\cos(x) = 2 \\\\Rightarrow \\\\cos^2(x) - 2\\\\cos(x) + 1 = 0$. This factors to $(\\\\cos(x)-1)^2 = 0$, so $\\\\cos(x)=1$, which occurs at $x=0$."
+    },
+    {
+      "id": "m-32",
+      "q": "The trace of a matrix is defined as:",
+      "options": ["The product of diagonal elements", "The sum of all elements", "The sum of diagonal elements", "The determinant"],
+      "correct": "C",
+      "rationale": "The trace $\\\\text{Tr}(A)$ is the linear operator defined as the sum of the elements on the main diagonal: $\\\\sum_{i=1}^{n} a_{ii}$."
+    },
+    {
+      "id": "m-33",
+      "q": "Evaluate the integral of $\\\\cos(3x) dx$.",
+      "options": ["$3\\\\sin(3x) + C$", "$\\\\frac{1}{3}\\\\sin(3x) + C$", "$-\\\\frac{1}{3}\\\\sin(3x) + C$", "$-3\\\\sin(3x) + C$"],
+      "correct": "B",
+      "rationale": "Using $u$-substitution with $u=3x$ and $du=3dx$, the integral $\\\\int \\\\cos(3x) dx = \\\\frac{1}{3}\\\\sin(3x) + C$."
+    },
+    {
+      "id": "m-34",
+      "q": "What is the period of the function $f(x) = \\\\tan(2x)$?",
+      "options": ["$\\\\pi$", "$2\\\\pi$", "$\\\\pi/2$", "$\\\\pi/4$"],
+      "correct": "C",
+      "rationale": "The standard period of $\\\\tan(x)$ is $\\\\pi$. For $\\\\tan(kx)$, the period is $\\\\pi/k$. Here, $k=2$, so the period is $\\\\pi/2$."
+    },
+    {
+      "id": "m-35",
+      "q": "Given two vectors $\\vec{u} = (1, 2, 0)$ and $\\vec{v} = (0, 3, 1)$, which of the following represents a vector that is simultaneously perpendicular to both $\\vec{u}$ and $\\vec{v}$?",
+      "options": [
+        "$(2, -1, 3)$",
+        "$(2, 1, -3)$",
+        "$(2, -1, -3)$",
+        "$(-2, 1, -3)$"
+      ],
+      "correct": "A",
+      "rationale": "To find a vector perpendicular to two given vectors, we compute their cross product: $\\vec{u} \\times \\vec{v} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 2 & 0 \\\\ 0 & 3 & 1 \\end{vmatrix} = (2-0)\\mathbf{i} - (1-0)\\mathbf{j} + (3-0)\\mathbf{k} = (2, -1, 3)$. Any scalar multiple of this result would also be perpendicular."
+  },
+    {
+      "id": "m-36",
+      "q": "The inverse of a matrix A exists only if:",
+      "options": ["$\\\\det(A) = 0$", "$\\\\det(A) \\\\neq 0$", "A is symmetric", "A is diagonal"],
+      "correct": "B",
+      "rationale": "A matrix is invertible (non-singular) if and only if its determinant is non-zero, allowing for the calculation of $A^{-1} = \\\\frac{1}{\\\\det(A)}\\\\text{adj}(A)$."
+    },
+    {
+      "id": "m-37",
+      "q": "What is the derivative of $f(x) = \\\\ln(x^2 + 1)$?",
+      "options": ["$1 / (x^2 + 1)$", "$2x / (x^2 + 1)$", "$x / (x^2 + 1)$", "$2 / (x^2 + 1)$"],
+      "correct": "B",
+      "rationale": "Using the chain rule $\\\\frac{d}{dx}(\\\\ln(u)) = \\\\frac{1}{u} \\\\cdot u'$. Here $u = x^2+1$ and $u' = 2x$, so $f'(x) = 2x / (x^2 + 1)$."
+    },
+    {
+      "id": "m-38",
+      "q": "In a right triangle, if the hypotenuse is 10 and one angle is $30^{\\circ}$, the opposite side is:",
+      "options": ["5", "$5\\\\sqrt{3}$", "$10\\\\sqrt{3}$", "2.5"],
+      "correct": "A",
+      "rationale": "Using trigonometry: $\\\\sin(\\\\theta) = \\text{Opposite}/\\text{Hypotenuse}$. Therefore, $\\text{Opposite} = 10 \\\\cdot \\\\sin(30^{\\circ}) = 10 \\\\cdot 0.5 = 5$."
+    },
+    {
+      "id": "m-39",
+      "q": "Calculate the limit as x approaches 0 of $(e^x - 1) / x$.",
+      "options": ["0", "Infinity", "1", "-1"],
+      "correct": "C",
+      "rationale": "This results in the indeterminate form $0/0$. Applying L'Hôpital's Rule: $\\\\lim_{x \\\\to 0} \\\\frac{e^x}{1} = e^0 = 1$."
+    },
+    {
+      "id": "m-40",
+      "q": "The position of a particle is given by $s(t) = t^3 - 6t^2$. When is the acceleration zero?",
+      "options": ["$t = 0$", "$t = 2$", "$t = 4$", "$t = 6$"],
+      "correct": "B",
+      "rationale": "Velocity $v(t) = s'(t) = 3t^2 - 12t$. Acceleration $a(t) = v'(t) = 6t - 12$. Setting $6t - 12 = 0$ gives $t = 2$."
+    },
+    {
+      "id": "m-41",
+      "q": "What is the value of $i^{10}$ (where $i$ is the imaginary unit)?",
+      "options": ["1", "$i$", "-1", "$-i$"],
+      "correct": "C",
+      "rationale": "Since $i^2 = -1$ and $i^4 = 1$, we can simplify $i^{10} = (i^4)^2 \\\\cdot i^2 = 1^2 \\\\cdot (-1) = -1$."
+    },
+    {
+      "id": "m-42",
+      "q": "Evaluate the integral of $x \\\\cdot e^x dx$.",
+      "options": ["$xe^x + e^x + C$", "$xe^x - e^x + C$", "$\\\\frac{1}{2}x^2e^x + C$", "$e^x + C$"],
+      "correct": "B",
+      "rationale": "Using Integration by Parts $\\\\int u dv = uv - \\\\int v du$ with $u=x$ and $dv=e^x dx$. The result is $xe^x - \\\\int e^x dx = xe^x - e^x + C$."
+    },
+    {
+      "id": "m-43",
+      "q": "The product of a matrix and its inverse $(A \\\\cdot A^{-1})$ results in:",
+      "options": ["The Zero matrix", "The Identity matrix", "Matrix A", "1"],
+      "correct": "B",
+      "rationale": "By definition of an inverse matrix, $A \\\\cdot A^{-1} = I$, where $I$ is the identity matrix of the same dimension."
+    },
+    {
+      "id": "m-44",
+      "q": "What is the derivative of $f(x) = \\\\sin^2(x)$?",
+      "options": ["$\\\\cos^2(x)$", "$2\\\\sin(x)$", "$\\\\sin(2x)$", "$-\\\\sin(2x)$"],
+      "correct": "C",
+      "rationale": "Using the power rule and chain rule: $2\\\\sin(x)\\\\cos(x)$. By the double angle identity, this equals $\\\\sin(2x)$."
+    },
+    {
+      "id": "m-45",
+      "q": "In a 3D coordinate system, the equation $x^2 + y^2 + z^2 = 9$ represents:",
+      "options": ["A circle", "A cylinder", "A sphere with radius 3", "A sphere with radius 9"],
+      "correct": "C",
+      "rationale": "The standard equation of a sphere is $(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2$. Here $r^2 = 9$, so $r = 3$."
+    },
+    {
+      "id": "m-46",
+      "q": "Calculate the work done by a force $\\\\mathbf{F} = (2, 3)$ along a displacement $\\\\mathbf{d} = (5, 4)$.",
+      "options": ["22", "10", "12", "7"],
+      "correct": "A",
+      "rationale": "Work is the scalar product $W = \\\\mathbf{F} \\\\cdot \\\\mathbf{d} = (2 \\\\cdot 5) + (3 \\\\cdot 4) = 10 + 12 = 22$."
+    },
+    {
+      "id": "m-47",
+      "q": "The complex number $1 + i$ in polar form is:",
+      "options": ["$\\\\sqrt{2}(\\\\cos 45^{\\\\circ} + i \\\\sin 45^{\\\\circ})$", "$2(\\\\cos 45^{\\\\circ} + i \\\\sin 45^{\\\\circ})$", "$\\\\sqrt{2}(\\\\cos 90^{\\\\circ} + i \\\\sin 90^{\\\\circ})$", "$1(\\\\cos 45^{\\\\circ} + i \\\\sin 45^{\\\\circ})$"],
+      "correct": "A",
+      "rationale": "Modulus $r = \\\\sqrt{1^2 + 1^2} = \\\\sqrt{2}$. Argument $\\\\theta = \\\\arctan(1/1) = 45^{\\\\circ}$."
+    },
+    {
+      "id": "m-48",
+      "q": "Find the critical points of $f(x) = x^3 - 3x$.",
+      "options": ["$x = 0$", "$x = 1$", "$x = 1, -1$", "$x = 3$"],
+      "correct": "C",
+      "rationale": "Find $f'(x) = 3x^2 - 3$. Setting $3x^2 - 3 = 0$ leads to $x^2 = 1$, so $x = \\\\pm 1$."
+    },
+    {
+      "id": "m-49",
+      "q": "Evaluate the integral of $1 / \\\\sqrt{1 - x^2} dx$.",
+      "options": ["$\\\\arctan(x) + C$", "$\\\\arcsin(x) + C$", "$\\\\ln(x) + C$", "$\\\\arccos(x) + C$"],
+      "correct": "B",
+      "rationale": "The antiderivative of $\\\\frac{1}{\\\\sqrt{1-x^2}}$ is the inverse sine function, $\\\\arcsin(x) + C$."
+    },
+    {
+      "id": "m-50",
+      "q": "Two non-zero vectors $\\\\mathbf{u}$ and $\\\\mathbf{v}$ are parallel if:",
+      "options": ["$\\\\mathbf{u} \\\\cdot \\\\mathbf{v} = 0$", "$\\\\mathbf{u} \\\\times \\\\mathbf{v} = 0$", "$\\\\mathbf{u} + \\\\mathbf{v} = 0$", "$\\\\mathbf{u} = \\\\mathbf{v}$"],
+      "correct": "B",
+      "rationale": "Parallel vectors have an angle of $0^{\\\\circ}$ or $180^{\\\\circ}$. Since $|\\\\mathbf{u} \\\\times \\\\mathbf{v}| = |\\\\mathbf{u}||\\\\mathbf{v}|\\\\sin(\\\\theta)$ and $\\\\sin(0^{\\\\circ})=0$, the cross product is the zero vector."
+    },
+    {
+      "id": "m-51",
+      "q": "Consider the plane defined by the equation $2x - y + 3z = 6$. Which of the following vectors is normal to this plane?",
+      "options": [
+        "(2, 1, 3)",
+        "(2, -1, 3)",
+        "(6, -3, 9)",
+        "Both B and C are correct"
+      ],
+      "correct": "D",
+      "rationale": "The coefficients of the plane equation $Ax + By + Cz = D$ represent a normal vector $\\vec{n} = (A, B, C)$. In this case, $\\vec{n} = (2, -1, 3)$, which corresponds to option B. However, any scalar multiple of a normal vector is also normal to the plane. Since $(6, -3, 9) = 3 \\cdot (2, -1, 3)$, option C is also a valid normal vector. Therefore, both B and C are correct."
+  },
+    {
+      "id": "m-52",
+      "q": "Find the limit as x approaches 1 of (x² - 1) / (x - 1).",
+      "options": ["0", "1", "2", "Indeterminate"],
+      "correct": "C",
+      "rationale": "Factor $x^2-1$ as $(x-1)(x+1)$. Canceling the $(x-1)$ term leaves $x+1$. Substituting $x=1$ gives $1+1 = 2$."
+    },
+    {
+      "id": "m-53",
+      "q": "A matrix is symmetric if:",
+      "options": ["A = -A", "A = Aᵀ", "A = I", "det(A) = 1"],
+      "correct": "B",
+      "rationale": "By definition, a symmetric matrix is a square matrix that is equal to its transpose ($A = A^T$)."
+    },
+    {
+      "id": "m-54",
+      "q": "Evaluate the integral of sin(x) dx from 0 to π.",
+      "options": ["0", "1", "2", "-2"],
+      "correct": "C",
+      "rationale": "The antiderivative of $\\sin(x)$ is $-\\cos(x)$. Evaluating $[-\\cos(x)]$ from $0$ to $\\pi$ gives $-\\cos(\\pi) - (-\\cos(0)) = 1 + 1 = 2$."
+    },
+    {
+      "id": "m-55",
+      "q": "In the complex plane, multiplying a number by 'i' results in a rotation of:",
+      "options": ["45° counter-clockwise", "90° counter-clockwise", "180° counter-clockwise", "90° clockwise"],
+      "correct": "B",
+      "rationale": "In polar form, $i = 1(\\cos 90^\\circ + i \\sin 90^\\circ)$. Multiplying a complex number by $i$ adds $90^\\circ$ to its argument, resulting in a counter-clockwise rotation."
+    },
+    {
+      "id": "m-56",
+      "q": "If the determinant of a 2x2 matrix A is 5, what is the determinant of its inverse A⁻¹?",
+      "options": ["5", "-5", "1/5", "0"],
+      "correct": "C",
+      "rationale": "The determinant property for inverses states that $\\det(A^{-1}) = 1 / \\det(A)$. Therefore, $\\det(A^{-1}) = 1/5$."
+    },
+    {
+      "id": "m-57",
+      "q": "What is the slope of a line perpendicular to the line y = 3x + 5?",
+      "options": ["3", "-3", "1/3", "-1/3"],
+      "correct": "D",
+      "rationale": "The slopes of two perpendicular lines $m_1$ and $m_2$ satisfy the relation $m_1 \\cdot m_2 = -1$. Given $m_1 = 3$, then $m_2 = -1/3$."
+    },
+    {
+      "id": "m-58",
+      "q": "Evaluate the limit as x approaches 0 of (1 - cos(x)) / x².",
+      "options": ["0", "1", "1/2", "Infinity"],
+      "correct": "C",
+      "rationale": "Applying L'Hôpital's Rule twice or using the Taylor series expansion for $\\cos(x) \\approx 1 - x^2/2$, the limit yields $1/2$."
+    },
+    {
+      "id": "m-59",
+      "q": "In a standard normal distribution, what is the mean?",
+      "options": ["1", "0", "0.5", "Depends on the variance"],
+      "correct": "B",
+      "rationale": "A standard normal distribution is defined by a mean ($\\mu$) of $0$ and a standard deviation ($\\sigma$) of $1$."
+    },
+    {
+      "id": "m-60",
+      "q": "What is the derivative of f(x) = x * ln(x)?",
+      "options": ["1/x", "ln(x)", "ln(x) + 1", "1"],
+      "correct": "C",
+      "rationale": "Using the product rule $(uv)' = u'v + uv'$, we get $(1 \\cdot \\ln(x)) + (x \\cdot 1/x) = \\ln(x) + 1$."
+    },
+    {
+      "id": "m-61",
+      "q": "If P(A) = 0.4 and P(B) = 0.5, and A and B are independent events, what is P(A ∩ B)?",
+      "options": ["0.9", "0.1", "0.2", "0.25"],
+      "correct": "C",
+      "rationale": "For independent events, the probability of both occurring is the product of their individual probabilities: $P(A \\cap B) = P(A) \\cdot P(B) = 0.4 \\cdot 0.5 = 0.2$."
+    },
+    {
+      "id": "m-62",
+      "q": "Calculate the volume of a cylinder with radius r=2 and height h=5.",
+      "options": ["10π", "20π", "15π", "4π"],
+      "correct": "B",
+      "rationale": "The volume of a cylinder is $V = \\pi r^2 h$. Substituting the values: $V = \\pi \\cdot 2^2 \\cdot 5 = 20\\pi$."
+    },
+    {
+      "id": "m-63",
+      "q": "What is the integral of tan(x) dx?",
+      "options": ["sec²(x) + C", "ln|sec(x)| + C", "-ln|cos(x)| + C", "B and C are correct"],
+      "correct": "D",
+      "rationale": "$\\int \\tan(x) dx = -\\ln|\\cos(x)| + C$. Using log properties, this is equivalent to $\\ln|\\cos(x)^{-1}| + C = \\ln|\\sec(x)| + C$."
+    },
+    {
+      "id": "m-64",
+      "q": "A vector v has components (3, 4). What is the angle it makes with the positive x-axis?",
+      "options": ["30°", "45°", "53.1°", "60°"],
+      "correct": "C",
+      "rationale": "The angle $\\theta$ is found using $\\arctan(y/x)$. Thus, $\\theta = \\arctan(4/3) \\approx 53.1^\\circ$."
+    },
+    {
+      "id": "m-65",
+      "q": "What does the derivative of a function at a point represent geometrically?",
+      "options": ["The area under the curve", "The slope of the tangent line", "The length of the curve", "The average of the function"],
+      "correct": "B",
+      "rationale": "Geometrically, the derivative $f'(a)$ represents the instantaneous rate of change, which corresponds to the slope of the line tangent to the curve at $x=a$."
+    },
+    {
+      "id": "m-66",
+      "q": "Solve for x: e^(2x) = 5.",
+      "options": ["ln(5)/2", "ln(2.5)", "2 ln(5)", "sqrt(5)"],
+      "correct": "A",
+      "rationale": "Taking the natural logarithm of both sides gives $2x = \\ln(5)$, which simplifies to $x = \\ln(5)/2$."
+    },
+    {
+      "id": "m-67",
+      "q": "The sum of the interior angles of a hexagon is:",
+      "options": ["360°", "540°", "720°", "900°"],
+      "correct": "C",
+      "rationale": "The sum of interior angles is $(n-2) \\cdot 180^\\circ$. For a hexagon ($n=6$), the sum is $4 \\cdot 180^\\circ = 720^\\circ$."
+    },
+    {
+      "id": "m-68",
+      "q": "If matrix A is 2x3 and matrix B is 3x4, what is the dimension of the matrix AB?",
+      "options": ["2x3", "3x4", "2x4", "They cannot be multiplied"],
+      "correct": "C",
+      "rationale": "Matrix multiplication $(m \\times n) \\cdot (n \\times p)$ results in a matrix of dimensions $(m \\times p)$. Here, $(2 \\times 3) \\cdot (3 \\times 4)$ gives a $2 \\times 4$ matrix."
+    },
+    {
+      "id": "m-69",
+      "q": "Evaluate the integral of 2x / (x² + 1) dx.",
+      "options": ["ln(x² + 1) + C", "arctan(x) + C", "x² + x + C", "1 / (x² + 1)"],
+      "correct": "A",
+      "rationale": "Using $u$-substitution where $u = x^2+1$ and $du = 2x\\,dx$, the integral becomes $\\int 1/u \\, du = \\ln|u| + C = \\ln(x^2+1) + C$."
+    },
+    {
+      "id": "m-70",
+      "q": "What is the value of cos(π)?",
+      "options": ["0", "1", "-1", "Undefined"],
+      "correct": "C",
+      "rationale": "On the unit circle, the angle $\\pi$ radians ($180^\\circ$) corresponds to the point $(-1, 0)$. The $\\cos$ value is the $x$-coordinate, which is $-1$."
+    },
+    {
+      "id": "m-71",
+      "q": "What is the result of the vector addition (2, -1, 5) + (-3, 4, 1)?",
+      "options": ["(5, -5, 4)", "(-1, 3, 6)", "(-1, 5, 6)", "(1, -3, -6)"],
+      "correct": "B",
+      "rationale": "Vector addition is performed component-wise: $(2-3, -1+4, 5+1) = (-1, 3, 6)$."
+    },
+    {
+      "id": "m-72",
+      "q": "The function f(x) = x² is an example of:",
+      "options": ["An odd function", "An even function", "A periodic function", "An injective function"],
+      "correct": "B",
+      "rationale": "A function is even if $f(-x) = f(x)$. Since $(-x)^2 = x^2$, the function is even, exhibiting symmetry about the $y$-axis."
+    },
+    {
+      "id": "m-73",
+      "q": "Find the value of the determinant for the matrix [[1, 2], [0, 5]].",
+      "options": ["0", "2", "5", "7"],
+      "correct": "C",
+      "rationale": "For a $2 \\times 2$ matrix $[[a, b], [c, d]]$, the determinant is $ad - bc$. Here, $(1 \\cdot 5) - (2 \\cdot 0) = 5$."
+    },
+    {
+      "id": "m-74",
+      "q": "Evaluate the integral of 5 dx from 2 to 6.",
+      "options": ["20", "30", "4", "5"],
+      "correct": "A",
+      "rationale": "The integral of a constant $k$ is $kx$. Evaluating $[5x]$ from $2$ to $6$ gives $5(6) - 5(2) = 30 - 10 = 20$."
+    },
+    {
+      "id": "m-75",
+      "q": "If log(x) = 2 (base 10), then x is:",
+      "options": ["2", "10", "20", "100"],
+      "correct": "D",
+      "rationale": "By the definition of logarithms, $\\log_b(x) = y$ is equivalent to $b^y = x$. Given $\\log_{10}(x) = 2$, then $x = 10^2 = 100$."
+    }
+  ]
