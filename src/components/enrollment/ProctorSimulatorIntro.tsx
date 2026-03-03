@@ -90,19 +90,14 @@ export const ProctorSimulatorIntro = ({ isEnrolled = false }: ProctorSimulatorIn
             <FeatureCard icon={<BatteryWarning className="w-5 h-5" />} title="Disable Standby Mode" desc="Ensure your PC doesn't enter sleep mode. System standby during the test will result in immediate session termination." />
 
             <div className="pt-6">
-              <Button 
-                onClick={handleAction}
-                size="lg" 
-                className={`w-full py-8 rounded-2xl font-black text-xs uppercase italic transition-all shadow-xl flex items-center justify-center gap-3 ${
-                  isEnrolled ? 'bg-orange-600 hover:bg-orange-700 text-white' : 'bg-slate-900 hover:bg-orange-600 text-white'
-                }`}
-              >
-                {isEnrolled ? (
-                  <> <Play className="w-4 h-4 fill-current" /> Launch Simulator Now </>
-                ) : (
-                  <> Unlock Full Access Now <ChevronRight className="w-4 h-4" /> </>
-                )}
-              </Button>
+            <Button
+  onClick={() => navigate('/simulator')}
+  size="lg"
+  className="w-full py-8 rounded-2xl font-black text-xs uppercase italic transition-all shadow-xl flex items-center justify-center gap-3 bg-orange-600 hover:bg-orange-700 text-white"
+>
+  <Play className="w-4 h-4 fill-current" /> 
+  Launch Simulator Now
+</Button>
             </div>
           </div>
         </div>

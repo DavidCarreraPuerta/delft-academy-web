@@ -42,7 +42,9 @@ export const MaterialsVault = ({ profile }: { profile?: any }) => {
   }, []);
 
   const hasAccess = (materialId: string) => {
-    if (!profile?.unlocked_materials) return false;
+    // Si no hay perfil o no hay materiales desbloqueados, acceso denegado pero sin error
+    if (!profile || !profile.unlocked_materials) return false;
+    
     const raw = profile.unlocked_materials;
     const unlocked = Array.isArray(raw) ? raw.map(String) : String(raw).replace(/[\[\]"']/g, '').split(',').map(s => s.trim());
     return unlocked.includes(String(materialId).trim());
@@ -75,6 +77,12 @@ export const MaterialsVault = ({ profile }: { profile?: any }) => {
         <h2 className="text-3xl font-black text-slate-900 uppercase italic tracking-tighter leading-none">
           Syllabus Summaries <span className="text-orange-500">& Exam Exercises</span>
         </h2>
+        {/* Aviso estratégico para usuarios no logueados */}
+        {!profile && (
+          <p className="text-[10px] font-bold text-orange-600 uppercase tracking-[0.2em] mt-2 animate-pulse">
+            🔒 Public Preview: Enroll in the program to unlock full access to all materials.
+          </p>
+        )}
       </div>
 
       {/* 2. GRID COMPACTADO */}

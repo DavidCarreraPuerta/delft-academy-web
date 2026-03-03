@@ -38,7 +38,10 @@ import engineeringData from "./data/engineeringData.json";
 
 export const SimulatorRoom = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  
+  useEffect(() => {
+    document.title = "Exam Simulation & Proctortrack Guide | TU Delft Aerospace";
+  }, []);
+
   // ------------------------------------------
   // 1. CORE STATES
   // ------------------------------------------
@@ -51,6 +54,8 @@ export const SimulatorRoom = () => {
   const [calcDisplay, setCalcDisplay] = useState("0");
   const [currentUser, setCurrentUser] = useState({ name: "Candidato Delft", email: "aspirante@delft.nl" });
   const navigate = useNavigate();
+  const [isEnrolled, setIsEnrolled] = useState(false);
+  const [showEnrollModal, setShowEnrollModal] = useState(false);
 
   useEffect(() => {
     const getUserData = async () => {
@@ -75,6 +80,19 @@ export const SimulatorRoom = () => {
           name: nameFound,
           email: user.email || ""
         });
+        // Verificamos si es un alumno activo de Aeroespacial
+        const { data: profileData } = await supabase
+          .from('profiles')
+          .select('enrollment_status, target_programme')
+          .eq('user_id', user.id)
+          .maybeSingle();
+        
+        // Solo damos acceso si es 'active' y el programa es 'bsc-aerospace'
+        const hasFullAccess = 
+          profileData?.enrollment_status === 'active' && 
+          profileData?.target_programme === 'bsc-aerospace';
+
+        setIsEnrolled(hasFullAccess);
       }
     };
     getUserData();
@@ -624,7 +642,13 @@ useEffect(() => {
         {/* LEFT COLUMN: QUESTIONS & GRID */}
         <div className="flex-[5] flex flex-col gap-3 min-w-0">
           <div className="bg-white rounded-[2rem] p-6 shadow-xl border border-slate-100 flex flex-col overflow-hidden relative">
-            
+            {/* CAPA DE BLOQUEO PARA NO ENROLADOS */}
+            {!isEnrolled && (
+              <div 
+                className="absolute inset-0 z-[60] bg-transparent cursor-pointer"
+                onClick={() => setShowEnrollModal(true)}
+              />
+            )}
             <div className="flex justify-between items-center mb-4">
               <span className="text-orange-600 font-black text-[10px] uppercase tracking-widest bg-orange-50 px-4 py-1.5 rounded-full border border-orange-100 italic">
                 {currentBlock.name} — Question {currentIdx + 1} of {currentBlock.data.length}
@@ -744,6 +768,35 @@ useEffect(() => {
           </div>
         </aside>
       </main>
+    {/* MODAL DE INSCRIPCIÓN PROFESIONAL */}
+    {showEnrollModal && (
+        <div className="fixed inset-0 bg-slate-900/80 z-[20000] flex items-center justify-center p-4 backdrop-blur-sm">
+          <div className="max-w-sm w-full bg-white rounded-[2.5rem] p-8 text-center shadow-2xl border border-orange-100">
+            <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Lock className="w-8 h-8 text-orange-600" />
+            </div>
+            <h3 className="text-2xl font-black italic uppercase text-slate-900 mb-2">Simulation Paused</h3>
+            <p className="text-slate-500 text-xs font-bold italic leading-relaxed mb-8">
+              You are currently in <span className="text-orange-600">Public Preview Mode</span>. 
+              Enroll in the full program to unlock all 70 questions and your performance audit.
+            </p>
+            <div className="space-y-3">
+              <Button 
+                onClick={() => navigate('/bsc-admissions')} 
+                className="w-full h-14 bg-slate-900 hover:bg-orange-600 text-white rounded-xl font-black uppercase italic tracking-widest shadow-lg transition-all"
+              >
+                Enroll to Unlock Full Access
+              </Button>
+              <button 
+                onClick={() => setShowEnrollModal(false)}
+                className="text-[10px] font-black uppercase text-slate-400 hover:text-slate-600 tracking-widest transition-colors"
+              >
+                Keep exploring interface
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

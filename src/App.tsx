@@ -23,6 +23,7 @@ import TalentHub from "./pages/TalentHub";
 import FirstYear from "./pages/FirstYear";
 import BscAdmissions from "./pages/BscAdmissions";
 import MscBridge from "./pages/MscBridge";
+import Syllabus from "./pages/Syllabus";
 
 // IMPORTACIÓN DEL SIMULADOR (Ruta corregida según tu estructura)
 import { SimulatorRoom } from "./components/enrollment/SimulatorRoom";
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="/bsc-admissions" element={<BscAdmissions />} />
           <Route path="/first-year" element={<FirstYear />} />
           <Route path="/msc-bridge" element={<MscBridge />} />
+          <Route path="/syllabus" element={<Syllabus />} />
           
           {/* RUTA DEL SIMULADOR - Añadida aquí */}
           <Route path="/simulator" element={<SimulatorRoom />} />

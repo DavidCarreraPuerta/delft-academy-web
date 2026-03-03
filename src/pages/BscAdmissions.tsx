@@ -117,26 +117,36 @@ const BscAdmissions = () => {
             <div 
               key={box.id}
               onClick={() => {
-                if (!isEnrolled) return;
-                if (box.id === 'mentorship') setShowWaitlistModal(true);
-                if (box.id === 'academic') navigate('/dashboard', { state: { section: 'materials' } });
+                // 1. Mentorship: Solo funciona si está enrolado
+                if (box.id === 'mentorship') {
+                  if (isEnrolled) setShowWaitlistModal(true);
+                  return; // Si no está enrolado, aquí se detiene y no hace nada
+                }
+              
+                // 2. Syllabus: Lleva al dashboard siempre (público o alumno)
+                if (box.id === 'academic') {
+                  navigate('/syllabus');
+}
+              
+                // 3. Proctor: Baja al simulador siempre
                 if (box.id === 'proctor') {
-                    document.getElementById('simulator-section')?.scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('simulator-section')?.scrollIntoView({ behavior: 'smooth' });
                 }
               }} 
               className={cn(
                 "p-8 rounded-[3rem] border-2 transition-all duration-300 flex flex-col relative min-h-[320px] bg-white border-slate-100 group overflow-hidden shadow-sm hover:shadow-md",
-                isEnrolled ? "cursor-pointer" : "cursor-default"
+                "cursor-pointer"
               )}
             >
-              {!isEnrolled && (
-                <div className="absolute inset-0 z-20 bg-slate-900/5 backdrop-blur-[1.5px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="bg-slate-900 text-white px-4 py-2 rounded-xl flex items-center gap-2 border border-orange-500/50 shadow-2xl">
-                    <Lock className="w-3 h-3 text-orange-500" />
-                    <span className="text-[9px] font-black uppercase tracking-widest">Enrol to Unlock</span>
-                  </div>
-                </div>
-              )}
+              {/* El candado solo aparecerá en Mentorship si no está enrolado */}
+{!isEnrolled && box.id === 'mentorship' && (
+  <div className="absolute inset-0 z-20 bg-slate-900/5 backdrop-blur-[1.5px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+    <div className="bg-slate-900 text-white px-4 py-2 rounded-xl flex items-center gap-2 border border-orange-500/50 shadow-2xl">
+      <Lock className="w-3 h-3 text-orange-500" />
+      <span className="text-[9px] font-black uppercase tracking-widest">Enrol to Unlock</span>
+    </div>
+  </div>
+)}
               <div className="w-14 h-14 rounded-[1.2rem] bg-slate-100 text-[#00a6d6] flex items-center justify-center mb-6 group-hover:bg-[#00a6d6] group-hover:text-white transition-colors">
                 {box.icon}
               </div>
@@ -151,9 +161,9 @@ const BscAdmissions = () => {
 
         {/* SECCIÓN DEL SIMULADOR - Asegúrate de que ProctorSimulatorIntro.tsx no tenga errores */}
         <div id="simulator-section" className="scroll-mt-24">
-           <div className={cn("transition-all duration-500", isEnrolled ? "opacity-100" : "opacity-40 grayscale blur-[1px]")}>
-              <ProctorSimulatorIntro isEnrolled={isEnrolled} />
-           </div>
+        <div id="simulator-section" className="scroll-mt-24 transition-all duration-500">
+  <ProctorSimulatorIntro isEnrolled={isEnrolled} />
+</div>
         </div>
 
         {/* MODAL ÚNICO DE ALTA DEMANDA (PARA BOTÓN Y PILAR) */}
