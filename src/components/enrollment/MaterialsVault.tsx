@@ -59,7 +59,29 @@ export const MaterialsVault = ({ profile }: { profile?: any }) => {
       setIsFullscreen(false);
     }
   };
+// Función para obtener la llave segura de Supabase
+const handleOpenPdf = async (itemUrl: string) => {
+  try {
+    // Extraemos el nombre del archivo de la ruta (ej: "materials/tema1.pdf" -> "tema1.pdf")
+    const fileName = itemUrl.split('/').pop();
+    if (!fileName) return;
 
+    const { data, error } = await supabase.storage
+      .from('materials')
+      .createSignedUrl(fileName, 60);
+
+    if (error) {
+      console.error("Storage error:", error);
+      toast.error("Error accessing the secure vault");
+      return;
+    }
+
+    setActivePdf(data.signedUrl);
+  } catch (err) {
+    console.error("Error:", err);
+    toast.error("Connection failed");
+  }
+};
   if (loading) return (
     <div className="flex h-64 items-center justify-center font-black text-orange-500 animate-pulse uppercase tracking-widest text-xs">
       <Loader2 className="w-6 h-6 animate-spin mr-3" /> Initializing Vault...
@@ -104,7 +126,7 @@ export const MaterialsVault = ({ profile }: { profile?: any }) => {
                   <Card 
                     key={item.material_id}
                     className={`group rounded-xl border-none shadow-sm transition-all duration-200 ${unlocked ? 'bg-white hover:bg-orange-50 cursor-pointer' : 'bg-slate-50 opacity-60'}`}
-                    onClick={() => unlocked && setActivePdf(`/Materials/${item.url.split('/').pop()}`)}
+                    onClick={() => unlocked && handleOpenPdf(item.url)}
                   >
                     <CardContent className="p-3">
                       <div className="flex justify-between items-center mb-1">
@@ -155,10 +177,10 @@ export const MaterialsVault = ({ profile }: { profile?: any }) => {
                     toast.custom((t) => (
                       <div className="bg-white border-2 border-slate-100 shadow-2xl rounded-[2rem] p-6 w-[350px] animate-in slide-in-from-right-5 duration-500">
                         <ResourceFeedback 
-                          resourceId={activePdf || "general-syllabus"} 
-                          programmeId="bsc-aerospace" 
-                          category="material" 
-                        />
+  resourceId={activePdf ? activePdf.split('/').pop()?.split('?')[0] || "material" : "general-syllabus"} 
+  programmeId="bsc-aerospace" 
+  category="material" 
+/>
                       </div>
                     ), { duration: 15000, position: 'bottom-right' });
                   }
