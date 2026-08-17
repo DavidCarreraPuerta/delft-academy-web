@@ -20,7 +20,7 @@ import mentorshipImg from "@/assets/mentorship-session.png";
 
 const BscAdmissions = () => {
   const navigate = useNavigate();
-  const examDate = new Date("2026-03-11");
+  const examDate = new Date("2027-03-10");
   const [daysLeft, setDaysLeft] = useState(0);
   const [session, setSession] = useState<any>(null);
   const [isEnrolled, setIsEnrolled] = useState(false);

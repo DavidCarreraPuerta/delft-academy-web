@@ -5,15 +5,66 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Loader2, MessageCircle } from "lucide-react";
+import { Loader2, MessageCircle, Check, ChevronsUpDown } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const PROGRAMS = [
   { value: "bsc-aerospace", label: "BSc Aerospace (Admission Prep)" },
   { value: "bsc-year-1", label: "BSc Aerospace Engineering (1st Year)" },
   { value: "msc-bridge", label: "MSc Bridge Programme" },
+];
+
+const EDUCATION_OPTIONS = [
+  "A-Levels (UK)",
+  "International Baccalaureate (IB)",
+  "French Baccalaureate (France)",
+  "VWO / Dutch Baccalaureate (Netherlands)",
+  "Spanish Bachillerato (Spain)",
+  "Esame di Stato (Italy)",
+  "CESS (Belgium)",
+  "Ensino Secundário (Portugal)",
+  "Romanian Baccalaureate (Romania)",
+  "UAE General Secondary Education Certificate",
+  "US High School Diploma",
+  "Other High School System",
+  "BSc / University Student",
+];
+
+const COUNTRIES = [
+  { label: "Belgium", value: "be" },
+  { label: "France", value: "fr" },
+  { label: "Italy", value: "it" },
+  { label: "Netherlands", value: "nl" },
+  { label: "Portugal", value: "pt" },
+  { label: "Romania", value: "ro" },
+  { label: "Germany", value: "de" },
+  { label: "Spain", value: "es" },
+  { label: "United Arab Emirates", value: "ae" },
+  { label: "United Kingdom", value: "uk" },
+  { label: "United States", value: "us" },
+  { label: "Other", value: "ot" },
 ];
 
 export default function StudentOnboardingForm() {
@@ -25,6 +76,10 @@ export default function StudentOnboardingForm() {
   const [country, setCountry] = useState("");
   const [phone, setPhone] = useState("");
   const [education, setEducation] = useState("");
+  
+  // State to manage the open/close status of the country combobox
+  const [openCountry, setOpenCountry] = useState(false);
+  
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -47,7 +102,6 @@ export default function StudentOnboardingForm() {
         .maybeSingle();
 
       if (profile?.target_programme) {
-        // Si ya tiene programa, ya pasó por aquí
         navigate("/dashboard");
       } else {
         setCheckingStatus(false);
@@ -60,14 +114,13 @@ export default function StudentOnboardingForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!program || !phone || !country) {
+    if (!program || !phone || !country || !education) {
       toast({ title: "Please fill all required fields", variant: "destructive" });
       return;
     }
 
     setLoading(true);
 
-    // 1. Preparamos los datos para Formspree
     const formData = new FormData();
     formData.append("email", userEmail || "No email");
     formData.append("program", program);
@@ -77,7 +130,6 @@ export default function StudentOnboardingForm() {
     formData.append("status", "PENDING_ENROLLMENT");
 
     try {
-      // 2. Envío a Formspree (Tu ID: meezpwdw)
       const response = await fetch("https://formspree.io/f/meezpwdw", {
         method: "POST",
         body: formData,
@@ -86,7 +138,6 @@ export default function StudentOnboardingForm() {
         }
       });
 
-      // 3. Intento de guardado en Supabase (opcional, para que no rompa si falla)
       try {
         await supabase
           .from("profiles")
@@ -109,7 +160,6 @@ export default function StudentOnboardingForm() {
           duration: 6000,
         });
         
-        // Redirigimos al Dashboard de éxito
         setTimeout(() => navigate("/dashboard"), 2000);
       } else {
         throw new Error("Formspree error");
@@ -149,9 +199,11 @@ export default function StudentOnboardingForm() {
           <Card className="border-none shadow-xl rounded-[2rem] bg-white overflow-hidden">
             <CardContent className="p-6 pt-8">
               <form onSubmit={handleSubmit} className="space-y-4">
+                
+                {/* PROGRAMME SELECT */}
                 <div className="space-y-1.5">
                   <Label className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400 ml-1">Target Programme</Label>
-                  <Select onValueChange={setProgram} required>
+                  <Select onValueChange={setProgram} value={program} required>
                     <SelectTrigger className="h-11 rounded-xl bg-slate-50 border-none font-bold text-slate-700 text-sm">
                       <SelectValue placeholder="Select your goal..." />
                     </SelectTrigger>
@@ -165,17 +217,58 @@ export default function StudentOnboardingForm() {
                   </Select>
                 </div>
 
-                <div className="space-y-1.5">
+                {/* COUNTRY COMBOBOX */}
+                <div className="space-y-1.5 flex flex-col">
                   <Label className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400 ml-1">Country of Residence</Label>
-                  <Input 
-                    placeholder="e.g. Spain" 
-                    className="h-11 rounded-xl bg-slate-50 border-none font-bold text-sm"
-                    value={country}
-                    onChange={(e) => setCountry(e.target.value)}
-                    required
-                  />
+                  <Popover open={openCountry} onOpenChange={setOpenCountry}>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        role="combobox"
+                        aria-expanded={openCountry}
+                        className={cn(
+                          "w-full justify-between bg-slate-50 border-none h-11 text-sm font-bold text-slate-700 hover:bg-slate-100",
+                          !country && "text-slate-400 font-normal"
+                        )}
+                      >
+                        {country ? country : "Search country..."}
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0 rounded-xl border-slate-100 shadow-lg">
+                      <Command>
+                        <CommandInput placeholder="Type a country..." className="h-11" />
+                        <CommandList>
+                          <CommandEmpty>No country found.</CommandEmpty>
+                          <CommandGroup>
+                            {COUNTRIES.map((c) => (
+                              <CommandItem
+                                key={c.value}
+                                value={c.label}
+                                onSelect={(currentValue) => {
+                                  // Store the label directly in state (e.g. "Spain")
+                                  setCountry(currentValue === country ? "" : c.label);
+                                  setOpenCountry(false);
+                                }}
+                                className="text-sm font-medium cursor-pointer"
+                              >
+                                <Check
+                                  className={cn(
+                                    "mr-2 h-4 w-4",
+                                    country === c.label ? "opacity-100" : "opacity-0"
+                                  )}
+                                />
+                                {c.label}
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </CommandList>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
                 </div>
 
+                {/* WHATSAPP INPUT */}
                 <div className="space-y-1.5">
                   <Label className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400 ml-1 flex justify-between">
                     WhatsApp Number
@@ -184,31 +277,39 @@ export default function StudentOnboardingForm() {
                   <Input 
                     placeholder="+34 600 000 000" 
                     type="tel"
-                    className="h-11 rounded-xl bg-slate-50 border-none font-bold text-sm"
+                    className="h-11 rounded-xl bg-slate-50 border-none font-bold text-sm text-slate-700"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
                   />
                 </div>
 
+                {/* EDUCATION SELECT */}
                 <div className="space-y-1.5">
                   <Label className="text-[9px] font-black uppercase tracking-[0.15em] text-slate-400 ml-1">Current Education</Label>
-                  <Input 
-                    placeholder="e.g. High School / BSc Physics" 
-                    className="h-11 rounded-xl bg-slate-50 border-none font-bold text-sm"
-                    value={education}
-                    onChange={(e) => setEducation(e.target.value)}
-                    required
-                  />
+                  <Select onValueChange={setEducation} value={education} required>
+                    <SelectTrigger className="h-11 rounded-xl bg-slate-50 border-none font-bold text-slate-700 text-sm">
+                      <SelectValue placeholder="Select your education..." />
+                    </SelectTrigger>
+                    <SelectContent className="rounded-xl border-slate-100">
+                      {EDUCATION_OPTIONS.map((edu) => (
+                        <SelectItem key={edu} value={edu} className="text-sm font-medium">
+                          {edu}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
+                {/* SUBMIT BUTTON */}
                 <Button 
                   type="submit" 
-                  disabled={loading}
+                  disabled={loading || !program || !country || !phone || !education}
                   className="w-full bg-[#00a6d6] hover:bg-slate-900 text-white h-13 mt-2 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all shadow-md active:scale-[0.98]"
                 >
                   {loading ? <Loader2 className="animate-spin" /> : "Request Free Strategy Call"}
                 </Button>
+
               </form>
             </CardContent>
           </Card>
