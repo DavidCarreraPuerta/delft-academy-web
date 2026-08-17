@@ -110,7 +110,7 @@ export default function StudentOnboardingForm() {
 
     checkUserStatus();
   }, [navigate]);
-
+// Test
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
